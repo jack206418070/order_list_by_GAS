@@ -1,0 +1,72 @@
+@import "../utils/variable";
+@import "../utils/mixin";
+
+.section-list{
+    @include mobile{
+        display: none;
+    }
+    .section-list-body-img{
+        @include itemBgSet(cover, center, center);
+        max-width: 50%;
+        flex: 0 0 50%;
+        height: 80px;
+    }
+}
+
+
+.section-check{
+    @include mobile{
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+    .section-check-receipt{
+        .section-check-receipt-item{
+            max-width: 50%;
+            flex: 0 0 50%;
+            cursor: pointer;
+            &:hover,&.active{
+                color: $primary;
+                background-color: $white;
+            }
+        }
+    }
+}
+
+
+
+
+
+
+.js-first-form{
+    display: block;
+}
+
+.js-second-form{
+    display: none;
+}
+
+.js-third-form{
+    display: none;
+    i{
+        position: absolute;
+        top:50%;
+        left: 90%;
+    }
+}
+
+
+.js-step{
+    @include mobile{
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+    &:hover{
+        background-color: darken($secondary, 10%);
+        color: lighten($primary, 10%);
+    }
+}
+
+
+.js-recepit-mail{
+    display: none;
+}

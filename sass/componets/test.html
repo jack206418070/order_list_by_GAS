@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/sass/main.css" class="css">
+    <link href="/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
+    <style>
+        .box{
+            width: 300px;
+            margin: 0 auto;
+        }
+        .container{
+            max-width: 1024px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="btn btn-thirdary text-c-primary py-s">加入購物車</div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-title">
+                        <p class="text-c-primary py-s">焦糖瑪卡龍</p>
+                        <p class="text-c-primary f-w-bold py-s">NT$ 450</p>
+                    </div>
+                    <div class="btn btn-thirdary text-c-primary py-s">加入購物車</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-title">
+                        <p class="text-c-primary py-s">焦糖瑪卡龍</p>
+                        <p class="text-c-primary f-w-bold py-s">NT$ 450</p>
+                    </div>
+                    <div class="btn btn-thirdary text-c-primary py-s">加入購物車</div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-img"></div>
+                    <div class="card-title">
+                        <p class="text-c-primary py-s">焦糖瑪卡龍</p>
+                        <p class="text-c-primary f-w-bold py-s">NT$ 450</p>
+                    </div>
+                    <div class="btn btn-thirdary text-c-primary py-s">加入購物車</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row jy-content-end">
+            <div class="pagination col-md-6">
+                    <ul class="pagination-item mt-m">
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-arrow-left text-c-primary"></i>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-c-primary">1</a>
+                        </li>
+                        <li>
+                            <a href="#" class="text-c-primary">2</a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fas fa-arrow-right text-c-primary"></i>
+                            </a>
+                        </li>
+                    </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="row jy-content-center">
+            <div class="col-md-6">
+                <div class="section-check bg-primary p-m">
+                    <div class="section-check-title d-flex jy-content-between align-items-center">
+                        <p class="f-size-l text-c-white f-w-bold">運送</p>
+                        <div class="step-group d-flex jy-content-between">
+                            <div class="step-item"></div>
+                            <div class="step-item"></div>
+                            <div class="step-item"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="btn btn-secondary px-m py-s js-step">下一步</div>
+            </div>
+            <div class="col-md-4">
+                <div class="py-m bg-thirdary">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        let stepBtn = document.querySelector('.js-step');
+        let stepGroup = document.querySelector('.step-group');
+        let stepItem = document.querySelectorAll('.step-item');
+        let stepCount = 0;
+        stepItem[stepCount].className = 'step-item__active'
+        stepBtn.addEventListener('click', stepHandler);
+
+        function stepHandler(e){
+            e.preventDefault();
+            if(stepCount <= 2){
+                stepItem[stepCount].className = 'step-item__check';
+                stepCount++;
+                if(stepCount > 2) return;
+                stepItem[stepCount].className = 'step-item__active';
+                stepCount === 2 ? stepBtn.textContent = '確認結帳' : 0;
+            }
+        }
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,82 @@
+@charset "UTF-8";
+/*pure  color */
+/* font-family */
+/* font-color */
+/* web color */
+/* font-size set */
+/* width set */
+/* circle write */
+/* 圖片取代文字 */
+/* bg setting */
+/* RWD mixin */
+@media screen and (max-width: 569px) {
+  .section-list {
+    display: none;
+  }
+}
+
+.section-list .section-list-body-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  max-width: 50%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  height: 80px;
+}
+
+@media screen and (max-width: 569px) {
+  .section-check {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+}
+
+.section-check .section-check-receipt .section-check-receipt-item {
+  max-width: 50%;
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 50%;
+          flex: 0 0 50%;
+  cursor: pointer;
+}
+
+.section-check .section-check-receipt .section-check-receipt-item:hover, .section-check .section-check-receipt .section-check-receipt-item.active {
+  color: #3F5D45;
+  background-color: #ffffff;
+}
+
+.js-first-form {
+  display: block;
+}
+
+.js-second-form {
+  display: none;
+}
+
+.js-third-form {
+  display: none;
+}
+
+.js-third-form i {
+  position: absolute;
+  top: 50%;
+  left: 90%;
+}
+
+@media screen and (max-width: 569px) {
+  .js-step {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+}
+
+.js-step:hover {
+  background-color: #ffd54d;
+  color: #547b5c;
+}
+
+.js-recepit-mail {
+  display: none;
+}
+/*# sourceMappingURL=checkout.css.map */

@@ -1,0 +1,61 @@
+@charset "UTF-8";
+/*pure  color */
+/* font-family */
+/* font-color */
+/* web color */
+/* font-size set */
+/* width set */
+/* circle write */
+/* 圖片取代文字 */
+/* bg setting */
+/* RWD mixin */
+.banner .banner-img {
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 569px) {
+  .banner .banner-img {
+    margin-right: 0;
+    margin-left: 0;
+  }
+}
+
+.banner .banner-img {
+  background-image: url("https://bit.ly/2Qodh3Z");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 500px;
+}
+
+@media screen and (max-width: 569px) {
+  .banner .banner-img {
+    height: 350px;
+  }
+}
+
+@media screen and (max-width: 569px) {
+  .section {
+    margin-top: 0 !important;
+  }
+}
+
+.section .section-menu {
+  font-size: 24px;
+}
+
+.section .section-menu p {
+  padding: 16px 64px;
+}
+
+.section .section-menu a {
+  display: block;
+  padding: 16px 64px;
+  border: 1px solid #EAF0ED;
+}
+
+.section .section-menu a:hover, .section .section-menu a.active {
+  background-color: #EAF0ED;
+}
+/*# sourceMappingURL=product.css.map */

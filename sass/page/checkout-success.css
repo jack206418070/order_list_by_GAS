@@ -1,0 +1,75 @@
+@charset "UTF-8";
+/*pure  color */
+/* font-family */
+/* font-color */
+/* web color */
+/* font-size set */
+/* width set */
+/* circle write */
+/* 圖片取代文字 */
+/* bg setting */
+/* RWD mixin */
+.banner .col-12 > .btn {
+  display: none;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 569px) {
+  .banner .col-12 > .btn {
+    margin-right: -20px;
+    margin-left: -20px;
+    display: block;
+  }
+  .banner .col-12 > .btn:hover {
+    background-color: #ffd54d;
+    color: #2a3f2e;
+  }
+}
+
+.banner-img {
+  background-image: url("https://bit.ly/2P7GhNd");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 460px;
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+@media screen and (max-width: 569px) {
+  .banner-img {
+    margin-right: -20px;
+    margin-left: -20px;
+  }
+}
+
+.success-info {
+  position: absolute;
+  height: 250px;
+  top: 25%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+@media screen and (max-width: 569px) {
+  .success-info .btn {
+    display: none;
+  }
+}
+
+.success-info .btn:hover {
+  background-color: #ffd54d;
+  color: #2a3f2e;
+}
+
+.step-group {
+  width: 190px;
+}
+
+.step-group::before {
+  height: 2px;
+  background-color: #3F5D45;
+}
+/*# sourceMappingURL=checkout-success.css.map */

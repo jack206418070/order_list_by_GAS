@@ -1,0 +1,116 @@
+@import "./sass/utils/mixin";
+
+a{
+	text-decoration: none;
+}
+
+.container{
+    max-width: 1280px;
+    margin: 0 auto;
+	padding: 0;
+    /* background: #3c3c3c; */
+}
+
+.l-header{
+	margin-top: 30px;
+	margin-bottom: 50px;
+	@include mobile{
+		margin: 15px 0;
+	}
+    h1{
+		font-size: 6vw;
+		font-family: sans-serif;
+		color:#3F5D45;
+		font-weight: bold;
+		@include mobile{
+			text-align: center;
+			font-size: 15vw;
+		}
+	}
+	.l-header-menu{
+		display: flex;
+		@include mobile{
+			justify-content: center;
+		}
+		li{
+			margin: 15px;
+			@include mobile{
+				margin: 0 10px;
+			}
+			a{
+				color: darken(#3F5D45, 10%);
+				padding: 10px;
+				font-size: 1.5vw;
+				font-weight: 600;
+				display: block;
+				transition: 0.5s;
+				position: relative;
+				@include pad{
+					font-size: 3vw;
+				}
+				@include mobile{
+					font-size: 5vw;
+				}
+				&::after{
+					content: '';
+					position: absolute;
+					width: 100%;
+					height: 3px;
+					left:0;
+					bottom:0;
+					background-color: #3F5D45;
+				}
+				&::after{
+					transform: scale(0, 1);
+    				transition: transform 0.3s ease;
+				}
+				&:hover::after{
+					transform: scale(1, 1);
+				}
+			}
+		}
+	}
+}
+
+.b-order{
+	margin: 0 auto;
+	padding: 50px;
+	background-color: lighten(#3F5D45, 30%);
+	form{
+		margin: 0 auto;
+		.form-group{
+			margin-bottom: 10px;
+			label{
+				display: block;
+				margin-bottom: 10px;
+				font-size: 24px;
+				color: darken(#3F5D45, 10%);
+				font-weight: 600;
+			}
+			input{
+				width: 100%;
+				padding: 10px 20px;
+				background-color: #ccc;
+				border: none;
+				font-size: 22px;
+				color: #555;
+				font-weight: 600;
+				&:focus{
+					outline: 2px solid #666;
+				}
+			}
+			textarea{
+				padding: 10px;
+				font-size: 20px;
+				color: #555;
+				font-weight: 400;
+				&:focus{
+					outline: 2px solid #666;
+				}
+			}
+			#ps{
+				font-size: 18px;
+			}
+		}
+	}
+}

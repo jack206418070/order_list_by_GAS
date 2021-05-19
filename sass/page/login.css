@@ -1,0 +1,119 @@
+@charset "UTF-8";
+/*pure  color */
+/* font-family */
+/* font-color */
+/* web color */
+/* font-size set */
+/* width set */
+/* circle write */
+/* 圖片取代文字 */
+/* bg setting */
+/* RWD mixin */
+@media screen and (max-width: 569px) {
+  .b-login .b-login-input .b-login-input-title {
+    display: none;
+  }
+}
+
+.b-login .b-login-input .b-login-input-info {
+  margin: 0 auto;
+}
+
+.b-login .b-login-input .b-login-input-info input {
+  width: 100%;
+  margin: 0 auto;
+  border: 2px solid #EAF0ED;
+  outline: none;
+  -webkit-appearance: none;
+}
+
+.b-login .b-login-input .b-login-input-info .fa-user {
+  top: 12%;
+  left: 3%;
+}
+
+.b-login .b-login-input .b-login-input-info .fa-lock {
+  top: 62%;
+  left: 3%;
+}
+
+.b-login .b-login-input input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+}
+
+@media screen and (max-width: 569px) {
+  .b-login .js-login {
+    margin-bottom: -50px;
+  }
+}
+
+.b-login .js-login:hover {
+  background-color: #ffd54d;
+  color: #EAF0ED;
+}
+
+.b-login .b-login-concat {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+@media screen and (max-width: 569px) {
+  .b-login .b-login-concat {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    margin-top: 0;
+  }
+}
+
+@media screen and (max-width: 569px) {
+  .b-login .b-login-concat .b-login-concat-title {
+    display: none;
+  }
+}
+
+.b-login .b-login-concat .b-login-concat-title::before {
+  /* 可以做成 mixin */
+  content: '';
+  height: 2px;
+  width: 60px;
+  background-color: #afc6ba;
+  color: #000000;
+  position: absolute;
+  top: 48%;
+  left: 10%;
+  -webkit-box-shadow: 215px 0px 0px 0px #afc6ba;
+          box-shadow: 215px 0px 0px 0px #afc6ba;
+}
+
+@media screen and (max-width: 569px) {
+  .b-login .b-login-concat .b-login-concat-link {
+    margin-right: 2px;
+    padding: 10px;
+  }
+  .b-login .b-login-concat .b-login-concat-link a {
+    display: block;
+    width: 28vw;
+  }
+  .b-login .b-login-concat .b-login-concat-link a img {
+    height: 32px;
+  }
+}
+
+.b-login-input-title__mobile {
+  display: none;
+}
+
+@media screen and (max-width: 569px) {
+  .b-login-input-title__mobile {
+    display: block;
+  }
+}
+/*# sourceMappingURL=login.css.map */

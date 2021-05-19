@@ -1,0 +1,40 @@
+@import "../utils/variable";
+@import "../utils/mixin";
+
+.banner{
+    .banner-img{
+        margin-right: 10px;
+        margin-left: 10px;
+        @include mobile{
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+    .banner-img{
+        @include bannerBgSet("https://bit.ly/2Qodh3Z");
+        height: 500px;
+        @include mobile{
+            height: 350px;
+        }
+    }
+}
+
+.section{
+    @include mobile{
+        margin-top: 0 !important;
+    }
+    .section-menu{
+        font-size: $font-s;
+        p{
+            padding: 16px 64px;
+        }
+        a{
+            display: block;
+            padding: 16px 64px;
+            border: 1px solid $thirdary;
+            &:hover,&.active{
+                background-color: $thirdary;
+            }
+        }
+    }
+}

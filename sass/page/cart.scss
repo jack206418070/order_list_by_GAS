@@ -1,0 +1,104 @@
+@import "../utils/variable";
+@import "../utils/mixin";
+
+.section{
+    .row{
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+    @include mobile{
+        margin-bottom: 0 !important;
+        i{
+            display: none;
+        }
+        .section-item-title{
+            margin-right: -10px;
+            margin-left: -10px;
+        }
+    }
+    .section-item-order-img{
+        max-width: 15%;
+        flex: 0 0 15%;
+        height: 100px;
+        @include itemBgSet(cover, center, center);
+        @include pad{
+            max-width: 20%;
+            flex: 0 0 20%;
+        }
+        @include mobile{
+            max-width: 45%;
+            flex: 0 0 45%;
+        }
+    }
+    .section-item-order{
+        @include mobile{
+            padding: 20px 30px;
+            border: 0;
+            > p {
+                max-width: 100%;
+                flex: 0 0 100%;
+                border-top: 1px solid $thirdary;
+                border-bottom: 1px solid $thirdary;
+                text-align: right;
+                padding: 10px 0;
+                margin-top: 10px;
+            }
+        }
+        i{
+            cursor: pointer;
+            &:hover{
+                color: $secondary;
+            }
+        }
+    }
+    .section-item-order-group{
+        max-width: 50%;
+        flex: 0 0 50%;
+        .section-item-order-title{
+            @include pad{
+                margin-bottom: 15px;
+            }
+            @include mobile{
+                max-width: 100%;
+                flex: 0 0 100%;
+                margin-bottom: 10px;
+            }
+        }
+        .section-item-order-count{
+            @include mobile{
+                max-width: 100%;
+                flex: 0 0 100%;
+            }
+            .js-minus, .js-add{
+                cursor: pointer;
+                &:hover{
+                    background-color: $primary;
+                    color: $white;
+                }
+            }
+        }
+    }
+    .section-list{
+        @include mobile{
+            background-color: $white;
+            .section-list-title{
+                background-color: $thirdary;
+                color: $primary;
+            }
+            span{
+                color: $primary;
+            }
+        }
+    }
+    .btn{
+        display: block;
+        &:hover{
+            background-color: darken($secondary, 10%);
+        }
+        @include mobile{
+            margin-right: -10px;
+            margin-left: -10px;
+        }
+    }
+    
+}

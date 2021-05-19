@@ -1,0 +1,213 @@
+.container{
+    max-width: 1024px;
+    margin: 0 auto;
+    @include mobile{
+        padding-right: 0;
+        padding-left: 0;
+    }
+}
+a{
+    text-decoration: none;
+    cursor: pointer;
+    font-family: $font-microsoft;
+}
+
+.menu-bar{
+    display: none;
+    font-size: $font-s;
+    color: $f-color-primary;
+    @include mobile{
+        display: block;
+    }
+}
+
+
+.l-header{
+    height: 100px;
+    @include mobile{
+        height: auto;
+        padding: 20px 0;
+    }
+    .row{
+        > a{
+            display: block;
+            font-size: $font-s;
+            margin: auto 0;
+            &:hover{
+                background-color: $white;
+                color: darken($primary, 10%);
+            }
+        }
+        @include mobile{
+            justify-content: space-around;
+        }
+    }
+    .l-header-logo{
+        max-width: 20%;
+        flex: 0 0 20%;
+        a{
+            @include imgReplaceText('../assets/logo-all-dark.svg');
+            display: block;
+            height: 100px;
+            width: 100%;
+            @include mobile{
+                height: 30px;
+            }
+        }
+        @include mobile{
+            max-width: 60%;
+            flex: 0 0 60%;
+            margin: 0;
+        }
+    }
+    .l-header-menu{
+        max-width: 70%;
+        flex: 0 0 70%;
+        @include mobile{
+            display: block;
+            position: absolute;
+            width: 80vw;
+            top: 60px;
+            left: -100%;
+            transition: 0.5s;
+            &.show{
+                left:0;
+            }
+        }
+        a{
+            display: block;
+            font-size: $font-base *1.4;
+            margin: 0 15px;
+            &:hover{
+                background-color: $primary;
+                color: $f-color-secondary;
+            }
+            @include mobile{
+                padding: 20px;
+                margin: 0;
+                text-align: center;
+                border-bottom: 2px solid $primary;
+                background-color: $white;
+            }
+        }
+    }
+
+}
+.l-footer{
+    @include mobile{
+        margin-top: 0 !important;
+    }
+    .l-footer-section-title{
+        flex: 0 0 30%;
+        .l-footer-section-title__img{
+            border-radius: 50%;
+            background-image: url(../assets/logo-light.svg);
+            background-repeat: no-repeat;
+            width: 40px;
+            height: 40px;
+        }
+        p{
+            font-size: $font-s;
+        }
+        @include mobile{
+            max-width: 100%;
+            flex: 0 0 100%;
+        }
+    }
+    .l-footer-section-email{
+        flex: 0 0 50%;
+        position: relative;
+        input{
+            width: 90%;
+            font-size: $font-m;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            &:focus{
+                outline: none;
+            }
+            -webkit-appearance: none;
+        }
+        .send{
+            width: 15%;
+            font-size: $font-s;
+            text-align: center;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+            &:hover{
+                background-color: darken( $secondary, 10%);
+                color: darken( $f-color-primary, 10%);
+            }
+        }
+        .input-email-icon{
+            left: 3%;
+            top: 28%;
+            font-size: $font-s;
+        }
+        @include mobile{
+            max-width: 90%;
+            flex: 0 0 90%;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+    }
+    .l-footer-section-info{
+        max-width: 30%;
+        flex: 0 0 30%;
+        height: 300px;
+        @include mobile{
+            max-width: 100%;
+            flex: 0 0 100%;
+            height: 200px;
+            padding: 0 30px;
+        }
+        .l-footer-section-info__img{
+            background-image: url(../assets/logotype-sm-dark.svg);
+            background-repeat: no-repeat;
+            height: 15%;
+            background-size:auto;
+            @include mobile{
+                height: 15%;
+            }
+        }
+        .l-footer-section-info__concat{
+            p{
+                line-height: $font-base * 1.5;
+            }
+            @include mobile{
+                margin-top: 30px;
+            }
+        }
+        .l-footer-section-info__icon{
+            i{
+                font-size: $font-l;
+            }
+            @include mobile{
+                margin-top: 20px;
+            }
+        }
+    }
+    .l-footer-section-copyright{
+        max-width: 40%;
+        flex: 0 0 40%;
+        @include mobile{
+            max-width: 100%;
+            flex: 0 0 100%;
+            padding: 0 30px;
+        }
+        .l-footer-section-copyright__img{
+            background-image: url(../assets/sm-今天是個吃甜點的好日子.svg);
+            background-repeat: no-repeat;
+            background-size:auto;
+            width: 20%;
+            height: 70%;
+            @include mobile{
+                display: none;
+            }
+        }
+        p{
+            @include mobile{
+                align-self: flex-start;
+            }
+        }
+    }
+}

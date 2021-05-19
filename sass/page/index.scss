@@ -1,0 +1,120 @@
+@import "../utils/variable";
+@import "../utils/mixin";
+
+
+.banner{
+    .banner-img{
+        margin-right: 10px;
+        margin-left: 10px;
+        @include mobile{
+            margin-right: 0;
+            margin-left: 0;
+        }
+    }
+    .banner-items{
+        margin-top: -90px;
+        @include mobile{
+            padding-bottom: 0;
+        }
+    }
+    a{
+        &:hover{
+            .banner-item{
+                filter: blur(0);
+            }
+            .banner-item-bg{
+                background-color: rgba($color: $secondary, $alpha: 0.7);
+            }
+            .banner-item-text{
+                color: $primary;
+            }
+        }
+    }
+    .banner-img{
+        @include bannerBgSet("https://bit.ly/2OhbMHr");
+        height: 500px;
+        @include mobile{
+            background-position: center center;
+        }
+    }
+    .banner-item{
+        @include itemBgSet(cover, center, center);
+        height: 260px;
+        filter: blur(3px);
+        margin-right: 1px;
+        &.banner-item__active{
+            filter: blur(0px);
+        }
+    }
+    .banner-item-bg{
+        height: 260px;
+        background-color: rgba($color: $primary, $alpha: 0.7);
+        top: 0;
+        transition: .5s;
+        &.banner-item-bg__active{
+            background-color: rgba($color: $secondary, $alpha: 0.7);
+        }
+    }
+    .banner-item-text{
+        font-size: $font-base * 1.7;
+        top: 25%;
+        left: 45%;
+        letter-spacing: 6px;
+        transition: .5s;
+        &.banner-item-text__active{
+            color: $primary;
+        }
+    }
+
+}
+
+
+
+section{
+    @include mobile{
+        margin: 0 !important;
+    }
+    .section-item{
+        max-height: 420px;
+        line-height: 2;
+        margin-top: -24px;
+        margin-bottom: -24px;
+        @include mobile{
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+        .section-item-img{
+            margin-top: -24px;
+            margin-bottom: -24px;
+            @include mobile{
+                display: none;
+            }
+        }
+        .section-item-bg{
+            @include itemBgSet(cover, center, center);
+            min-height: 240px;
+        }
+        .section-item-text{
+            @include mobile{
+                margin: 0;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                writing-mode: horizontal-tb;
+            }
+        }
+    }
+    .section-img{
+        $root: &;
+
+        @include mobile{
+            display: none;
+        }
+        &__mobile{
+            display: none;
+            @include mobile{
+                display: block;
+                margin-top: -100px;
+            }
+        }
+    }
+}

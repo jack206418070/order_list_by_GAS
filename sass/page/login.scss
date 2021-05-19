@@ -1,0 +1,88 @@
+@import "../utils/variable";
+@import "../utils/mixin";
+
+.b-login{
+    .b-login-input{
+        @include mobile{
+            .b-login-input-title{
+                display: none;
+            }
+        }
+        .b-login-input-info{
+            margin: 0 auto;
+            input{
+                width: 100%;
+                margin: 0 auto;
+                border: 2px solid $thirdary;
+                outline: none;
+                -webkit-appearance: none;
+            }
+            .fa-user{
+                top: 12%;
+                left: 3%;
+            }
+            .fa-lock{
+                top: 62%;
+                left: 3%;
+            }
+        }
+        input[type="checkbox"]{
+            width: 16px;
+            height: 16px;
+        }
+    }
+    .js-login{
+        @include mobile{
+            margin-bottom: -50px;
+        }
+        &:hover{
+            background-color: darken($secondary, 10%);
+            color: $thirdary;
+        }
+    }
+    .b-login-concat{
+        flex-direction: column;
+        @include mobile{
+            flex-direction: row;
+            justify-content: center;
+            margin-top: 0;
+        }
+        .b-login-concat-title{
+            @include mobile{
+                display: none;
+            }
+            &::before{
+                /* 可以做成 mixin */
+                content: '';
+                height: 2px;
+                width: 60px;
+                background-color: darken($thirdary, 20%);
+                color: #000000;
+                position: absolute;
+                top: 48%;
+                left: 10%;
+                box-shadow: 215px 0px 0px 0px darken($thirdary, 20%);
+            }
+        }
+        .b-login-concat-link{
+            @include mobile{
+                margin-right: 2px;
+                padding: 10px;
+               a{
+                   display: block;
+                   width: 28vw;
+                   img{
+                       height: 32px;
+                   }
+               }
+            }
+        }
+    }
+}
+
+.b-login-input-title__mobile{
+    display: none;
+    @include mobile{
+        display: block;
+    }
+}

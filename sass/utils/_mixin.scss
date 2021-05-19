@@ -1,0 +1,56 @@
+/* circle write */
+
+@mixin circle($circle-size,$circle-text){
+    content: $circle-text;
+    width: $circle-size;
+    height: $circle-size;
+    border-radius: 50%;
+    border: 1px solid #000000;
+    color:#000000;
+    font-size: $circle-size / 3;
+    text-align: center;
+    line-height: $circle-size;
+    position: absolute;
+}
+
+
+/* 圖片取代文字 */
+@mixin imgReplaceText($img){
+    background-image: url($img);
+    background-repeat:no-repeat;
+    background-position: 50% 50%;
+    text-indent: 101%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* bg setting */
+@mixin bannerBgSet($img){
+    background-image: url($img);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+@mixin itemBgSet($size,$postionY,$postionX){
+    background-size: $size;
+    background-repeat: no-repeat;
+    background-position: $postionY $postionX;
+}
+
+
+
+
+/* RWD mixin */
+
+@mixin pad {
+    @media screen and (max-width: 768px) {
+        @content
+    }
+};
+
+@mixin mobile {
+    @media screen and (max-width: 569px) {
+        @content
+    }
+};

@@ -1,0 +1,59 @@
+@import "../utils/variable";
+@import "../utils/mixin";
+
+.banner{
+    .col-12{
+        >.btn{
+            display: none;
+            cursor: pointer;
+            @include mobile{
+                margin-right: -20px;
+                margin-left: -20px;
+                display: block;
+                &:hover{
+                    background-color: darken($secondary,10%);
+                    color: darken($primary, 10%);
+                }
+            }
+        }
+    }
+}
+
+.banner-img{
+    @include bannerBgSet('https://bit.ly/2P7GhNd');
+    height: 460px;
+    margin-right: -10px;
+    margin-left: -10px;
+    @include mobile{
+        margin-right: -20px;
+        margin-left: -20px;
+    }
+}
+
+.success-info{
+    position: absolute;
+    height: 250px;
+    top: 25%;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    .btn{
+        @include mobile{
+            display: none;
+        }
+        &:hover{
+            background-color: darken($secondary,10%);
+            color: darken($primary, 10%);
+        }
+    }
+}
+
+
+.step-group{
+    width: 190px;
+    &::before{
+        height: 2px;
+        background-color: $primary;
+    }
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./sass/main.css" class="css">
+    <link rel="stylesheet" href="./index.css" class="css">
+    <title>惠民訂購網</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row l-header align-items-center jy-content-between">
+            <div class="col-md-4">
+                <h1>惠民蔬果</h1>
+            </div>
+            <div class="col-md-5">
+                <ul class="l-header-menu">
+                    <li><a href="#">訂購填寫</a></li>
+                    <li><a href="#">產品參考</a></li>
+                    <li><a href="#">聯絡我們</a></li>
+                 </ul>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 b-order">
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="name">訂購人 ( Line暱稱為主 )</label>
+                                    <input type="text" name="name" id="name" placeholder="Amily">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="date">訂購日期</label>
+                                    <input type="text" name="date" id="date" placeholder="05/19">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="time">期望送達時間</label>
+                                    <input type="text" name="time" id="time" placeholder="10:00 or 18:00">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="phone">連絡電話</label>
+                                    <input type="phone" name="phone" id="phone" placeholder="09xx-xxx-xxx">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="address">送達地址</label>
+                                    <input type="text" name="address" id="address" placeholder="目前只接 大安 信義區">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="list">訂購清單</label>
+                                    <textarea name="list" id="list" cols="26" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="ps">備註</label>
+                                    <input type="text" name="ps" id="ps" placeholder="ex: 不接觸取貨 or 送貨前手機通知">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="btn btn-secondary mt-s py-s">送出訂單</div>
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+            </div>
+        </div>
+
+        <script src="//code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+<script>
+    let btn = document.querySelector('.btn');
+    btn.addEventListener('click', sendList);
+    function sendList(){
+        let date = document.querySelector('#date');
+        let time = document.querySelector('#time');
+        let name = document.querySelector('#name');
+        let phone = document.querySelector('#phone');
+        let address = document.querySelector('#address');
+        let list = document.querySelector('#list');
+        let ps = document.querySelector('#ps');
+        $.ajax({
+        type: "post",
+        url: "https://script.google.com/macros/s/AKfycbzpur_MtR85k5FPDcHF18U5XHRmHkm0xNOLQA4DQR7ioSTjf7M/exec",
+            data: {
+                    "order_date": date.value,
+                    "order_time": time.value,
+                    "order_name": name.value,
+                    "order_phone": phone.value,
+                    "order_address": address.value,
+                    "order_ps": ps.value,
+                    "order_list":  list.value,
+            },
+            success: function(response) {
+                if(response == "成功"){
+                    date.value = "";
+                    time.value = "";
+                    name.value = "";
+                    phone.value = "";
+                    address.value = "";
+                    ps.value = "";
+                    list.value = "";
+                    alert('訂購成功');
+                }
+            }
+        
+        });
+    }
+
+
+
+</script>
+
+</body>
+</html>
