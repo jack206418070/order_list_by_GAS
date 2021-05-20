@@ -44,10 +44,10 @@
                     <div class="btn-group">
                         <div class="row jy-content-end">
                             <div class="col-sm-4 btn-control my-xxs">
-                                <div class="btn btn-secondary py-s">查詢</div>
+                                <div class="btn btn-secondary py-s js-search-send">查詢</div>
                             </div>
                             <div class="col-sm-4 btn-control my-xxs">
-                                <div class="btn btn-secondary py-s">取消</div>
+                                <div class="btn btn-secondary py-s js-search-close">取消</div>
                             </div>
                         </div>
                     </div>
@@ -148,7 +148,7 @@
                                 </div>
                             </div>
                             <div class="col-sm-12">
-                                <div class="btn btn-secondary mt-s py-s">送出訂單</div>
+                                <div class="btn btn-secondary mt-s py-s js-list-send">送出訂單</div>
                             </div>
                         </div>
 
@@ -161,7 +161,7 @@
     <script src="//code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
     <script>
-        let btn = document.querySelector('.btn');
+        let btn = document.querySelector('.js-list-send');
         let productBtn = document.querySelector('.js-product');
         let loading = document.querySelector('.js-loading');
         let form = document.querySelector('form');
@@ -173,15 +173,23 @@
         let productBtnFlag = false;
         let searchBtnFlag = false;
         let searchBtn = document.querySelector('.js-search');
+        let searchCloseBtn = document.querySelector('.js-search-close');
         btn.addEventListener('click', sendList);
         productBtn.addEventListener('click', productHandler);
         productCloseBtn.addEventListener('click', productHandler);
         searchBtn.addEventListener('click', searchHandler);
+        searchCloseBtn.addEventListener('click', searchHandler)
 
 
         function searchHandler(e) {
-            searchBtnFlag = !searchBtnFlag;
-            checkProduct(searchBtnFlag, 'search');
+            console.log(e)
+            if(e.target.innerText === '取消'){
+                searchBtnFlag = false;
+                checkProduct(searchBtnFlag, 'search');
+            }else{
+                searchBtnFlag = !searchBtnFlag;
+                checkProduct(searchBtnFlag, 'search');
+            }
         }
 
         function productHandler(e) {
