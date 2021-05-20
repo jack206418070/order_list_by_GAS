@@ -225,10 +225,10 @@ a {
 }
 
 .product .product-img {
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
-  height: 200px;
+  height: 300px;
   margin-top: 50px;
 }
 

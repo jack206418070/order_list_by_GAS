@@ -166,8 +166,8 @@ a{
 		}
 	}
 	.product-img{
-		@include itemBgSet(cover, center, center);
-		height: 200px;
+		@include itemBgSet(contain, center, center);
+		height: 300px;
 		margin-top: 50px;
 	}
 	
