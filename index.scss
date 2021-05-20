@@ -142,6 +142,7 @@ a{
 		z-index: 1000;
 		top: 5%;
 		right: 10%;
+		display: none;
 		i{	
 			font-size: 40px;
 			cursor: pointer;
@@ -162,7 +163,7 @@ a{
 	left: 0;
 	margin: auto;
 	z-index: 101;
-	transition: 1s;
+	transition: .5s;
 	overflow:auto;
 	height: 500px;
 	@include mobile{

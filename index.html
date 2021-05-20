@@ -121,6 +121,7 @@
         let orderList = document.querySelector('.b-order');
         let product = document.querySelector('.product-list');
         let productCloseBtn = document.querySelector('.js-product-close');
+        let productCloseBlock = document.querySelector('.product-close');
         let productBtnFlag = false;
         btn.addEventListener('click', sendList);
         productBtn.addEventListener('click', productHandler);
@@ -208,11 +209,13 @@
 
         function checkProduct(flag){
             if (flag === true){
-                productBtn.text = '關閉圖片'
+                productCloseBlock.style = "display: block";
+                productBtn.text = '關閉圖片';
                 product.classList.add('active');
                 orderList.classList.add('active');
             }else{
-                productBtn.text = '開啟圖片'
+                productCloseBlock.style = "display: none";
+                productBtn.text = '開啟圖片';
                 product.classList.remove('active');
                 orderList.classList.remove('active');
             }

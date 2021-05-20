@@ -198,6 +198,7 @@ a {
   z-index: 1000;
   top: 5%;
   right: 10%;
+  display: none;
 }
 
 .product .product-close i {
@@ -218,8 +219,8 @@ a {
   left: 0;
   margin: auto;
   z-index: 101;
-  -webkit-transition: 1s;
-  transition: 1s;
+  -webkit-transition: .5s;
+  transition: .5s;
   overflow: auto;
   height: 500px;
 }
