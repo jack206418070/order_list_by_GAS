@@ -111,7 +111,6 @@ a {
 }
 
 .b-order {
-  margin: 0 auto;
   padding: 50px;
   background-color: #87ae8f;
   -webkit-box-shadow: 2px 5px 2px 1px #000;
@@ -242,6 +241,57 @@ a {
   height: 300px;
   border-radius: 5px 0 0 5px;
   margin-top: 50px;
+}
+
+.search {
+  position: fixed;
+  top: -100%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 80%;
+  z-index: 101;
+  background-color: #ccc;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 2px 1px #333;
+          box-shadow: 2px 2px 2px 1px #333;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.search.active {
+  top: 30%;
+}
+
+.search .form-group {
+  margin-bottom: 10px;
+}
+
+.search .form-group label {
+  display: block;
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #2a3f2e;
+  font-weight: 600;
+}
+
+.search .form-group input {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #2a3f2e;
+  border: none;
+  font-size: 22px;
+  color: #fff;
+  font-weight: 600;
+  border-radius: 0;
+}
+
+.search .form-group input:focus {
+  outline: 2px solid #666;
+}
+
+.search .form-group input.danger {
+  outline: 2px solid red;
 }
 
 .js-loading {

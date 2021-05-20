@@ -73,7 +73,6 @@ a{
 }
 
 .b-order{
-	margin: 0 auto;
 	padding: 50px;
 	background-color: lighten(#3F5D45, 30%);
 	box-shadow: 2px 5px 2px 1px #000;
@@ -182,6 +181,48 @@ a{
 }
 
 
+.search{
+	position: fixed;
+	top: -100%;
+	left: 0;
+	right: 0;
+	margin: auto;
+	width: 80%;
+	z-index: 101;
+	background-color: #ccc;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px 1px #333;
+	transition: .5s;
+	&.active{
+		top: 30%;
+	}
+	.form-group{
+		margin-bottom: 10px;
+		label{
+			display: block;
+			margin-bottom: 10px;
+			font-size: 24px;
+			color: darken(#3F5D45, 10%);
+			font-weight: 600;
+		}
+		input{
+			width: 100%;
+			padding: 10px 20px;
+			background-color: darken(#3F5D45, 10%);
+			border: none;
+			font-size: 22px;
+			color: #fff;
+			font-weight: 600;
+			border-radius: 0;
+			&:focus{
+				outline: 2px solid #666;
+			}
+			&.danger{
+				outline: 2px solid red;
+			}
+		}
+	}
+}
 
 .js-loading{
 	width: 150px;

@@ -21,8 +21,37 @@
                 <ul class="l-header-menu">
                     <li><a href="#">訂購填寫</a></li>
                     <li><a href="#" class="js-product">開啟圖片</a></li>
-                    <li><a href="#">聯絡我們</a></li>
+                    <li><a href="#" class="js-search">訂單查詢</a></li>
                 </ul>
+            </div>
+        </div>
+        <div class="row jy-content-center">
+            <div class="col-md-8">
+                <div class="search py-s px-s">
+                    <p class="text-c-primary f-size-m f-w-600 text-center">訂單查詢</p>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="search_name">訂購人 ( Line暱稱為主 )</label>
+                            <input type="text" name="search_name" id="search_name" placeholder="Amily">
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="search_phon">電話</label>
+                            <input type="tel" name="search_phon" id="search_phone" placeholder="05/19">
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <div class="row jy-content-end">
+                            <div class="col-sm-4 btn-control my-xxs">
+                                <div class="btn btn-secondary py-s">查詢</div>
+                            </div>
+                            <div class="col-sm-4 btn-control my-xxs">
+                                <div class="btn btn-secondary py-s">取消</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -33,80 +62,98 @@
             </div>
             <div class="product-list">
                 <div class="row">
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/I9GK3jY.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/FZMeXXy.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/VdM37Ue.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/TVNXhvJ.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/pSU19kx.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/eOeCPzK.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/OsA7H8C.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/pSU19kx.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/v8WMBDD.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/v4p0F7j.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/dgliTOm.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/0U3FRNR.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/iczukWJ.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/PIz5RvF.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/aw4ymGV.jpg);"></div>
-                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/BKfJklV.jpg);"></div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/I9GK3jY.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/FZMeXXy.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/VdM37Ue.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/TVNXhvJ.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/pSU19kx.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/eOeCPzK.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/OsA7H8C.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/pSU19kx.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/v8WMBDD.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/v4p0F7j.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/dgliTOm.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/0U3FRNR.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/iczukWJ.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/PIz5RvF.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/aw4ymGV.jpg);">
+                    </div>
+                    <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/BKfJklV.jpg);">
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div class="row">
-            <div class="col-md-8 b-order p-relative">
-                <div class="js-loading p-absolute"><img src="./img/loading.gif" alt="" width="150px" height="150px">
-                </div>
-                <form action="#">
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="name">訂購人 ( Line暱稱為主 )</label>
-                                <input type="text" name="name" id="name" placeholder="Amily">
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="date">訂購日期</label>
-                                <input type="text" name="date" id="date" placeholder="05/19">
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="time">期望送達時間</label>
-                                <input type="text" name="time" id="time" placeholder="10:00 or 18:00">
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="phone">連絡電話</label>
-                                <input type="tel" name="phone" id="phone" placeholder="09xx-xxx-xxx">
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="address">送達地址</label>
-                                <input type="text" name="address" id="address" placeholder="目前只接 大安 信義區">
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="list">訂購清單</label>
-                                <textarea name="list" id="list" rows="10"></textarea>
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="form-group">
-                                <label for="ps">備註</label>
-                                <input type="text" name="ps" id="ps" placeholder="ex: 不接觸取貨 or 送貨前手機通知">
-                            </div>
-                        </div>
-                        <div class="col-sm-12">
-                            <div class="btn btn-secondary mt-s py-s">送出訂單</div>
-                        </div>
+        <div class="row jy-content-center">
+            <div class="col-md-8">
+                <div class="b-order p-relative">
+                    <div class="js-loading p-absolute"><img src="./img/loading.gif" alt="" width="150px" height="150px">
                     </div>
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="name">訂購人 ( Line暱稱為主 )</label>
+                                    <input type="text" name="name" id="name" placeholder="Amily">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="date">訂購日期</label>
+                                    <input type="text" name="date" id="date" placeholder="05/19">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="time">期望送達時間</label>
+                                    <input type="text" name="time" id="time" placeholder="10:00 or 18:00">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="phone">連絡電話</label>
+                                    <input type="tel" name="phone" id="phone" placeholder="09xx-xxx-xxx">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="address">送達地址</label>
+                                    <input type="text" name="address" id="address" placeholder="目前只接 大安 信義區">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="list">訂購清單</label>
+                                    <textarea name="list" id="list" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="ps">備註</label>
+                                    <input type="text" name="ps" id="ps" placeholder="ex: 不接觸取貨 or 送貨前手機通知">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="btn btn-secondary mt-s py-s">送出訂單</div>
+                            </div>
+                        </div>
 
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
@@ -122,20 +169,28 @@
         let product = document.querySelector('.product-list');
         let productCloseBtn = document.querySelector('.js-product-close');
         let productCloseBlock = document.querySelector('.product-close');
+        let search = document.querySelector('.search');
         let productBtnFlag = false;
+        let searchBtnFlag = false;
+        let searchBtn = document.querySelector('.js-search');
         btn.addEventListener('click', sendList);
         productBtn.addEventListener('click', productHandler);
         productCloseBtn.addEventListener('click', productHandler);
+        searchBtn.addEventListener('click', searchHandler);
 
 
+        function searchHandler(e) {
+            searchBtnFlag = !searchBtnFlag;
+            checkProduct(searchBtnFlag, 'search');
+        }
 
-        function productHandler(e){
-            if(e.target.nodeName == 'I'){
+        function productHandler(e) {
+            if (e.target.nodeName == 'I') {
                 productBtnFlag = false;
-                checkProduct(productBtnFlag);
-            }else{
+                checkProduct(productBtnFlag, 'product');
+            } else {
                 productBtnFlag = !productBtnFlag;
-                checkProduct(productBtnFlag);
+                checkProduct(productBtnFlag, 'product');
             }
         }
 
@@ -207,17 +262,28 @@
 
         }
 
-        function checkProduct(flag){
-            if (flag === true){
-                productCloseBlock.style = "display: block";
-                productBtn.text = '關閉圖片';
-                product.classList.add('active');
-                orderList.classList.add('active');
-            }else{
-                productCloseBlock.style = "display: none";
-                productBtn.text = '開啟圖片';
-                product.classList.remove('active');
-                orderList.classList.remove('active');
+        function checkProduct(flag, type) {
+            if (type == 'search') {
+                if (flag === true) {
+                    search.classList.add('active');
+                    orderList.classList.add('active');
+                } else {
+                    search.classList.remove('active');
+                    orderList.classList.remove('active');
+                }
+
+            } else {
+                if (flag === true) {
+                    productCloseBlock.style = "display: block";
+                    productBtn.text = '關閉圖片';
+                    product.classList.add('active');
+                    orderList.classList.add('active');
+                } else {
+                    productCloseBlock.style = "display: none";
+                    productBtn.text = '開啟圖片';
+                    product.classList.remove('active');
+                    orderList.classList.remove('active');
+                }
             }
         }
     </script>
