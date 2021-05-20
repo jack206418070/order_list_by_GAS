@@ -26,10 +26,12 @@
             </div>
         </div>
         <div class="row">
-            <div class="product">
+            <div class="col-12 product">
                 <div class="product-close">
                     <i class="fas fa-times text-c-secondary js-product-close"></i>
                 </div>
+            </div>
+            <div class="product-list">
                 <div class="row">
                     <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/I9GK3jY.jpg);"></div>
                     <div class="col-md-6 product-img" style="background-image: url(https://i.imgur.com/FZMeXXy.jpg);"></div>
@@ -117,7 +119,7 @@
         let loading = document.querySelector('.js-loading');
         let form = document.querySelector('form');
         let orderList = document.querySelector('.b-order');
-        let product = document.querySelector('.product');
+        let product = document.querySelector('.product-list');
         let productCloseBtn = document.querySelector('.js-product-close');
         let productBtnFlag = false;
         btn.addEventListener('click', sendList);
