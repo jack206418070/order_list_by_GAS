@@ -193,7 +193,6 @@ a {
   position: relative;
   position: absolute;
   width: 90%;
-  padding-bottom: 500px;
   background-color: #eee;
   border-radius: 5px;
   -webkit-box-shadow: 2px 2px 2px 1px #333;
@@ -202,7 +201,7 @@ a {
   right: 0;
   left: 0;
   margin: auto;
-  z-index: 1000;
+  z-index: 101;
   -webkit-transition: .5s;
   transition: .5s;
 }
@@ -211,11 +210,26 @@ a {
   top: 30%;
 }
 
+.product .product-close {
+  position: absolute;
+  z-index: 1000;
+  top: 0;
+  right: 0;
+}
+
 .product .product-close i {
   padding-top: 25px;
   padding-right: 25px;
   font-size: 24px;
   cursor: pointer;
+}
+
+.product .prodcut-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  height: 200px;
+  margin-top: 50px;
 }
 
 .js-loading {
