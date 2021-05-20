@@ -147,10 +147,13 @@ a {
 }
 
 .b-order form .form-group textarea {
+  width: 100%;
   padding: 10px;
   font-size: 20px;
   color: #555;
   font-weight: 400;
+  resize: none;
+  overflow: auto;
 }
 
 .b-order form .form-group textarea:focus {

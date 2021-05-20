@@ -100,10 +100,13 @@ a{
 				}
 			}
 			textarea{
+				width: 100%;
 				padding: 10px;
 				font-size: 20px;
 				color: #555;
 				font-weight: 400;
+				resize:none;
+				overflow:auto;
 				&:focus{
 					outline: 2px solid #666;
 				}
