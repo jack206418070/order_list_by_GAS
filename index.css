@@ -124,6 +124,10 @@ a {
   }
 }
 
+.b-order.active {
+  opacity: 0.6;
+}
+
 .b-order form {
   margin: 0 auto;
 }
@@ -183,6 +187,35 @@ a {
 
 .b-order form .form-group #ps {
   font-size: 18px;
+}
+
+.product {
+  position: relative;
+  position: absolute;
+  width: 90%;
+  padding-bottom: 500px;
+  background-color: #eee;
+  border-radius: 5px;
+  -webkit-box-shadow: 2px 2px 2px 1px #333;
+          box-shadow: 2px 2px 2px 1px #333;
+  top: -150%;
+  right: 0;
+  left: 0;
+  margin: auto;
+  z-index: 1000;
+  -webkit-transition: .5s;
+  transition: .5s;
+}
+
+.product.active {
+  top: 30%;
+}
+
+.product .product-close i {
+  padding-top: 25px;
+  padding-right: 25px;
+  font-size: 24px;
+  cursor: pointer;
 }
 
 .js-loading {

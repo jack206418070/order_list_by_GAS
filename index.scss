@@ -80,6 +80,9 @@ a{
 	@include mobile{
 		padding: 20px 10px;
 	}
+	&.active{
+		opacity: 0.6;
+	}
 	form{
 		margin: 0 auto;
 		&.loading{
@@ -131,6 +134,37 @@ a{
 		}
 	}
 }
+
+
+
+.product{
+	position: relative;
+	position: absolute;
+	width: 90%;
+	padding-bottom: 500px;
+	background-color: #eee;
+	border-radius: 5px;
+	box-shadow: 2px 2px 2px 1px #333;
+	top: -150%;
+	right: 0;
+	left: 0;
+	margin: auto;
+	z-index: 1000;
+	transition: .5s;
+	&.active{
+		top: 30%;
+	}
+	.product-close{
+		i{	
+			padding-top: 25px;
+			padding-right: 25px;
+			font-size: 24px;
+			cursor: pointer;
+		}
+	}
+}
+
+
 
 .js-loading{
 	width: 150px;
