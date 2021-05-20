@@ -82,7 +82,7 @@ a {
 
 @media screen and (max-width: 569px) {
   .l-header .l-header-menu li a {
-    font-size: 5vw;
+    font-size: 4vw;
   }
 }
 
@@ -152,6 +152,7 @@ a {
   font-size: 22px;
   color: #555;
   font-weight: 600;
+  border-radius: 0;
 }
 
 .b-order form .form-group input:focus {
