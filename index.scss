@@ -154,7 +154,7 @@ a{
 	height: 500px;
 	transform:translate(0,0);
 	@include mobile{
-		height: 300px;
+		height: 400px;
 	}
 	&.active{
 		top: 30%;
