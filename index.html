@@ -26,7 +26,8 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-md-8 b-order">
+                <div class="col-md-8 b-order p-relative">
+                    <div class="js-loading p-absolute"><img src="./img/loading.gif" alt="" width="150px" height="150px"></div>
                     <form action="#">
                         <div class="row">
                             <div class="col-sm-12">
@@ -85,6 +86,8 @@
         <script src="//code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
 <script>
     let btn = document.querySelector('.btn');
+    let loading = document.querySelector('.js-loading');
+    let form = document.querySelector('form');
     btn.addEventListener('click', sendList);
     function sendList(){
         let date = document.querySelector('#date');
@@ -94,34 +97,65 @@
         let address = document.querySelector('#address');
         let list = document.querySelector('#list');
         let ps = document.querySelector('#ps');
-        $.ajax({
-        type: "post",
-        url: "https://script.google.com/macros/s/AKfycbzpur_MtR85k5FPDcHF18U5XHRmHkm0xNOLQA4DQR7ioSTjf7M/exec",
-            data: {
-                    "order_date": date.value,
-                    "order_time": time.value,
-                    "order_name": name.value,
-                    "order_phone": phone.value + '',
-                    "order_address": address.value,
-                    "order_ps": ps.value,
-                    "order_list":  list.value,
-            },
-            success: function(response) {
-                if(response == "成功"){
-                    date.value = "";
-                    time.value = "";
-                    name.value = "";
-                    phone.value = "";
-                    address.value = "";
-                    ps.value = "";
-                    list.value = "";
-                    alert('訂購成功');
+        let checkData = [date, time, name, address, list];
+        if( checkList(checkData)) {
+            loadingHandler(true);
+            $.ajax({
+                type: "post",
+                url: "https://script.google.com/macros/s/AKfycbzpur_MtR85k5FPDcHF18U5XHRmHkm0xNOLQA4DQR7ioSTjf7M/exec",
+                data: {
+                        "order_date": date.value,
+                        "order_time": time.value,
+                        "order_name": name.value,
+                        "order_phone": phone.value + '',
+                        "order_address": address.value,
+                        "order_ps": ps.value,
+                        "order_list":  list.value,
+                },
+                success: function(response) {
+                    if(response == "成功"){
+                        date.value = "";
+                        time.value = "";
+                        name.value = "";
+                        phone.value = "";
+                        address.value = "";
+                        ps.value = "";
+                        list.value = "";
+                        loadingHandler(false);
+                        alert('訂購成功');
+                    }
                 }
-            }
-        
-        });
+            });
+        }
+    }
+    function loadingHandler(flag){
+        if(flag == true) {
+            loading.classList.add('loading'); 
+            form.classList.add('loading')
+        }else{
+            loading.classList.remove('loading'); 
+            form.classList.remove('loading')
+        }
     }
 
+    function checkList(data){
+        let flag = 0;
+        data.forEach(item => {
+            if(item.value !== ''){
+                flag++;
+                item.classList.remove('danger')
+            }else{
+                item.classList.add('danger')
+            }
+        })
+        if(flag == data.length){
+            return true
+        }else{
+            alert(`請將必填選項填入`);
+            return false
+        }
+        
+    }
 
 
 </script>
