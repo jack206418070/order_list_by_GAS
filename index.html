@@ -20,7 +20,7 @@
             <div class="col-md-5">
                 <ul class="l-header-menu">
                     <li><a href="#">訂購填寫</a></li>
-                    <li><a href="#" class="js-product">產品參考</a></li>
+                    <li><a href="#" class="js-product">開啟圖片</a></li>
                     <li><a href="#">聯絡我們</a></li>
                 </ul>
             </div>
@@ -120,7 +120,6 @@
         let product = document.querySelector('.product');
         let productCloseBtn = document.querySelector('.js-product-close');
         let productBtnFlag = false;
-
         btn.addEventListener('click', sendList);
         productBtn.addEventListener('click', productHandler);
         productCloseBtn.addEventListener('click', productHandler);
@@ -207,9 +206,11 @@
 
         function checkProduct(flag){
             if (flag === true){
+                productBtn.text = '關閉圖片'
                 product.classList.add('active');
                 orderList.classList.add('active');
             }else{
+                productBtn.text = '開啟圖片'
                 product.classList.remove('active');
                 orderList.classList.remove('active');
             }

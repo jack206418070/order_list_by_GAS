@@ -144,12 +144,18 @@ a{
 	background-color: #eee;
 	border-radius: 5px;
 	box-shadow: 2px 2px 2px 1px #333;
-	top: -1000%;
+	top: -300%;
 	right: 0;
 	left: 0;
 	margin: auto;
 	z-index: 101;
 	transition: 1s;
+	overflow:auto;
+	height: 500px;
+	transform:translate(0,0);
+	@include mobile{
+		height: 300px;
+	}
 	&.active{
 		top: 30%;
 	}

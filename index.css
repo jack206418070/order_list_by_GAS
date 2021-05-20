@@ -197,13 +197,23 @@ a {
   border-radius: 5px;
   -webkit-box-shadow: 2px 2px 2px 1px #333;
           box-shadow: 2px 2px 2px 1px #333;
-  top: -1000%;
+  top: -300%;
   right: 0;
   left: 0;
   margin: auto;
   z-index: 101;
   -webkit-transition: 1s;
   transition: 1s;
+  overflow: auto;
+  height: 500px;
+  -webkit-transform: translate(0, 0);
+          transform: translate(0, 0);
+}
+
+@media screen and (max-width: 569px) {
+  .product {
+    height: 300px;
+  }
 }
 
 .product.active {
