@@ -144,12 +144,12 @@ a{
 	background-color: #eee;
 	border-radius: 5px;
 	box-shadow: 2px 2px 2px 1px #333;
-	top: -150%;
+	top: -1000%;
 	right: 0;
 	left: 0;
 	margin: auto;
 	z-index: 101;
-	transition: .5s;
+	transition: 1s;
 	&.active{
 		top: 30%;
 	}
@@ -168,6 +168,7 @@ a{
 	.product-img{
 		@include itemBgSet(contain, center, center);
 		height: 300px;
+		border-radius: 5px 0 0 5px;
 		margin-top: 50px;
 	}
 	

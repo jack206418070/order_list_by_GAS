@@ -197,13 +197,13 @@ a {
   border-radius: 5px;
   -webkit-box-shadow: 2px 2px 2px 1px #333;
           box-shadow: 2px 2px 2px 1px #333;
-  top: -150%;
+  top: -1000%;
   right: 0;
   left: 0;
   margin: auto;
   z-index: 101;
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: 1s;
+  transition: 1s;
 }
 
 .product.active {
@@ -229,6 +229,7 @@ a {
   background-repeat: no-repeat;
   background-position: center center;
   height: 300px;
+  border-radius: 5px 0 0 5px;
   margin-top: 50px;
 }
 
