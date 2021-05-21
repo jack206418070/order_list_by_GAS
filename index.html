@@ -528,6 +528,10 @@
         function checkProduct(flag, type) {
             if (type == 'search') {
                 if (flag === true) {
+                    if(editBtnFlag === true){
+                        edit.classList.remove('active');
+                        editBtnFlag = !editBtnFlag;
+                    }
                     search.classList.add('active');
                     orderList.classList.add('active');
                 } else {
@@ -537,6 +541,10 @@
 
             } else if (type == 'edit') {
                 if (flag === true) {
+                    if(searchBtnFlag === true){
+                        search.classList.remove('active');
+                        searchBtnFlag = !searchBtnFlag;
+                    }
                     edit.classList.add('active');
                     orderList.classList.add('active');
                 } else {
