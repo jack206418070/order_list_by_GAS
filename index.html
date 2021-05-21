@@ -253,6 +253,14 @@
             let searchName = document.querySelector('#search_name');
             let searchPhone = document.querySelector('#search_phone');
             if (flag === true) {
+                console.log(1);
+                if(searchBtnFlag === true){
+                    searchBtnFlag = !searchBtnFlag
+                    checkProduct(searchBtnFlag, 'search');
+                }else if(editBtnFlag === true){
+                    editBtnFlag = !editBtnFlag;
+                    checkProduct(searchBtnFlag, 'edit');
+                }
                 listInfoHtml.style = 'display: none';
                 listInfoHtml.innerHTML = '';
                 form.style = 'display: block';
