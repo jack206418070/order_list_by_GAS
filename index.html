@@ -19,12 +19,14 @@
             </div>
             <div class="col-md-5">
                 <ul class="l-header-menu">
-                    <li><a href="#">訂購填寫</a></li>
+                    <li><a href="#" class="js-order">訂購填寫</a></li>
                     <li><a href="#" class="js-product">開啟圖片</a></li>
                     <li><a href="#" class="js-search">訂單查詢</a></li>
                 </ul>
             </div>
         </div>
+
+
         <div class="row jy-content-center">
             <div class="col-md-8">
                 <div class="search py-s px-s">
@@ -103,6 +105,7 @@
                 <div class="b-order p-relative">
                     <div class="js-loading p-absolute"><img src="./img/loading.gif" alt="" width="150px" height="150px">
                     </div>
+                    <div class="listInfo my-s "></div>
                     <form action="#">
                         <div class="row">
                             <div class="col-sm-12">
@@ -162,6 +165,7 @@
         crossorigin="anonymous"></script>
     <script>
         let btn = document.querySelector('.js-list-send');
+        let orderBtn = document.querySelector('.js-order');
         let productBtn = document.querySelector('.js-product');
         let loading = document.querySelector('.js-loading');
         let form = document.querySelector('form');
@@ -174,19 +178,112 @@
         let searchBtnFlag = false;
         let searchBtn = document.querySelector('.js-search');
         let searchCloseBtn = document.querySelector('.js-search-close');
+        let searchSendBtn = document.querySelector('.js-search-send');
+        let listInfoHtml = document.querySelector('.listInfo');
+
         btn.addEventListener('click', sendList);
+        orderBtn.addEventListener('click', orderListControl);
         productBtn.addEventListener('click', productHandler);
         productCloseBtn.addEventListener('click', productHandler);
         searchBtn.addEventListener('click', searchHandler);
-        searchCloseBtn.addEventListener('click', searchHandler)
+        searchCloseBtn.addEventListener('click', searchHandler);
+        searchSendBtn.addEventListener('click', getListInfo);
+
+
+
+        function orderListControl(e){
+            let flag;
+            e == undefined ? flag = false : flag = true;
+            let searchName = document.querySelector('#search_name');
+            let searchPhone = document.querySelector('#search_phone');
+            if(flag  === true){
+                listInfoHtml.style = 'display: none';
+                listInfoHtml.innerHTML = '';
+                form.style = 'display: block';
+            }else{
+                listInfoHtml.style = 'display: block';
+                searchName.value = '';
+                searchPhone.value = '';
+                form.style = 'display: none';
+            }
+        }
+
+
+        function getListInfo() {
+            let searchName = document.querySelector('#search_name');
+            let searchPhone = document.querySelector('#search_phone');
+            let ApiUrl = 'https://script.google.com/macros/s/AKfycbzpur_MtR85k5FPDcHF18U5XHRmHkm0xNOLQA4DQR7ioSTjf7M/exec';
+            let listInfo = [searchName, searchPhone];
+            let data;
+            if (checkList(listInfo)) {
+                searchBtnFlag = !searchBtnFlag;
+                checkProduct(searchBtnFlag, 'search');
+                loadingHandler(true);
+                $.ajax({
+                    type: "Get",
+                    url: ApiUrl,
+                    data: {
+                        "order_name": searchName.value,
+                        "order_phone": searchPhone.value
+                    },
+                    success: function (res) {
+                        data = res[0].data;
+                        lastIndex = data.length - 1;
+                        orderListControl();
+                        inneHtmlListInfo(data);
+                        loadingHandler(false);
+                    }
+
+                });
+            }
+        }
+
+
+        function inneHtmlListInfo(data){
+            let listInfo = document.querySelector('.listInfo');
+            let productList;
+            let productStr1 = '';
+            let productStr2 = '';
+            productList = data[6].split(/[ \n]/);
+
+            productList.forEach((item, index) => {
+                if(index % 2 == 0){
+                    productStr1 = productStr1 + `${item} <br>`;
+                }else{
+                    productStr2 = productStr2 + `${item} <br>`;
+                }
+            })
+            
+            let str = `
+                        <p class="text-c-thirdary f-size-l f-w-bold text-center mb-m">訂單狀態</p>
+                        <div class="listInfo-name d-flex jy-content-center">
+                            <p class="text-c-primary f-size-m f-w-600 mx-xs">訂購人</p>
+                            <p class="text-c-primary f-size-m f-w-600 mx-xs">${data[2]}</p>
+                        </div>
+                        <div class="listInfo-list my-s">
+                            <p class="text-c-primary f-size-m f-w-600 text-center my-xxs">訂單內容</p>
+                            <div class="listInfo-list-product d-flex jy-content-center bg-thirdary p-s">
+                                <p class="text-c-primary f-size-s f-w-600 text-center mx-xs">${productStr1}</p>
+                                <p class="text-c-primary f-size-s f-w-600 text-center mx-xs">${productStr2}</p>
+                            </div>
+                        </div>
+                        <div class="listInfo-total d-flex jy-content-around">
+                            <p class="text-c-white f-size-l f-w-bold ">總金額</p>
+                            <p class="text-c-white f-size-l f-w-bold ">${data[data.length - 2] !== '' ? data[data.length - 2] : '訂單未結算'}</p>                            
+                        </div>
+                        <div class="listInfo-sendStatus my-m">
+                            <p class="text-c-white f-size-l f-w-bold text-center" style="color: red">${data[data.length - 1] !== '' ? data[data.length - 1] : '未送出'}</p>                       
+                        </div>
+            `
+            listInfo.innerHTML = str;
+        }
 
 
         function searchHandler(e) {
-            console.log(e)
-            if(e.target.innerText === '取消'){
+            if (e.target.innerText === '取消') {
                 searchBtnFlag = false;
                 checkProduct(searchBtnFlag, 'search');
-            }else{
+            } else {
                 searchBtnFlag = !searchBtnFlag;
                 checkProduct(searchBtnFlag, 'search');
             }
@@ -282,10 +379,10 @@
 
             } else {
                 if (flag === true) {
-                    productCloseBlock.style = "display: block";
                     productBtn.text = '關閉圖片';
                     product.classList.add('active');
                     orderList.classList.add('active');
+                    setTimeout(function(){productCloseBlock.style = "display: block"}, 500);
                 } else {
                     productCloseBlock.style = "display: none";
                     productBtn.text = '開啟圖片';

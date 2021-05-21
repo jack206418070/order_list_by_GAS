@@ -294,6 +294,10 @@ a {
   outline: 2px solid red;
 }
 
+.listInfo {
+  display: none;
+}
+
 .js-loading {
   width: 150px;
   height: 150px;
