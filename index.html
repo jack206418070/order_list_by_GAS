@@ -354,9 +354,9 @@
 
             productList.forEach((item, index) => {
                 if (index % 2 == 0) {
-                    productStr1 = productStr1 + `${item} <br>`;
+                    item !== '' ? productStr1 = productStr1 + `${item} <br>` : 0;
                 } else {
-                    productStr2 = productStr2 + `${item} <br>`;
+                    item !== '' ? productStr2 = productStr2 + `${item} <br>` : 0;
                 }
             })
 
