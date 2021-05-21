@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./sass/main.css" class="css">
+    <link rel="stylesheet" href="./admin.css" class="css">
+    <link href="./fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
+    <title>惠民訂購網-管理登入</title>
+</head>
+<body>
+    <div class="container">
+        <div class="row l-header align-items-center jy-content-between">
+            <div class="col-md-4">
+                <h1>惠民蔬果</h1>
+            </div>
+            <div class="col-md-8">
+                <ul class="l-header-menu d-flex flex-wrap jy-content-end">
+                    <li><a href="index.html" class="js-order my-xs">訂購填寫</a></li>
+                    <li><a href="index.html" class="js-product my-xs">開啟圖片</a></li>
+                    <li><a href="index.html" class="js-search my-xs">訂單查詢</a></li>
+                    <li><a href="index.html" class="js-edit my-xs">訂單修改</a></li>
+                    <li><a href="admin.html" class="my-xs">管理登入</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row jy-content-center">
+            <div class="col-md-8">
+                <div class="b-order p-relative">
+                    <div class="js-loading p-absolute"><img src="./img/loading.gif" alt="" width="150px" height="150px">
+                    </div>
+                    <div class="listInfo my-s "></div>
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="account">帳號</label>
+                                    <input type="text" name="account" id="account">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="password">密碼</label>
+                                    <input type="password" name="password" id="password">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="btn btn-secondary mt-s py-s js-signin">登入</div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script src="//code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+    <script src="./js/admin.js"></script>
+</body>
+</html>
