@@ -60,6 +60,11 @@ a {
 @media screen and (max-width: 569px) {
   .l-header .l-header-menu li {
     margin: 0 10px;
+    max-width: 40%;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 40%;
+            flex: 0 0 40%;
+    text-align: center;
   }
 }
 
@@ -243,7 +248,7 @@ a {
   margin-top: 50px;
 }
 
-.search {
+.search, .edit {
   position: fixed;
   top: -100%;
   left: 0;
@@ -259,15 +264,15 @@ a {
   transition: .5s;
 }
 
-.search.active {
+.search.active, .edit.active {
   top: 20%;
 }
 
-.search .form-group {
+.search .form-group, .edit .form-group {
   margin-bottom: 10px;
 }
 
-.search .form-group label {
+.search .form-group label, .edit .form-group label {
   display: block;
   margin-bottom: 10px;
   font-size: 24px;
@@ -275,7 +280,7 @@ a {
   font-weight: 600;
 }
 
-.search .form-group input {
+.search .form-group input, .edit .form-group input {
   width: 100%;
   padding: 10px 20px;
   background-color: #2a3f2e;
@@ -286,12 +291,16 @@ a {
   border-radius: 0;
 }
 
-.search .form-group input:focus {
+.search .form-group input:focus, .edit .form-group input:focus {
   outline: 2px solid #666;
 }
 
-.search .form-group input.danger {
+.search .form-group input.danger, .edit .form-group input.danger {
   outline: 2px solid red;
+}
+
+.js-list-edit {
+  display: none;
 }
 
 .listInfo {

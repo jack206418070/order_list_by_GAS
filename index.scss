@@ -36,6 +36,9 @@ a{
 			margin: 15px;
 			@include mobile{
 				margin: 0 10px;
+				max-width: 40%;
+				flex: 0 0 40%;
+				text-align: center;
 			}
 			a{
 				color: darken(#3F5D45, 10%);
@@ -181,7 +184,7 @@ a{
 }
 
 
-.search{
+.search, .edit{
 	position: fixed;
 	top: -100%;
 	left: 0;
@@ -222,6 +225,11 @@ a{
 			}
 		}
 	}
+}
+
+
+.js-list-edit{
+	display: none;
 }
 
 
