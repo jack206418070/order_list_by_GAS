@@ -54,7 +54,6 @@ let dateInfo = document.querySelector('#date');
             let searchName = document.querySelector('#search_name');
             let searchPhone = document.querySelector('#search_phone');
             if (flag === true) {
-                console.log(1);
                 if(searchBtnFlag === true){
                     searchBtnFlag = !searchBtnFlag
                     checkProduct(searchBtnFlag, 'search');
@@ -96,7 +95,6 @@ let dateInfo = document.querySelector('#date');
                         "order_phone": searchPhone.value
                     },
                     success: function (res) {
-                        console.log(res);
                         if(res.length == 0){alert('查無此訂單'); loadingHandler(false); return}
                         data = res[0].data;
                         lastIndex = data.length - 1;
@@ -118,24 +116,21 @@ let dateInfo = document.querySelector('#date');
                         "order_phone": editPhone.value
                     },
                     success: function (res) {
-                        console.log(res);
                         if(res.length == 0){alert('查無此訂單'); loadingHandler(false); return}
                         editName.value = '';
                         editPhone.value = '';
                         data = res[0].data;
-                        console.log(data);
                         lastIndex = data.length - 1;
-                        listNo = data[lastIndex - 2];
-                        console.log(listNo);
+                        listNo = data[lastIndex - 3];
                         if (data[lastIndex] == '已送出') {
                             alert('訂單已送出 請重新訂購');
                             loadingHandler(false);
                         } else {
+                            console.log(listNo);
                             btn.style = 'display: none';
                             listEditbtn.style = 'display: block';
                             document.querySelector('.listNo-value').value = listNo;
                             infoListEmpty.forEach((item, index) => {
-                                console.log(item, data[index])
                                 item.value = data[index];
                             })
                             loadingHandler(false);
@@ -228,6 +223,7 @@ let dateInfo = document.querySelector('#date');
             let listNo = document.querySelector('.listNo-value');
             let checkData = [date, time, name, address, list];
             if (checkList(checkData)) {
+                console.log(listNo.value);
                 loadingHandler(true);
                 $.ajax({
                     type: "post",
@@ -315,7 +311,6 @@ let dateInfo = document.querySelector('#date');
             let flag = 0;
             data.forEach(item => {
                 if (item.value !== '') {
-                    console.log("flag:" + flag);
                     flag++;
                     item.classList.remove('danger')
                 } else {
@@ -325,7 +320,6 @@ let dateInfo = document.querySelector('#date');
             if (flag == data.length) {
                 return true
             } else {
-                console.log(flag);
                 alert(`請將必填選項填入`);
                 return false
             }
