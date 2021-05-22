@@ -42,7 +42,6 @@ let dateInfo = document.querySelector('#date');
         editCloseBtn.addEventListener('click', editHandler);
         editSendBtn.addEventListener('click', getListInfo);
         listEditbtn.addEventListener('click', editList);
-        getListAdmin.addEventListener('click', getListAdminHandler);
 
         function orderListControl(e) {
             let flag;
@@ -172,10 +171,10 @@ let dateInfo = document.querySelector('#date');
                         </div>
                         <div class="listInfo-total d-flex jy-content-around">
                             <p class="text-c-white f-size-l f-w-bold ">總金額</p>
-                            <p class="text-c-white f-size-l f-w-bold ">${data[data.length - 2] !== '' ? data[data.length - 2] : '訂單未結算'}</p>                            
+                            <p class="text-c-white f-size-l f-w-bold ">${data[data.length - 3] !== '' ? data[data.length - 3] : '訂單未結算'}</p>                            
                         </div>
                         <div class="listInfo-sendStatus my-m">
-                            <p class="text-c-white f-size-l f-w-bold text-center" style="color: red">${data[data.length - 1] !== '' ? data[data.length - 1] : '未送出'}</p>                       
+                            <p class="text-c-white f-size-l f-w-bold text-center" style="color: red">${data[data.length - 2] !== '' ? data[data.length - 2] : '未送出'}</p>                       
                         </div>
             `
             listInfo.innerHTML = str;
