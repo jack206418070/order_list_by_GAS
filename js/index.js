@@ -244,8 +244,6 @@ let dateInfo = document.querySelector('#date');
                     },
                     success: function (response) {
                         if (response == "成功") {
-                            date.value = "";
-                            time.value = "";
                             name.value = "";
                             phone.value = "";
                             address.value = "";
