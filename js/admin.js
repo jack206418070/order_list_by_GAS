@@ -19,6 +19,13 @@ function checkSignIn(){
         </div>  
         `
         row[1].innerHTML = str;
+    }else if(account.value === 'abc123456' && password.value === 'abc123456'){
+        let str = `
+        <div class="col-sm-6">
+            <div class="btn btn-secondary mt-s py-s js-getList" onclick="getlist()">取得未送出訂單</div>
+        </div>  
+        `
+        row[1].innerHTML = str;
     }else{
         alert('帳號或密碼錯誤 不要玩我 謝謝!');
         account.value = '';
