@@ -4,6 +4,11 @@ a{
 	text-decoration: none;
 }
 
+h2{
+	@include mobile{
+		font-size: 24px;
+	}
+}
 .container{
     max-width: 1280px;
     margin: 0 auto;
