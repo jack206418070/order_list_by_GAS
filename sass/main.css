@@ -919,6 +919,10 @@ img {
   color: #91b0a1;
 }
 
+.text-c-forthary {
+  color: #FFE180;
+}
+
 .text-ver-lr {
   -webkit-writing-mode: vertical-lr;
       -ms-writing-mode: tb-lr;

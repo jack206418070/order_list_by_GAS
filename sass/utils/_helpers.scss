@@ -200,6 +200,9 @@ $helper-flex:(
     &thirdary-dark{
         color: darken($thirdary, 30%);
     }
+    &forthary{
+        color: $secondary;
+    }
 }
 
 .text-ver-lr{

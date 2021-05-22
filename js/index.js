@@ -30,6 +30,8 @@ let dateInfo = document.querySelector('#date');
         let editCloseBtn = document.querySelector('.js-edit-close');
         let editSendBtn = document.querySelector('.js-edit-send');
         let listInfoHtml = document.querySelector('.listInfo');
+        let options = document.querySelector('#date option');
+
 
         btn.addEventListener('click', sendList);
         orderBtn.addEventListener('click', orderListControl);
@@ -42,6 +44,9 @@ let dateInfo = document.querySelector('#date');
         editCloseBtn.addEventListener('click', editHandler);
         editSendBtn.addEventListener('click', getListInfo);
         listEditbtn.addEventListener('click', editList);
+
+
+        init();
 
         function orderListControl(e) {
             let flag;
@@ -367,5 +372,70 @@ let dateInfo = document.querySelector('#date');
                     product.classList.remove('active');
                     orderList.classList.remove('active');
                 }
+            }
+        }
+        function getThisTime(){
+            let date = new Date();
+            let dateNum = date.getDate();
+            let month = date.getMonth() + 1;
+            let hour = date.getHours();
+            let min = date.getMinutes();
+            let day = date.getDay();
+            let data = {
+                hour: hour,
+                min: min,
+                date: dateNum,
+                month: month,
+                day: day
+            } 
+            return data
+        }
+
+        let interval = setInterval(function(){
+            if(getThisTime().hour == 10 && getThisTime().min == 0){
+                alert('不好意思 今日訂購時間已過! 目前下定為下一批預購單')
+                let option = document.querySelector('.firstOption');
+                option.parentNode.removeChild(option);
+                clearInterval(interval);
+                return
+            }else{
+                return
+            }
+        },1000);
+
+        function init(){
+            let str = '';
+            let day = getThisTime().day;
+            let date = getThisTime().date;
+            let month = getThisTime().month;
+            let data = [];
+            if(getThisTime().hour >= 10 && getThisTime().min >= 0){
+                for(let i = 0; i < 6; i++){
+                    if((day + i) % 7 !== 1){
+                        data.push(`${month}/${date+i+1}`)
+                    }
+                }
+                data.forEach((item, index) => {
+                    if(index == 0){
+                        str = str +`<option class="firstOption" value="${item}">${item}</option>`
+                    }else{
+                        str = str + `<option value="${item}">${item}</option>`
+                    }
+                })
+                document.querySelector('#date').innerHTML = str;
+            }else{
+                for(let i = 0; i < 6; i++){
+                    if((day + i) % 7 !== 1){
+                        data.push(`${month}/${date+i}`)
+                    }
+                }
+                data.forEach((item, index) => {
+                    if(index == 0){
+                        str = str +`<option class="firstOption" value="${item}">${item}</option>`
+                    }else{
+                        str = str + `<option value="${item}">${item}</option>`
+                    }
+                })
+                document.querySelector('#date').innerHTML = str;
             }
         }

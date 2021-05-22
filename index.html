@@ -136,6 +136,8 @@
 
         <div class="row jy-content-center">
             <div class="col-md-8">
+                <h2 class="text-center f-size-l f-w-600 my-xxs"><span style="color: red">公告</span> 當日訂單請於上午 10 : 00 下單完成</h2>
+                <h2 class="text-center f-size-l f-w-600 my-xxs">上午 10: 00 之後 只接隔日預約單</h2>
                 <div class="b-order p-relative">
                     <div class="js-loading p-absolute"><img src="./img/loading.gif" alt="" width="150px" height="150px">
                     </div>
@@ -150,14 +152,19 @@
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="date">訂購日期</label>
-                                    <input type="text" name="date" id="date" placeholder="05/19">
+                                    <label for="date">訂單外送日期</label>
+                                    <select name="date" id="date">
+        
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="time">期望送達時間</label>
-                                    <input type="text" name="time" id="time" placeholder="10:00 or 18:00">
+                                    <select name="time" id="time">
+                                        <option value="09:00-12:00">09:00-12:00</option>
+                                        <option value="12:30-14:00">12:30-14:00</option>
+                                    </select>
                                 </div>
                             </div>
                             <div class="col-sm-12">
