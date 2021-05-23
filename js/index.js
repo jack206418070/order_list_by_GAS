@@ -402,8 +402,11 @@ let dateInfo = document.querySelector('#date');
             let month = getThisTime().month;
             let data = [];
             if(getThisTime().hour >= 10 && getThisTime().min >= 0){
-                for(let i = 0; i < 6; i++){
-                    if((day + i) % 7 !== 1){
+                for(let i = 1; i < 7; i++){
+                    // console.log((day + i));
+                    if((day + i) % 7 == 0 && (day + i + 1) % 7 == 1){
+                        data.push(`${month}/${date+i+2}`)
+                    }else if((day + i + 1) % 7 !== 1){
                         data.push(`${month}/${date+i+1}`)
                     }
                 }
