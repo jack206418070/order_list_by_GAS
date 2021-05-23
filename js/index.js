@@ -33,7 +33,7 @@ let dateInfo = document.querySelector('#date');
         let options = document.querySelector('#date option');
 
 
-        btn.addEventListener('click', sendList);
+        // btn.addEventListener('click', sendList);
         orderBtn.addEventListener('click', orderListControl);
         productBtn.addEventListener('click', productHandler);
         productCloseBtn.addEventListener('click', productHandler);
@@ -44,7 +44,7 @@ let dateInfo = document.querySelector('#date');
         editCloseBtn.addEventListener('click', editHandler);
         editSendBtn.addEventListener('click', getListInfo);
         listEditbtn.addEventListener('click', editList);
-
+        btn.addEventListener('click', fixAlert);
 
         init();
 
@@ -433,4 +433,9 @@ let dateInfo = document.querySelector('#date');
                 })
                 document.querySelector('#date').innerHTML = str;
             }
+        }
+
+
+        function fixAlert(){
+            alert("抱歉系統正在更新 維護中 5/24 下午四點 重新開放");
         }
