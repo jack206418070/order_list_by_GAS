@@ -175,19 +175,31 @@
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
-                                    <label for="address">送達地址</label>
-                                    <input type="text" name="address" id="address" placeholder="目前只接 大安 信義區">
-                                </div>
-                            </div>
-                            <!-- <div class="col-sm-12">
-                                <div class="form-group">
                                     <label for="pay">付款方式</label>
                                     <select name="pay" id="pay">
-                                        <option value="貨到付款">貨到付款</option>
-                                        <option value="線上匯款">線上匯款</option>
+                                        <option value="貨到付款">現金支付</option>
+                                        <option value="線上匯款(轉帳)">線上匯款(轉帳)</option>
                                     </select>
                                 </div>
-                            </div> -->
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="area">付款方式</label>
+                                    <select name="area" id="area">
+                                        <option value="信義區(滿400)">信義區(滿400)</option>
+                                        <option value="汐止區(滿400)">汐止區(滿400)</option>
+                                        <option value="大安區(滿1500)">大安區(滿1500)</option>
+                                        <option value="松山區(滿1500)">松山區(滿1500)</option>
+                                        <option value="其他區(滿2000)">其他區(滿2000)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="address">送達地址</label>
+                                    <input type="text" name="address" id="address">
+                                </div>
+                            </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="list">訂購清單</label>
@@ -202,8 +214,8 @@
                                 </div>
                             </div>
                             <div class="col-sm-12">
-                                <div class="btn btn-secondary mt-s py-s js-list-send">送出訂單</div>
-                                <div class="btn btn-secondary mt-s py-s text-center js-list-edit">修改訂單</div>
+                                <div class="btn btn-secondary mt-s py-s js-list-send text-center">送出訂單</div>
+                                <div class="btn btn-secondary mt-s py-s text-center js-list-edit text-center">修改訂單</div>
                             </div>
                         </div>
 

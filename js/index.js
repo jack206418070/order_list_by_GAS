@@ -1,11 +1,13 @@
-let dateInfo = document.querySelector('#date');
+        let dateInfo = document.querySelector('#date');
         let time = document.querySelector('#time');
         let nameInfo = document.querySelector('#name');
         let phone = document.querySelector('#phone');
+        let pay = document.querySelector('#pay');
+        let area = document.querySelector('#area');
         let address = document.querySelector('#address');
         let list = document.querySelector('#list');
         let ps = document.querySelector('#ps');
-        let infoListEmpty = [dateInfo, time, nameInfo, phone, address, ps, list];
+        let infoListEmpty = [dateInfo, time, nameInfo, phone, pay, area, address, ps, list];
 
         let btn = document.querySelector('.js-list-send');
         let listEditbtn = document.querySelector('.js-list-edit');
@@ -33,7 +35,7 @@ let dateInfo = document.querySelector('#date');
         let options = document.querySelector('#date option');
 
 
-        // btn.addEventListener('click', sendList);
+        btn.addEventListener('click', sendList);
         orderBtn.addEventListener('click', orderListControl);
         productBtn.addEventListener('click', productHandler);
         productCloseBtn.addEventListener('click', productHandler);
@@ -44,7 +46,6 @@ let dateInfo = document.querySelector('#date');
         editCloseBtn.addEventListener('click', editHandler);
         editSendBtn.addEventListener('click', getListInfo);
         listEditbtn.addEventListener('click', editList);
-        btn.addEventListener('click', fixAlert);
 
         init();
 
@@ -146,7 +147,7 @@ let dateInfo = document.querySelector('#date');
             let productList;
             let productStr1 = '';
             let productStr2 = '';
-            productList = data[6].split(/[ \n]/);
+            productList = data[8].split(/[ \n]/);
 
             productList.forEach((item, index) => {
                 if (index % 2 == 0) {
@@ -217,11 +218,13 @@ let dateInfo = document.querySelector('#date');
             let time = document.querySelector('#time');
             let name = document.querySelector('#name');
             let phone = document.querySelector('#phone');
+            let pay = document.querySelector('#pay');
+            let area = document.querySelector('#area');
             let address = document.querySelector('#address');
             let list = document.querySelector('#list');
             let ps = document.querySelector('#ps');
             let listNo = document.querySelector('.listNo-value');
-            let checkData = [date, time, name, address, list];
+            let checkData = [date, time, name, pay, area, address, list];
             if (checkList(checkData)) {
                 console.log(listNo.value);
                 loadingHandler(true);
@@ -233,6 +236,8 @@ let dateInfo = document.querySelector('#date');
                         "order_time": time.value,
                         "order_name": name.value,
                         "order_phone": phone.value + '',
+                        "order_pay": pay.value,
+                        "order_area": area.value,
                         "order_address": address.value,
                         "order_ps": ps.value,
                         "order_list": list.value,
@@ -246,8 +251,8 @@ let dateInfo = document.querySelector('#date');
                             ps.value = "";
                             list.value = "";
                             listNo.value = "";
-                            btn.style = 'display: none';
-                            listEditbtn.style = 'display: block';
+                            btn.style = 'display: block';
+                            listEditbtn.style = 'display: none';
                             loadingHandler(false);
                             alert('修改成功');
                         }
@@ -263,10 +268,12 @@ let dateInfo = document.querySelector('#date');
             let time = document.querySelector('#time');
             let name = document.querySelector('#name');
             let phone = document.querySelector('#phone');
+            let pay = document.querySelector('#pay');
+            let area = document.querySelector('#area');
             let address = document.querySelector('#address');
             let list = document.querySelector('#list');
             let ps = document.querySelector('#ps');
-            let checkData = [date, time, name, address, list];
+            let checkData = [date, time, name, pay, area, address, list];
             if (checkList(checkData)) {
                 loadingHandler(true);
                 $.ajax({
@@ -277,6 +284,8 @@ let dateInfo = document.querySelector('#date');
                         "order_time": time.value,
                         "order_name": name.value,
                         "order_phone": phone.value + '',
+                        "order_pay": pay.value,
+                        "order_area": area.value,
                         "order_address": address.value,
                         "order_ps": ps.value,
                         "order_list": list.value,
@@ -401,12 +410,60 @@ let dateInfo = document.querySelector('#date');
             let date = getThisTime().date;
             let month = getThisTime().month;
             let data = [];
+            let monthDay ={
+                "30": [4,6,9,11],
+                "28": [2],
+                "31": [1,3,5,7,8,10,12]
+            }
             if(getThisTime().hour >= 10 && getThisTime().min >= 0){
-                for(let i = 1; i < 7; i++){
-                    // console.log((day + i));
+                for(let i = 0; i < 4; i++){
                     if((day + i) % 7 == 0 && (day + i + 1) % 7 == 1){
-                        data.push(`${month}/${date+i+2}`)
+                        // if(month == 4 || month == 6 || month == 9 || month == 11){
+                        //     if(date + i + 2 > 30){
+                        //         date = 1;
+                        //         month = month + 1;
+                        //     }
+                        // }else if(month == 2){
+                        //     if(date + i + 2 > 28){
+                        //         date = 1;
+                        //         month = month + 1;
+                        //     }
+                        // }else{
+                        //     if(date + i + 2 > 31){
+                        //         date = 1;
+                        //         month = month + 1;
+                        //     }
+                        // }
+                        data.push(`${month}/${date + i +2}`)
                     }else if((day + i + 1) % 7 !== 1){
+                        // if(month == 4 || month == 6 || month == 9 || month == 11){
+                        //     if(date + 1 > 30){
+                        //         date = 1;
+                        //         month = month + 1;
+                        //         data.push(`${month}/${date}`)
+                        //     }else{
+                        //         data.push(`${month}/${date+i+1}`)
+                        //     }
+                            
+                        // }else if(month == 2){
+                        //     if(date + 1 > 28){
+                        //         date = 1;
+                        //         month = month + 1;
+                        //         data.push(`${month}/${date}`)
+                        //     }else{
+                        //         data.push(`${month}/${date+i+1}`)
+                        //     }
+                            
+                        // }else{
+                        //     if(date + 1 > 31){
+                        //         console.log(3)
+                        //         date = 1;
+                        //         month = month + 1;
+                        //         data.push(`${month}/${date}`)
+                        //     }else{
+                        //         data.push(`${month}/${date+i+1}`)
+                        //     }
+                        // }
                         data.push(`${month}/${date+i+1}`)
                     }
                 }
@@ -419,7 +476,7 @@ let dateInfo = document.querySelector('#date');
                 })
                 document.querySelector('#date').innerHTML = str;
             }else{
-                for(let i = 0; i < 6; i++){
+                for(let i = 0; i < 7; i++){
                     if((day + i) % 7 !== 1){
                         data.push(`${month}/${date+i}`)
                     }
@@ -436,6 +493,6 @@ let dateInfo = document.querySelector('#date');
         }
 
 
-        function fixAlert(){
-            alert("抱歉系統正在更新 維護中 5/24 下午四點 重新開放");
-        }
+        // function fixAlert(){
+        //     alert("抱歉系統正在更新 維護中 5/24 下午四點 重新開放");
+        // }
