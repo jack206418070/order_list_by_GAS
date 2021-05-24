@@ -50,6 +50,7 @@
         init();
 
         function orderListControl(e) {
+            console.log(1)
             let flag;
             e == undefined ? flag = false : flag = true;
             let searchName = document.querySelector('#search_name');
@@ -62,10 +63,12 @@
                     editBtnFlag = !editBtnFlag;
                     checkProduct(searchBtnFlag, 'edit');
                 }
+                console.log(2)
                 listInfoHtml.style = 'display: none';
                 listInfoHtml.innerHTML = '';
                 form.style = 'display: block';
             } else {
+                console.log(3)
                 listInfoHtml.style = 'display: block';
                 searchName.value = '';
                 searchPhone.value = '';
@@ -127,6 +130,8 @@
                             alert('訂單已送出 請重新訂購');
                             loadingHandler(false);
                         } else {
+                            listInfoHtml.style = "display: none";
+                            form.style = "display: block";
                             console.log(listNo);
                             btn.style = 'display: none';
                             listEditbtn.style = 'display: block';
@@ -147,6 +152,7 @@
             let productList;
             let productStr1 = '';
             let productStr2 = '';
+            console.log(data)
             productList = data[8].split(/[ \n]/);
 
             productList.forEach((item, index) => {
