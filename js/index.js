@@ -124,8 +124,10 @@
                         editName.value = '';
                         editPhone.value = '';
                         data = res[0].data;
+                        console.log(data)
                         lastIndex = data.length - 1;
-                        listNo = data[lastIndex - 3];
+                        listNo = data[9]; // 要修改
+                        console.log(1)
                         if (data[lastIndex] == '已送出') {
                             alert('訂單已送出 請重新訂購');
                             loadingHandler(false);
@@ -399,7 +401,7 @@
         }
 
         let interval = setInterval(function(){
-            if(getThisTime().hour == 10 && getThisTime().min == 0){
+            if(getThisTime().hour == 10 && getThisTime().min == 10){
                 alert('不好意思 今日訂購時間已過! 目前下定為下一批預購單')
                 let option = document.querySelector('.firstOption');
                 option.parentNode.removeChild(option);
@@ -421,7 +423,7 @@
                 "28": [2],
                 "31": [1,3,5,7,8,10,12]
             }
-            if(getThisTime().hour >= 10 && getThisTime().min >= 0){
+            if(getThisTime().hour >= 10 && getThisTime().min >= 10){
                 for(let i = 0; i < 4; i++){
                     if((day + i) % 7 == 0 && (day + i + 1) % 7 == 1){
                         // if(month == 4 || month == 6 || month == 9 || month == 11){
