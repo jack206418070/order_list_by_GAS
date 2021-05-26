@@ -34,7 +34,7 @@
         let listInfoHtml = document.querySelector('.listInfo');
         let options = document.querySelector('#date option');
 
-
+        // btn.addEventListener('click', fixAlert);
         btn.addEventListener('click', sendList);
         orderBtn.addEventListener('click', orderListControl);
         productBtn.addEventListener('click', productHandler);
@@ -401,7 +401,7 @@
         }
 
         let interval = setInterval(function(){
-            if(getThisTime().hour == 10 && getThisTime().min == 10){
+            if(getThisTime().hour == 0 && getThisTime().min == 0){
                 alert('不好意思 今日訂購時間已過! 目前下定為下一批預購單')
                 let option = document.querySelector('.firstOption');
                 option.parentNode.removeChild(option);
@@ -423,7 +423,7 @@
                 "28": [2],
                 "31": [1,3,5,7,8,10,12]
             }
-            if(getThisTime().hour >= 10 && getThisTime().min >= 10){
+            if(getThisTime().hour >= 0 && getThisTime().min >= 0){
                 for(let i = 0; i < 4; i++){
                     if((day + i) % 7 == 0 && (day + i + 1) % 7 == 1){
                         // if(month == 4 || month == 6 || month == 9 || month == 11){
@@ -484,7 +484,7 @@
                 })
                 document.querySelector('#date').innerHTML = str;
             }else{
-                for(let i = 0; i < 7; i++){
+                for(let i = 0; i < 4; i++){
                     if((day + i) % 7 !== 1){
                         data.push(`${month}/${date+i}`)
                     }
@@ -501,6 +501,3 @@
         }
 
 
-        // function fixAlert(){
-        //     alert("抱歉系統正在更新 維護中 5/24 下午四點 重新開放");
-        // }
