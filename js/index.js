@@ -123,13 +123,19 @@
                         if(res.length == 0){alert('查無此訂單'); loadingHandler(false); return}
                         editName.value = '';
                         editPhone.value = '';
+                        let dateInfo = `${getThisTime().month}/${getThisTime().date + 2}`;
                         data = res[0].data;
-                        console.log(data)
+                        let date = data[0];
+                        console.log(dateInfo, date)
+
                         lastIndex = data.length - 1;
                         listNo = data[9]; // 要修改
                         console.log(1)
                         if (data[lastIndex] == '已送出') {
                             alert('訂單已送出 請重新訂購');
+                            loadingHandler(false);
+                        } else if(dateInfo == date){
+                            alert('抱歉今日訂單無法修改');
                             loadingHandler(false);
                         } else {
                             listInfoHtml.style = "display: none";
@@ -222,6 +228,7 @@
         }
 
         function editList(){
+            let dateInfo = getThisTime().date;
             let date = document.querySelector('#date');
             let time = document.querySelector('#time');
             let name = document.querySelector('#name');
@@ -232,6 +239,7 @@
             let list = document.querySelector('#list');
             let ps = document.querySelector('#ps');
             let listNo = document.querySelector('.listNo-value');
+            console.log(dateInfo, date.value);
             let checkData = [date, time, name, pay, area, address, list];
             if (checkList(checkData)) {
                 console.log(listNo.value);
@@ -424,7 +432,7 @@
                 "31": [1,3,5,7,8,10,12]
             }
             if(getThisTime().hour >= 0 && getThisTime().min >= 0){
-                for(let i = 0; i < 4; i++){
+                for(let i = 0; i < 1; i++){
                     if((day + i) % 7 == 0 && (day + i + 1) % 7 == 1){
                         // if(month == 4 || month == 6 || month == 9 || month == 11){
                         //     if(date + i + 2 > 30){
