@@ -123,7 +123,7 @@
                         if(res.length == 0){alert('查無此訂單'); loadingHandler(false); return}
                         editName.value = '';
                         editPhone.value = '';
-                        let dateInfo = `${getThisTime().month}/${getThisTime().date + 2}`;
+                        let dateInfo = `${getThisTime().month}/${getThisTime().date}`;
                         data = res[0].data;
                         let date = data[0];
                         console.log(dateInfo, date)
