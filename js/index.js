@@ -47,6 +47,10 @@
         editSendBtn.addEventListener('click', getListInfo);
         listEditbtn.addEventListener('click', editList);
 
+
+        
+
+
         init();
 
         function orderListControl(e) {
@@ -161,14 +165,10 @@
             let productStr1 = '';
             let productStr2 = '';
             console.log(data)
-            productList = data[8].split(/[ \n]/);
-
-            productList.forEach((item, index) => {
-                if (index % 2 == 0) {
+            productList = data[8].split(/[\n]/);
+            console.log(productList)
+            productList.forEach((item) => {
                     item !== '' ? productStr1 = productStr1 + `${item} <br>` : 0;
-                } else {
-                    item !== '' ? productStr2 = productStr2 + `${item} <br>` : 0;
-                }
             })
 
             let str = `
@@ -239,7 +239,8 @@
             let list = document.querySelector('#list');
             let ps = document.querySelector('#ps');
             let listNo = document.querySelector('.listNo-value');
-            console.log(dateInfo, date.value);
+            
+
             let checkData = [date, time, name, pay, area, address, list];
             if (checkList(checkData)) {
                 console.log(listNo.value);
@@ -505,6 +506,9 @@
                     }
                 })
                 document.querySelector('#date').innerHTML = str;
+            }
+            for(let i = 1; i < 21; i++){
+                list.textContent += `${i}.\n`
             }
         }
 
