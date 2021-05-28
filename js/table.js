@@ -15,7 +15,6 @@ function getListInfo() {
             let data = [];
             let length = res.length - 3;
             res.forEach((item, index) => {
-                if(index > 40){
                     let productList = item.data[8];
                     productList = productList.split(/[\n]/);
                     let tempData = {
@@ -28,7 +27,6 @@ function getListInfo() {
                         no: item.data[9]
                     };
                     data.push(tempData);
-                }
             });
             data.forEach((item, index) => {
                 str = str + `
