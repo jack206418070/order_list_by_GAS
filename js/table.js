@@ -8,15 +8,24 @@ function getListInfo() {
         url: ApiUrl,
         success: function (res) {
             let str = ``;
-            let strProdcut = ``;
+            let strProduct = ``;
+            let strProduct2 = ``;
             let strNo = ``;
             let lastStr = ``;
             let tempStr = ``;
             let data = [];
-            let length = res.length - 3;
-            res.forEach((item, index) => {
+            res.forEach(item => {
                     let productList = item.data[8];
+                    let productListTwo = [];
                     productList = productList.split(/[\n]/);
+                    if( productList.length > 29){
+                        productList.forEach((item, index) => {
+                            if(index > 29){
+                                productListTwo.push(item);
+                            }
+                        })
+                        productList.splice(30, productList.length - 1);
+                    }
                     let tempData = {
                         name: item.data[2],
                         phone: item.data[3],
@@ -24,6 +33,7 @@ function getListInfo() {
                         address: item.data[6],
                         ps: item.data[7],
                         products: productList,
+                        productsTwo: productListTwo,
                         no: item.data[9]
                     };
                     data.push(tempData);
@@ -75,8 +85,8 @@ function getListInfo() {
                 </div>
                 `
 
-            item.products.forEach((product, index) => {
-                strProdcut = strProdcut + `
+            item.products.forEach((product) => {
+                strProduct = strProduct + `
                 <tr>
                     <td class="title" style="padding:3px 0">${product}</td>
                     <td class="list" style="padding:3px 0"></td>
@@ -85,14 +95,32 @@ function getListInfo() {
                 </tr>
                     `
             })
-            tempStr = str + strProdcut + strNo + str + strProdcut + strNo;
-            lastStr += tempStr; 
-
+            if(item.productsTwo.length !== 0){
+                console.log(1)
+                item.productsTwo.forEach((product) => {
+                    strProduct2 = strProduct2 + `
+                    <tr>
+                        <td class="title" style="padding:3px 0">${product}</td>
+                        <td class="list" style="padding:3px 0"></td>
+                        <td class="list" style="padding:3px 0"></td>
+                        <td class="list" style="padding:3px 0"></td>
+                    </tr>
+                        `
+                })
+                tempStr = str + strProduct + strNo + str + strProduct + strNo + str + strProduct2 + strNo + str + strProduct2 + strNo;
+                lastStr += tempStr;
+            }else{
+                tempStr = str + strProduct + strNo + str + strProduct + strNo;
+                lastStr += tempStr; 
+            }
 
             str = '';
-            strProdcut = '';
+            strProduct = '';
             strNo = '';
             tempStr = '';
+            strProduct2 = '';
+
+
             })
             row.innerHTML = lastStr;
         },
@@ -102,11 +130,3 @@ function getListInfo() {
 }
 
 
-// let limtHeight = 702 - document.querySelector('.list-table1').clientHeight;
-// document.querySelectorAll('.list-table2').forEach(item => {
-//     item.style = `margin-top:${limtHeight}px`
-// })
-// limtHeight = 702 - document.querySelector('.list-table2').clientHeight;
-// document.querySelectorAll('.list-table3').forEach(item => {
-//     item.style = `margin-top: ${limtHeight}px`
-// })

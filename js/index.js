@@ -290,6 +290,7 @@
             let address = document.querySelector('#address');
             let list = document.querySelector('#list');
             let ps = document.querySelector('#ps');
+
             let checkData = [date, time, name, pay, area, address, list];
             if (checkList(checkData)) {
                 loadingHandler(true);
@@ -318,6 +319,9 @@
                             list.value = "";
                             loadingHandler(false);
                             alert('訂購成功');
+                        }else{
+                            loadingHandler(false);
+                            alert('訂單重複 請利用修改功能')
                         }
                     }
                 });
@@ -507,7 +511,7 @@
                 })
                 document.querySelector('#date').innerHTML = str;
             }
-            for(let i = 1; i < 21; i++){
+            for(let i = 1; i < 30; i++){
                 list.textContent += `${i}.\n`
             }
         }
