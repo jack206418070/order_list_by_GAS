@@ -47,7 +47,7 @@
         editSendBtn.addEventListener('click', getListInfo);
         listEditbtn.addEventListener('click', editList);
 
-
+        
         
 
 
