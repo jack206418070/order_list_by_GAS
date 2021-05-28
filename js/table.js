@@ -32,7 +32,7 @@ function getListInfo() {
             });
             data.forEach((item, index) => {
                 str = str + `
-                <div class="col-6 list-table${index + 1}">
+                <div class="col-12 list-table${index + 1}">
                 <table>
                     <tr>
                         <td>訂貨人</td>
@@ -80,10 +80,10 @@ function getListInfo() {
             item.products.forEach((product, index) => {
                 strProdcut = strProdcut + `
                 <tr>
-                    <td class="title">${product}</td>
-                    <td class="list"></td>
-                    <td class="list"></td>
-                    <td class="list"></td>
+                    <td class="title" style="padding:3px 0">${product}</td>
+                    <td class="list" style="padding:3px 0"></td>
+                    <td class="list" style="padding:3px 0"></td>
+                    <td class="list" style="padding:3px 0"></td>
                 </tr>
                     `
             })
