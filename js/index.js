@@ -66,12 +66,10 @@
                     editBtnFlag = !editBtnFlag;
                     checkProduct(searchBtnFlag, 'edit');
                 }
-                console.log(2)
                 listInfoHtml.style = 'display: none';
                 listInfoHtml.innerHTML = '';
                 form.style = 'display: block';
             } else {
-                console.log(3)
                 listInfoHtml.style = 'display: block';
                 searchName.value = '';
                 searchPhone.value = '';
@@ -129,7 +127,6 @@
                         let dateInfo = `${getThisTime().month}/${getThisTime().date}`;
                         data = res[0].data;
                         let date = data[0];
-                        console.log(dateInfo, date)
 
                         lastIndex = data.length - 1;
                         listNo = data[9]; // 要修改
@@ -142,7 +139,6 @@
                         } else {
                             listInfoHtml.style = "display: none";
                             form.style = "display: block";
-                            console.log(listNo);
                             btn.style = 'display: none';
                             listEditbtn.style = 'display: block';
                             document.querySelector('.listNo-value').value = listNo;
@@ -163,7 +159,6 @@
             let productStr1 = '';
             let productStr2 = '';
             productList = data[8].split(/[\n]/);
-            console.log(productList)
             productList.forEach((item) => {
                     item !== '' ? productStr1 = productStr1 + `${item} <br>` : 0;
             })
@@ -240,7 +235,6 @@
 
             let checkData = [date, time, name, pay, area, address, list];
             if (checkList(checkData)) {
-                console.log(listNo.value);
                 loadingHandler(true);
                 $.ajax({
                     type: "post",
@@ -412,7 +406,6 @@
 
 
         function addDays(days) {
-            console.log(days)
             var result = new Date();
             result.setDate(result.getDate() + days);
             return result;
