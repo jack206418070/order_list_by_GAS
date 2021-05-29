@@ -54,7 +54,6 @@
         init();
 
         function orderListControl(e) {
-            console.log(1)
             let flag;
             e == undefined ? flag = false : flag = true;
             let searchName = document.querySelector('#search_name');
@@ -134,7 +133,6 @@
 
                         lastIndex = data.length - 1;
                         listNo = data[9]; // 要修改
-                        console.log(1)
                         if (data[lastIndex] == '已送出') {
                             alert('訂單已送出 請重新訂購');
                             loadingHandler(false);
@@ -164,7 +162,6 @@
             let productList;
             let productStr1 = '';
             let productStr2 = '';
-            console.log(data)
             productList = data[8].split(/[\n]/);
             console.log(productList)
             productList.forEach((item) => {
@@ -396,8 +393,8 @@
                 }
             }
         }
-        function getThisTime(){
-            let date = new Date();
+        function getThisTime(dateInfo = new Date()){
+            let date = new Date(dateInfo);
             let dateNum = date.getDate();
             let month = date.getMonth() + 1;
             let hour = date.getHours();
@@ -413,14 +410,19 @@
             return data
         }
 
+
+        function addDays(days) {
+            console.log(days)
+            var result = new Date();
+            result.setDate(result.getDate() + days);
+            return result;
+        }
+
         let interval = setInterval(function(){
             if(getThisTime().hour == 0 && getThisTime().min == 0){
                 alert('不好意思 今日訂購時間已過! 目前下定為下一批預購單')
                 let option = document.querySelector('.firstOption');
-                option.parentNode.removeChild(option);
-                clearInterval(interval);
-                return
-            }else{
+                option.value = `${getThisTime().month}/${getThisTime().date}`
                 return
             }
         },1000);
@@ -428,78 +430,15 @@
         function init(){
             let str = '';
             let day = getThisTime().day;
-            let date = getThisTime().date;
-            let month = getThisTime().month;
             let data = [];
-            let monthDay ={
-                "30": [4,6,9,11],
-                "28": [2],
-                "31": [1,3,5,7,8,10,12]
-            }
             if(getThisTime().hour >= 0 && getThisTime().min >= 0){
                 for(let i = 0; i < 1; i++){
-                    if((day + i) % 7 == 0 && (day + i + 1) % 7 == 1){
-                        // if(month == 4 || month == 6 || month == 9 || month == 11){
-                        //     if(date + i + 2 > 30){
-                        //         date = 1;
-                        //         month = month + 1;
-                        //     }
-                        // }else if(month == 2){
-                        //     if(date + i + 2 > 28){
-                        //         date = 1;
-                        //         month = month + 1;
-                        //     }
-                        // }else{
-                        //     if(date + i + 2 > 31){
-                        //         date = 1;
-                        //         month = month + 1;
-                        //     }
-                        // }
-                        data.push(`${month}/${date + i +2}`)
-                    }else if((day + i + 1) % 7 !== 1){
-                        // if(month == 4 || month == 6 || month == 9 || month == 11){
-                        //     if(date + 1 > 30){
-                        //         date = 1;
-                        //         month = month + 1;
-                        //         data.push(`${month}/${date}`)
-                        //     }else{
-                        //         data.push(`${month}/${date+i+1}`)
-                        //     }
-                            
-                        // }else if(month == 2){
-                        //     if(date + 1 > 28){
-                        //         date = 1;
-                        //         month = month + 1;
-                        //         data.push(`${month}/${date}`)
-                        //     }else{
-                        //         data.push(`${month}/${date+i+1}`)
-                        //     }
-                            
-                        // }else{
-                        //     if(date + 1 > 31){
-                        //         console.log(3)
-                        //         date = 1;
-                        //         month = month + 1;
-                        //         data.push(`${month}/${date}`)
-                        //     }else{
-                        //         data.push(`${month}/${date+i+1}`)
-                        //     }
-                        // }
-                        data.push(`${month}/${date+i+1}`)
-                    }
-                }
-                data.forEach((item, index) => {
-                    if(index == 0){
-                        str = str +`<option class="firstOption" value="${item}">${item}</option>`
+                    if((day + i) % 7 == 0){
+                        let reslut = addDays(i+2);
+                        data.push(`${getThisTime(reslut).month}/${getThisTime(reslut).date}`)
                     }else{
-                        str = str + `<option value="${item}">${item}</option>`
-                    }
-                })
-                document.querySelector('#date').innerHTML = str;
-            }else{
-                for(let i = 0; i < 4; i++){
-                    if((day + i) % 7 !== 1){
-                        data.push(`${month}/${date+i}`)
+                        let reslut = addDays(i+1);
+                        data.push(`${getThisTime(reslut).month}/${getThisTime(reslut).date}`)
                     }
                 }
                 data.forEach((item, index) => {
@@ -511,9 +450,30 @@
                 })
                 document.querySelector('#date').innerHTML = str;
             }
+
+            // else{
+            //     for(let i = 0; i < 1; i++){
+            //         if((day + i) % 7 !== 1){
+            //             data.push(`${month}/${date+i}`)
+            //         }
+            //     }
+            //     data.forEach((item, index) => {
+            //         if(index == 0){
+            //             str = str +`<option class="firstOption" value="${item}">${item}</option>`
+            //         }else{
+            //             str = str + `<option value="${item}">${item}</option>`
+            //         }
+            //     })
+            //     document.querySelector('#date').innerHTML = str;
+            // }
+
+
             for(let i = 1; i < 30; i++){
                 list.textContent += `${i}.\n`
             }
         }
+
+
+
 
 
