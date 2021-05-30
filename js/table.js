@@ -14,33 +14,40 @@ function getListInfo() {
             let lastStr = ``;
             let tempStr = ``;
             let data = [];
-            res.forEach(item => {
+            res.forEach((item,index) => {
+                if(index != 1 && index != 16 && index != 17 && index != 18 && index != 19) { console.log(1)} else{
                     let productList = item.data[8];
-                    let productListTwo = [];
-                    productList = productList.split(/[\n]/);
-                    if( productList.length > 29){
-                        productList.forEach((item, index) => {
-                            if(index > 29){
-                                productListTwo.push(item);
-                            }
-                        })
-                        productList.splice(30, productList.length - 1);
-                    }
-                    let tempData = {
-                        name: item.data[2],
-                        phone: item.data[3],
-                        pay: item.data[4],
-                        address: item.data[6],
-                        ps: item.data[7],
-                        products: productList,
-                        productsTwo: productListTwo,
-                        no: item.data[9]
-                    };
-                    data.push(tempData);
+                let productListTwo = [];
+                productList = productList.split(/[\n]/);
+                if (productList.length > 29) {
+                    productList.forEach((item, index) => {
+                        if (index > 29) {
+                            productListTwo.push(item);
+                        }
+                    })
+                    productList.splice(30, productList.length - 1);
+                }
+                let tempData = {
+                    name: item.data[2],
+                    phone: item.data[3],
+                    pay: item.data[4],
+                    address: item.data[6],
+                    ps: item.data[7],
+                    products: productList,
+                    productsTwo: productListTwo,
+                    no: item.data[9]
+                };
+                data.push(tempData);
+                }
+                
             });
             data.forEach((item, index) => {
                 str = str + `
                 <div class="col-12 list-table${index + 1}">
+                <div style="display:flex; align-items:center; justify-content:center">
+                <h1 style="text-align: center; font-size:48px;">${item.no}</h1>
+                ${item.pay === '貨到付款' ? '<p style="font-size:48px; margin-left:30px">V</p>' : '<p></p>'}
+                </div>
                 <table>
                     <tr>
                         <td>訂貨人</td>
@@ -77,16 +84,12 @@ function getListInfo() {
                             <td>總金額</td>
                             <td colspan="3"></td>
                         </tr>
-                        <tr>
-                            <td>訂單編號</td>
-                            <td colspan="3">${item.no}</td>
-                        </tr>
                     </table>
                 </div>
                 `
 
-            item.products.forEach((product) => {
-                strProduct = strProduct + `
+                item.products.forEach((product) => {
+                    strProduct = strProduct + `
                 <tr>
                     <td class="title" style="padding:3px 0">${product}</td>
                     <td class="list" style="padding:3px 0"></td>
@@ -94,11 +97,11 @@ function getListInfo() {
                     <td class="list" style="padding:3px 0"></td>
                 </tr>
                     `
-            })
-            if(item.productsTwo.length !== 0){
-                console.log(1)
-                item.productsTwo.forEach((product) => {
-                    strProduct2 = strProduct2 + `
+                })
+                if (item.productsTwo.length !== 0) {
+                    console.log(1)
+                    item.productsTwo.forEach((product) => {
+                        strProduct2 = strProduct2 + `
                     <tr>
                         <td class="title" style="padding:3px 0">${product}</td>
                         <td class="list" style="padding:3px 0"></td>
@@ -106,19 +109,19 @@ function getListInfo() {
                         <td class="list" style="padding:3px 0"></td>
                     </tr>
                         `
-                })
-                tempStr = str + strProduct + strNo + str + strProduct + strNo + str + strProduct2 + strNo + str + strProduct2 + strNo;
-                lastStr += tempStr;
-            }else{
-                tempStr = str + strProduct + strNo + str + strProduct + strNo;
-                lastStr += tempStr; 
-            }
+                    })
+                    tempStr = str + strProduct + strNo + str + strProduct + strNo + str + strProduct2 + strNo + str + strProduct2 + strNo;
+                    lastStr += tempStr;
+                } else {
+                    tempStr = str + strProduct + strNo + str + strProduct + strNo;
+                    lastStr += tempStr;
+                }
 
-            str = '';
-            strProduct = '';
-            strNo = '';
-            tempStr = '';
-            strProduct2 = '';
+                str = '';
+                strProduct = '';
+                strNo = '';
+                tempStr = '';
+                strProduct2 = '';
 
 
             })
@@ -126,7 +129,7 @@ function getListInfo() {
         },
 
     });
-    
+
 }
 
 
