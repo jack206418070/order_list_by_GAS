@@ -54,6 +54,7 @@
         init();
 
         function orderListControl(e) {
+            console.log(e)
             let flag;
             e == undefined ? flag = false : flag = true;
             let searchName = document.querySelector('#search_name');

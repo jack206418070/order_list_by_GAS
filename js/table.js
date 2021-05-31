@@ -15,8 +15,7 @@ function getListInfo() {
             let tempStr = ``;
             let data = [];
             res.forEach((item,index) => {
-                if(index != 1 && index != 16 && index != 17 && index != 18 && index != 19) { console.log(1)} else{
-                    let productList = item.data[8];
+                let productList = item.data[8];
                 let productListTwo = [];
                 productList = productList.split(/[\n]/);
                 if (productList.length > 29) {
@@ -37,9 +36,7 @@ function getListInfo() {
                     productsTwo: productListTwo,
                     no: item.data[9]
                 };
-                data.push(tempData);
-                }
-                
+                data.push(tempData);             
             });
             data.forEach((item, index) => {
                 str = str + `
