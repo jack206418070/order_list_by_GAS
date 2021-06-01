@@ -15,7 +15,7 @@ function getListInfo() {
             let tempStr = ``;
             let data = [];
             res.forEach((item,index) => {
-                if(item.data[0] == '6/2' && index < 45){
+                if(item.data[0] == '6/2'){
                     let productList = item.data[8];
                     let productListTwo = [];
                     productList = productList.split(/[\n]/);
