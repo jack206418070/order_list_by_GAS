@@ -302,7 +302,6 @@
                         "order_limitNum":limitNum
                     },
                     success: function (response) {
-                        console.log(limitNum);
                         if (response == "成功") {
                             date.value = "";
                             time.value = "";

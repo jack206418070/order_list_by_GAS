@@ -15,35 +15,39 @@ function getListInfo() {
             let tempStr = ``;
             let data = [];
             res.forEach((item,index) => {
-                let productList = item.data[8];
-                let productListTwo = [];
-                productList = productList.split(/[\n]/);
-                if (productList.length > 29) {
-                    productList.forEach((item, index) => {
-                        if (index > 29) {
-                            productListTwo.push(item);
-                        }
-                    })
-                    productList.splice(30, productList.length - 1);
+                console.log(item.data[0]);
+                if(item.data[0] == '6/2'){
+                    let productList = item.data[8];
+                    let productListTwo = [];
+                    productList = productList.split(/[\n]/);
+                    if (productList.length > 29) {
+                        productList.forEach((item, index) => {
+                            if (index > 29) {
+                                productListTwo.push(item);
+                            }
+                        })
+                        productList.splice(30, productList.length - 1);
+                    }
+                    let tempData = {
+                        name: item.data[2],
+                        phone: item.data[3],
+                        pay: item.data[4],
+                        address: item.data[6],
+                        ps: item.data[7],
+                        products: productList,
+                        productsTwo: productListTwo,
+                        no: item.data[9]
+                    };
+                    data.push(tempData);
                 }
-                let tempData = {
-                    name: item.data[2],
-                    phone: item.data[3],
-                    pay: item.data[4],
-                    address: item.data[6],
-                    ps: item.data[7],
-                    products: productList,
-                    productsTwo: productListTwo,
-                    no: item.data[9]
-                };
-                data.push(tempData);             
+                            
             });
             data.forEach((item, index) => {
                 str = str + `
                 <div class="col-12 list-table${index + 1}">
                 <div style="display:flex; align-items:center; justify-content:center">
-                <h1 style="text-align: center; font-size:48px;">${item.no}</h1>
-                ${item.pay === '貨到付款' ? '<p style="font-size:48px; margin-left:30px">V</p>' : '<p></p>'}
+                <h1 style="text-align: center; font-size:36px;">${item.no}</h1>
+                ${item.pay === '貨到付款' ? '<p style="font-size:36px; margin-left:30px">V</p>' : '<p></p>'}
                 </div>
                 <table>
                     <tr>
