@@ -6,7 +6,7 @@
 }
 
 .col-12{
-    height: 978px;
+    height: 1046px;
 }
 
 table{
@@ -33,3 +33,11 @@ td{
         width: 20% !important;
     }
 }
+@media print{
+    * {
+      -webkit-print-color-adjust: exact !important;
+    }
+    .noBreak {
+      break-inside: avoid;
+    }
+  }

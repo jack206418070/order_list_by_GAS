@@ -15,18 +15,17 @@ function getListInfo() {
             let tempStr = ``;
             let data = [];
             res.forEach((item,index) => {
-                console.log(item.data[0]);
-                if(item.data[0] == '6/2'){
+                if(item.data[0] == '6/2' && index < 45){
                     let productList = item.data[8];
                     let productListTwo = [];
                     productList = productList.split(/[\n]/);
-                    if (productList.length > 29) {
+                    if (productList.length > 25) {
                         productList.forEach((item, index) => {
-                            if (index > 29) {
+                            if (index > 25) {
                                 productListTwo.push(item);
                             }
                         })
-                        productList.splice(30, productList.length - 1);
+                        productList.splice(26, productList.length - 1);
                     }
                     let tempData = {
                         name: item.data[2],
@@ -44,7 +43,7 @@ function getListInfo() {
             });
             data.forEach((item, index) => {
                 str = str + `
-                <div class="col-12 list-table${index + 1}">
+                <div class="col-12 list-table${index + 1} noBreak">
                 <div style="display:flex; align-items:center; justify-content:center">
                 <h1 style="text-align: center; font-size:36px;">${item.no}</h1>
                 ${item.pay === '貨到付款' ? '<p style="font-size:36px; margin-left:30px">V</p>' : '<p></p>'}
@@ -100,7 +99,6 @@ function getListInfo() {
                     `
                 })
                 if (item.productsTwo.length !== 0) {
-                    console.log(1)
                     item.productsTwo.forEach((product) => {
                         strProduct2 = strProduct2 + `
                     <tr>

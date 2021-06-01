@@ -467,8 +467,12 @@
             // }
 
 
-            for(let i = 1; i < 30; i++){
-                list.textContent += `${i}.\n`
+            for(let i = 1; i < 26; i++){
+                if(i == 25){
+                    ist.textContent += `${i}.`
+                }else{
+                    list.textContent += `${i}.\n`
+                }
             }
         }
 

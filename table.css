@@ -9,7 +9,7 @@
 }
 
 .col-12 {
-  height: 978px;
+  height: 1046px;
 }
 
 table {
@@ -37,5 +37,15 @@ td.title {
 
 td.list {
   width: 20% !important;
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+  }
+  .noBreak {
+    -webkit-column-break-inside: avoid;
+            break-inside: avoid;
+  }
 }
 /*# sourceMappingURL=table.css.map */
