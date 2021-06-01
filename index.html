@@ -137,9 +137,9 @@
         <div class="row jy-content-center">
             <div class="col-md-8">
                 <h2 class="text-center f-size-l f-w-600 my-xxs" style="color: red">今日訂單已滿 , 只開放明日預約單</h2>
-                <h2 class="text-center f-size-l f-w-600 my-xxs"><span style="color: red">公告</span> 當日訂單請於上午 00 : 00 下單完成</h2>
-                <h2 class="text-center f-size-l f-w-600 my-xxs">上午 00: 00 之後 只接隔日預約單</h2>
-                <h2 class="text-center f-size-l f-w-600 my-s">目前只再接受 <span class="js-limitOrder" style="color:red"></span> 組訂單</span></h2>
+                <h2 class="text-center f-size-l f-w-600 my-xxs"><span style="color: red">公告</span> 6/3 日因大市場休市</h2>
+                <h2 class="text-center f-size-l f-w-600 my-xxs">所以 6/3 日的單 今日中午過後視存貨量 決定訂單數量 , 謝謝大家</h2>
+                <!-- <h2 class="text-center f-size-l f-w-600 my-s">目前只再接受 <span class="js-limitOrder" style="color:red"></span> 組訂單</span></h2> -->
                 <div class="b-order p-relative">
                     <div class="js-loading p-absolute"><img src="./img/loading.gif" alt="" width="150px" height="150px">
                     </div>
@@ -149,7 +149,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="name">訂購人 ( Line暱稱為主 )</label>
-                                    <input type="text" name="name" id="name" placeholder="Amily">
+                                    <input type="text" name="name" id="name" placeholder="Amily" disabled>
                                 </div>
                             </div>
                             <div class="col-sm-12">
@@ -172,7 +172,7 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="phone">連絡電話</label>
-                                    <input type="tel" name="phone" id="phone" placeholder="09xx-xxx-xxx">
+                                    <input type="tel" name="phone" id="phone" placeholder="09xx-xxx-xxx" disabled>
                                 </div>
                             </div>
                             <div class="col-sm-12">
@@ -199,19 +199,19 @@
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="address">送達地址</label>
-                                    <input type="text" name="address" id="address">
+                                    <input type="text" name="address" id="address" disabled>
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="list">訂購清單</label>
-                                    <textarea name="list" id="list" rows="10"></textarea>
+                                    <textarea name="list" id="list" rows="10" disabled></textarea>
                                 </div>
                             </div>
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="ps">備註</label>
-                                    <input type="text" name="ps" id="ps" placeholder="ex: 不接觸取貨 or 送貨前手機通知">
+                                    <input type="text" name="ps" id="ps" placeholder="ex: 不接觸取貨 or 送貨前手機通知" disabled>
                                     <input class="listNo-value" type="text" id="no" style="display: none;">
                                 </div>
                             </div>
