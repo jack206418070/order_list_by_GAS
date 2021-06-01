@@ -14,6 +14,9 @@ function getListInfo() {
             let lastStr = ``;
             let tempStr = ``;
             let data = [];
+            let fish = [[],[],[],[],[],[],[],[]];
+            let pig = [];
+            let beef = [];
             res.forEach((item,index) => {
                 if(item.data[0] == '6/2'){
                     let productList = item.data[8];
@@ -89,6 +92,30 @@ function getListInfo() {
                 `
 
                 item.products.forEach((product) => {
+                    
+                    // if(product.indexOf('魚') !== -1){
+                    //     if(product.indexOf('鱸') !== -1){
+                    //         fish[0].push(product);
+                    //     }else if(product.indexOf('虱目') !== -1){
+                    //         fish[1].push(product);
+                    //     }else if(product.indexOf('鯖') !== -1){
+                    //         fish[2].push(product);
+                    //     }else if(product.indexOf('多利') !== -1){
+                    //         fish[3].push(product);
+                    //     }else if(product.indexOf('鮭') !== -1){
+                    //         fish[4].push(product);
+                    //     }else if(product.indexOf('鱈') !== -1){
+                    //         fish[5].push(product);
+                    //     }else if(product.indexOf('鯛') !== -1){
+                    //         fish[6].push(product);
+                    //     }else{
+                    //         fish[7].push(product);
+                    //     }
+                    // }else if(product.indexOf('牛肉') !== -1){
+                    //     beef.push(product);
+                    // }else if(product.indexOf('豬') !== -1){
+                    //     pig.push(product);
+                    // }
                     strProduct = strProduct + `
                 <tr>
                     <td class="title" style="padding:3px 0">${product}</td>
@@ -100,6 +127,13 @@ function getListInfo() {
                 })
                 if (item.productsTwo.length !== 0) {
                     item.productsTwo.forEach((product) => {
+                        // if(product.indexOf('魚') !== -1){
+                        //     fish.push(product);
+                        // }else if(product.indexOf('牛') !== -1){
+                        //     beef.push(product);
+                        // }else if(product.indexOf('豬') !== -1){
+                        //     pig.push(product);
+                        // }
                         strProduct2 = strProduct2 + `
                     <tr>
                         <td class="title" style="padding:3px 0">${product}</td>
@@ -125,6 +159,10 @@ function getListInfo() {
 
             })
             row.innerHTML = lastStr;
+            console.log(fish);
+            console.log(beef);
+            console.log(pig);
+
         },
 
     });

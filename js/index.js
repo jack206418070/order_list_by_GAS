@@ -469,7 +469,7 @@
 
             for(let i = 1; i < 26; i++){
                 if(i == 25){
-                    ist.textContent += `${i}.`
+                    list.textContent += `${i}.`
                 }else{
                     list.textContent += `${i}.\n`
                 }
