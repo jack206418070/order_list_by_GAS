@@ -283,7 +283,7 @@
             let list = document.querySelector('#list');
             let ps = document.querySelector('#ps');
             let limitNum = document.querySelector('.js-limitOrder').textContent;
-            let checkData = [date, time, name, pay, area, address, list];
+            let checkData = [date, time, name, pay, phone, area, address, list];
             if (checkList(checkData)) {
                 loadingHandler(true);
                 $.ajax({
