@@ -18,7 +18,7 @@ function getListInfo() {
             let pig = [];
             let beef = [];
             res.forEach((item,index) => {
-                if(item.data[0] == '6/3'){
+                if(item.data[0] == '6/4'){
                     let productList = item.data[8];
                     let productListTwo = [];
                     productList = productList.split(/[\n]/);
