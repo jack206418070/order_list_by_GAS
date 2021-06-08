@@ -282,7 +282,7 @@
             let address = document.querySelector('#address');
             let list = document.querySelector('#list');
             let ps = document.querySelector('#ps');
-            let limitNum = document.querySelector('.js-limitOrder').textContent;
+            // let limitNum = document.querySelector('.js-limitOrder').textContent;
             let checkData = [date, time, name, pay, phone, area, address, list];
             if (checkList(checkData)) {
                 loadingHandler(true);
@@ -478,20 +478,20 @@
         }
 
 
-        function getLimitOrderNum(){
-            $.ajax({
-                type: "GET",
-                url: 'https://script.google.com/macros/s/AKfycbxLrq-i5RIlpgVIg2gDz9JtJnc2F-4eUoQksqzJ5N6JcgIFYbc/exec',
-                success: function (res) {
-                    if(res[0] == 0){
-                        alert('抱歉訂單已滿 暫時不接單');
-                        document.querySelector('.js-limitOrder').textContent = `${res[0]}`
-                    }else{
-                       document.querySelector('.js-limitOrder').textContent = `${res[0]}`
-                    }
-                }
-            })
-        }
+        // function getLimitOrderNum(){
+        //     $.ajax({
+        //         type: "GET",
+        //         url: 'https://script.google.com/macros/s/AKfycbxLrq-i5RIlpgVIg2gDz9JtJnc2F-4eUoQksqzJ5N6JcgIFYbc/exec',
+        //         success: function (res) {
+        //             if(res[0] == 0){
+        //                 alert('抱歉訂單已滿 暫時不接單');
+        //                 document.querySelector('.js-limitOrder').textContent = `${res[0]}`
+        //             }else{
+        //                document.querySelector('.js-limitOrder').textContent = `${res[0]}`
+        //             }
+        //         }
+        //     })
+        // }
 
 
         function decLimitOrderNum(){
