@@ -14,39 +14,43 @@ function getListInfo() {
             let lastStr = ``;
             let tempStr = ``;
             let data = [];
-            let fish = [[],[],[],[],[],[],[],[]];
-            let pig = [];
-            let beef = [];
+            // let fish = [[], [], [], [], [], [], [], []];
+            // let pig = [];
+            // let beef = [];
             let date = new Date();
-            res.forEach((item,index) => {
-                if(index <= 40){
-                    if(item.data[0] == `${date.getMonth()+1}/${date.getDate()}`){
-                        let productList = item.data[8];
-                        let productListTwo = [];
-                        productList = productList.split(/[\n]/);
-                        if (productList.length > 25) {
-                            productList.forEach((item, index) => {
-                                if (index > 25) {
-                                    productListTwo.push(item);
-                                }
-                            })
-                            productList.splice(26, productList.length - 1);
-                        }
-                        let tempData = {
-                            name: item.data[2],
-                            phone: item.data[3],
-                            pay: item.data[4],
-                            address: item.data[6],
-                            ps: item.data[7],
-                            products: productList,
-                            productsTwo: productListTwo,
-                            no: item.data[9]
-                        };
+            res.forEach((item, index) => {
+                if (item.data[0] == `${date.getMonth() + 1}/${date.getDate() + 1}`) {
+                    let productList = item.data[8];
+                    let productListTwo = [];
+                    productList = productList.split(/[\n]/);
+                    if (productList.length > 25) {
+                        productList.forEach((item, index) => {
+                            if (index > 25) {
+                                productListTwo.push(item);
+                            }
+                        })
+                        productList.splice(26, productList.length - 1);
+                    }
+                    let tempData = {
+                        name: item.data[2],
+                        phone: item.data[3],
+                        pay: item.data[4],
+                        address: item.data[6],
+                        ps: item.data[7],
+                        products: productList,
+                        productsTwo: productListTwo,
+                        no: item.data[9]
+                    };
+
+                    if(checkProduct(tempData.productsTwo)){
                         data.push(tempData);
+                    }else{
+                        tempData.productsTwo = [];
+                        data.push(tempData);
+                    }
+
                 }
-                
-              }
-                            
+
             });
             data.forEach((item, index) => {
                 str = str + `
@@ -96,7 +100,12 @@ function getListInfo() {
                 `
 
                 item.products.forEach((product) => {
-                    
+                    let productStr = product.split('.');
+                    console.log(productStr)
+                    if (productStr[1] == "" || productStr[1] == " ") {
+                        return;
+                    }
+
                     // if(product.indexOf('魚') !== -1){
                     //     if(product.indexOf('鱸') !== -1){
                     //         fish[0].push(product);
@@ -131,6 +140,11 @@ function getListInfo() {
                 })
                 if (item.productsTwo.length !== 0) {
                     item.productsTwo.forEach((product) => {
+                        let productStr = product.split('.');
+                        console.log(productStr)
+                        if (productStr[1] == "" || productStr[1] == " ") {
+                            return;
+                        }
                         // if(product.indexOf('魚') !== -1){
                         //     fish.push(product);
                         // }else if(product.indexOf('牛') !== -1){
@@ -163,9 +177,6 @@ function getListInfo() {
 
             })
             row.innerHTML = lastStr;
-            console.log(fish);
-            console.log(beef);
-            console.log(pig);
 
         },
 
@@ -174,3 +185,15 @@ function getListInfo() {
 }
 
 
+function checkProduct(data){
+    let flag = true;
+    let num = 0;
+    data.forEach(item => {
+        let productStr = item.split('.');
+        if(productStr[1] == '' || productStr[1] == ' '){
+            num++;
+        }
+    })
+    num == data.length ? flag = false : flag = true;
+    return flag;
+}

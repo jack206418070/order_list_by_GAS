@@ -504,20 +504,20 @@
             })
         }
 
-        let getLimtNum = setInterval(function(){
-            $.ajax({
-                type: "GET",
-                url: 'https://script.google.com/macros/s/AKfycbxLrq-i5RIlpgVIg2gDz9JtJnc2F-4eUoQksqzJ5N6JcgIFYbc/exec',
-                success: function (res) {
-                    if(res[0] == 0){
-                        alert('抱歉訂單已滿 暫時不接單');
-                        document.querySelector('.js-limitOrder').textContent = `${res[0]}`
-                        clearInterval(getLimtNum);
-                    }else{
-                       document.querySelector('.js-limitOrder').textContent = `${res[0]}`
-                    }
-                }
-            })
-        },2000);
+        // let getLimtNum = setInterval(function(){
+        //     $.ajax({
+        //         type: "GET",
+        //         url: 'https://script.google.com/macros/s/AKfycbxLrq-i5RIlpgVIg2gDz9JtJnc2F-4eUoQksqzJ5N6JcgIFYbc/exec',
+        //         success: function (res) {
+        //             if(res[0] == 0){
+        //                 alert('抱歉訂單已滿 暫時不接單');
+        //                 document.querySelector('.js-limitOrder').textContent = `${res[0]}`
+        //                 clearInterval(getLimtNum);
+        //             }else{
+        //                document.querySelector('.js-limitOrder').textContent = `${res[0]}`
+        //             }
+        //         }
+        //     })
+        // },2000);
 
 
