@@ -299,7 +299,6 @@
                         "order_address": address.value,
                         "order_ps": ps.value,
                         "order_list": list.value,
-                        "order_limitNum":limitNum
                     },
                     success: function (response) {
                         if (response == "成功") {
