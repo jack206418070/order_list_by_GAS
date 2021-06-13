@@ -14,7 +14,7 @@ function getListInfo() {
             let lastStr = ``;
             let tempStr = ``;
             let data = [];
-            // let fish = [[], [], [], [], [], [], [], []];
+            let egg = [[], []];
             // let pig = [];
             // let beef = [];
             let date = new Date();
@@ -109,29 +109,18 @@ function getListInfo() {
                         return;
                     }
 
-                    // if(product.indexOf('魚') !== -1){
-                    //     if(product.indexOf('鱸') !== -1){
-                    //         fish[0].push(product);
-                    //     }else if(product.indexOf('虱目') !== -1){
-                    //         fish[1].push(product);
-                    //     }else if(product.indexOf('鯖') !== -1){
-                    //         fish[2].push(product);
-                    //     }else if(product.indexOf('多利') !== -1){
-                    //         fish[3].push(product);
-                    //     }else if(product.indexOf('鮭') !== -1){
-                    //         fish[4].push(product);
-                    //     }else if(product.indexOf('鱈') !== -1){
-                    //         fish[5].push(product);
-                    //     }else if(product.indexOf('鯛') !== -1){
-                    //         fish[6].push(product);
-                    //     }else{
-                    //         fish[7].push(product);
-                    //     }
+                    if(product.indexOf('蛋') !== -1){
+                        if(product.indexOf('鹹') !== -1){
+                            egg[0].push(product);
+                        }else if(product.indexOf('皮') !== -1){
+                            egg[1].push(product);
+                        }
                     // }else if(product.indexOf('牛肉') !== -1){
                     //     beef.push(product);
                     // }else if(product.indexOf('豬') !== -1){
                     //     pig.push(product);
                     // }
+                    }
                     strProduct = strProduct + `
                 <tr>
                     <td class="title" style="padding:3px 0">${product}</td>
@@ -180,7 +169,7 @@ function getListInfo() {
 
             })
             row.innerHTML = lastStr;
-
+            console.log(egg)
         },
 
     });

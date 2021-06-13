@@ -284,7 +284,7 @@
             let ps = document.querySelector('#ps');
             // let limitNum = document.querySelector('.js-limitOrder').textContent;
             let checkData = [date, time, name, pay, phone, area, address, list];
-            let day = getThisTime().day;
+            let day = getThisTime().day == 0 && `${getThisTime(addDays(1)).month}/${getThisTime(addDays(1)).date}` == date.value ? getThisTime().day + 1 : getThisTime().day;
             if (checkList(checkData)) {
                 loadingHandler(true);
                 $.ajax({
