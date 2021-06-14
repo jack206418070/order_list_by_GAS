@@ -284,9 +284,11 @@
             let ps = document.querySelector('#ps');
             // let limitNum = document.querySelector('.js-limitOrder').textContent;
             let checkData = [date, time, name, pay, phone, area, address, list];
-            let day = getThisTime().day == 0 && `${getThisTime(addDays(1)).month}/${getThisTime(addDays(1)).date}` == date.value ? getThisTime().day + 1 : getThisTime().day;
+            let test = name.value == '測試' ? true : false;
+            let day = (getThisTime().day == 0 && `${getThisTime(addDays(1)).month}/${getThisTime(addDays(1)).date}` == date.value) || (getThisTime().day !== 0 && `${getThisTime(addDays(1)).month}/${getThisTime(addDays(1)).date}` == date.value) ? getThisTime().day + 1 : getThisTime().day + 2;
             if (checkList(checkData)) {
                 loadingHandler(true);
+                console.log(test,day);
                 $.ajax({
                     type: "post",
                     url: "https://script.google.com/macros/s/AKfycbzpur_MtR85k5FPDcHF18U5XHRmHkm0xNOLQA4DQR7ioSTjf7M/exec",
@@ -300,7 +302,8 @@
                         "order_address": address.value,
                         "order_ps": ps.value,
                         "order_list": list.value,
-                        "order_day": day   
+                        "order_day": day,
+                        "order_test": test ? '測試' : '非測試',   
                     },
                     success: function (response) {
                         if (response == "成功") {
@@ -433,8 +436,7 @@
             let data = [];
             if(getThisTime().hour >= 0 && getThisTime().min >= 0){
                 for(let i = 0; i < 1; i++){
-                    console.log(`${getThisTime().month}/${getThisTime().date}`)
-                    if(((day + i) % 7 == 0 || `${getThisTime().month}/${getThisTime().date}` == '6/16') && `${getThisTime().month}/${getThisTime().date}` !== '6/13'){
+                    if(((day + i) % 7 == 0 || `${getThisTime().month}/${getThisTime().date}` == '6/15')){
                         let reslut = addDays(i+2);
                         data.push(`${getThisTime(reslut).month}/${getThisTime(reslut).date}`)
                     }else{
