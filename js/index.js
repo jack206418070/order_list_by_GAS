@@ -72,7 +72,7 @@
                 form.style = 'display: block';
             } else {
                 listInfoHtml.style = 'display: block';
-                searchName.value = '';
+                // searchName.value = '';
                 searchPhone.value = '';
                 form.style = 'display: none';
             }
