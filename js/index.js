@@ -81,13 +81,11 @@
 
         function getListInfo(e) {
             clickNode = e.target.innerText;
-            let searchName = document.querySelector('#search_name');
             let searchPhone = document.querySelector('#search_phone');
-            let editName = document.querySelector('#edit_name');
             let editPhone = document.querySelector('#edit_phone');
             let ApiUrl = 'https://script.google.com/macros/s/AKfycbzpur_MtR85k5FPDcHF18U5XHRmHkm0xNOLQA4DQR7ioSTjf7M/exec';
-            let searchListInfo = [searchName, searchPhone];
-            let editListInfo = [editName, editPhone];
+            let searchListInfo = [searchPhone];
+            let editListInfo = [editPhone];
             let data;
             if (clickNode == "查詢" ? checkList(searchListInfo) : false) {
                 searchBtnFlag = !searchBtnFlag;
@@ -97,7 +95,6 @@
                     type: "Get",
                     url: ApiUrl,
                     data: {
-                        "order_name": searchName.value,
                         "order_phone": searchPhone.value
                     },
                     success: function (res) {
@@ -118,12 +115,10 @@
                     type: "Get",
                     url: ApiUrl,
                     data: {
-                        "order_name": editName.value,
                         "order_phone": editPhone.value
                     },
                     success: function (res) {
                         if(res.length == 0){alert('查無此訂單'); loadingHandler(false); return}
-                        editName.value = '';
                         editPhone.value = '';
                         let dateInfo = `${getThisTime().month}/${getThisTime().date}`;
                         data = res[0].data;
@@ -307,8 +302,8 @@
                     },
                     success: function (response) {
                         if (response == "成功") {
-                            date.value = "";
-                            time.value = "";
+                            // date.value = "";
+                            // time.value = "";
                             name.value = "";
                             phone.value = "";
                             address.value = "";
