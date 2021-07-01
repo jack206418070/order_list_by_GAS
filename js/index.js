@@ -33,7 +33,8 @@
         let editSendBtn = document.querySelector('.js-edit-send');
         let listInfoHtml = document.querySelector('.listInfo');
         let options = document.querySelector('#date option');
-
+        let coupon = document.querySelector('#coupon');
+        let couponData = "";
         // btn.addEventListener('click', fixAlert);
         btn.addEventListener('click', sendList);
         orderBtn.addEventListener('click', orderListControl);
@@ -46,22 +47,77 @@
         editCloseBtn.addEventListener('click', editHandler);
         editSendBtn.addEventListener('click', getListInfo);
         listEditbtn.addEventListener('click', editList);
+        coupon.addEventListener('blur', checkCoupon);
+        
+        
 
-        
-        
+        function useCoupon(coupon){
+            let ApiUrl = 'https://script.google.com/macros/s/AKfycbxoYiKQyibJ1t5dq4FLh2Of1Gv5GMMpeCU9RXl34cIHP3xDkOY/exec';
+            $.ajax({
+                type: 'post',
+                url: ApiUrl,
+                data: {
+                    "coupon": coupon
+                },
+                success: function(res){
+                    if(res == '成功'){
+                        return
+                    }else{
+                        console.log(res)
+                    }
+                }
+            })
+        }
+        function checkCoupon(){
+            let ApiUrl = 'https://script.google.com/macros/s/AKfycbxoYiKQyibJ1t5dq4FLh2Of1Gv5GMMpeCU9RXl34cIHP3xDkOY/exec';
+            $.ajax({
+                type: 'get',
+                url: ApiUrl,
+                data: {
+                    "coupon": coupon.value
+                },
+                success: function(res){
+                   if(res == '失敗'){
+                        document.querySelector('.js-couponSuccess').style = "display: none";
+                        document.querySelector('.js-couponErr').style = "display: block";
+                        document.querySelector('.js-couponErr').textContent = "無此優惠碼";
+                        document.querySelector('.coupon').classList.add('error');
+                   }else if(res == '已使用'){
+                        document.querySelector('.js-couponSuccess').style = "display: none";
+                        document.querySelector('.js-couponErr').style = "display: block";
+                        document.querySelector('.js-couponErr').textContent = "此優惠碼已使用過";
+                        document.querySelector('.coupon').classList.add('error');
+                   }else if(res == "清空"){
+                        let input = document.querySelector('.coupon');
+                        if(input.classList[1] == 'error'){
+                            input.classList.remove('error');
+                            document.querySelector('.js-couponErr').style = "display: none";
+                        }
+                   }else{
+                        let input = document.querySelector('.coupon');
+                        if(input.classList[1] == 'error'){
+                            input.classList.remove('error');
+                            document.querySelector('.js-couponErr').style = "display: none";
+                        }
+                        couponData = res[0].data[1];
+                        document.querySelector('.js-couponSuccess').style = "display: block";
+                        document.querySelector('.js-couponSuccess').textContent = `此優惠碼獲得 ${res[0].data[1]} 優惠`;
+                   }
+                }
+            })
+        }
 
 
         init();
 
         function orderListControl(e) {
-            console.log(e)
+            
             let flag;
             e == undefined ? flag = false : flag = true;
-            let searchName = document.querySelector('#search_name');
             let searchPhone = document.querySelector('#search_phone');
             if (flag === true) {
                 if(searchBtnFlag === true){
-                    searchBtnFlag = !searchBtnFlag
+                    searchBtnFlag = !searchBtnFlag;
                     checkProduct(searchBtnFlag, 'search');
                 }else if(editBtnFlag === true){
                     editBtnFlag = !editBtnFlag;
@@ -72,7 +128,6 @@
                 form.style = 'display: block';
             } else {
                 listInfoHtml.style = 'display: block';
-                // searchName.value = '';
                 searchPhone.value = '';
                 form.style = 'display: none';
             }
@@ -172,13 +227,6 @@
                                 <p class="text-c-primary f-size-s f-w-600 text-center mx-xs">${productStr2}</p>
                             </div>
                         </div>
-                        <div class="listInfo-total d-flex jy-content-around">
-                            <p class="text-c-white f-size-l f-w-bold ">總金額</p>
-                            <p class="text-c-white f-size-l f-w-bold ">${data[data.length - 3] !== '' ? data[data.length - 3] : '訂單未結算'}</p>                            
-                        </div>
-                        <div class="listInfo-sendStatus my-m">
-                            <p class="text-c-white f-size-l f-w-bold text-center" style="color: red">${data[data.length - 2] !== '' ? data[data.length - 2] : '未送出'}</p>                       
-                        </div>
             `
             listInfo.innerHTML = str;
         }
@@ -268,6 +316,7 @@
 
 
         function sendList() {
+            let coupon = document.querySelector('#coupon');
             let date = document.querySelector('#date');
             let time = document.querySelector('#time');
             let name = document.querySelector('#name');
@@ -281,9 +330,9 @@
             let checkData = [date, time, name, pay, phone, area, address, list];
             let test = name.value == '測試' ? true : false;
             let day = (getThisTime().day == 0 && `${getThisTime(addDays(1)).month}/${getThisTime(addDays(1)).date}` == date.value) || (getThisTime().day !== 0 && `${getThisTime(addDays(1)).month}/${getThisTime(addDays(1)).date}` == date.value) ? getThisTime().day + 1 : getThisTime().day + 2;
-            if (checkList(checkData)) {
+            
+            if (checkList(checkData) && coupon.classList.length == 1) {
                 loadingHandler(true);
-                console.log(test,day);
                 $.ajax({
                     type: "post",
                     url: "https://script.google.com/macros/s/AKfycbzpur_MtR85k5FPDcHF18U5XHRmHkm0xNOLQA4DQR7ioSTjf7M/exec",
@@ -299,28 +348,35 @@
                         "order_list": list.value,
                         "order_day": day,
                         "order_test": test ? '測試' : '非測試',   
+                        "order_coupon":couponData
                     },
                     success: function (response) {
                         if (response == "成功") {
-                            // date.value = "";
-                            // time.value = "";
+                            useCoupon(coupon.value);
                             name.value = "";
                             phone.value = "";
                             address.value = "";
                             ps.value = "";
                             list.value = "";
+                            coupon.value = "";
+                            document.querySelector(".js-couponSuccess").style = "display:none";
                             loadingHandler(false);
                             decLimitOrderNum();
                             alert('訂購成功');
                         }else if(response == '訂單已滿'){
                             loadingHandler(false);
                             alert('明日訂單已滿 請等待下一批訂單開放時間 謝謝您的配合');
-                        }else{
+                        }else{  
                             loadingHandler(false);
                             alert('訂單重複 請利用修改功能');
                         }
                     }
                 });
+            }else if(coupon.classList.length == 2){
+                alert("無此優惠碼 或 優惠碼以使用");
+                coupon.classList.remove("error");
+                coupon.value = "";
+                document.querySelector(".js-couponErr").style = "display:none"
             }
         }
         function loadingHandler(flag) {

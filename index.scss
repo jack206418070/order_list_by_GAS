@@ -262,3 +262,28 @@ h2{
 		margin: 0 auto;
 	}
 }
+
+.js-couponErr{
+	color: red; 
+	font-weight: bold;
+	height: 20px;
+	font-size: 14px;
+	padding: 10px 0 0 0;
+	line-height: 20px;
+}
+
+.js-couponSuccess{
+	color: blue; 
+	font-weight: bold;
+	height: 20px;
+	font-size: 14px;
+	padding: 10px 0 0 0;
+	line-height: 20px;
+}
+
+
+.coupon{
+	&.error{
+		border: 3px solid red !important;
+	}
+}

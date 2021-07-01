@@ -20,17 +20,16 @@ function getListInfo() {
             let date = new Date();
             res.forEach((item, index) => {
                 if (item.data[0] == `${date.getMonth() + 1}/${date.getDate()}`) {
-                    // if(index == 36){
                     let productList = item.data[8];
                     let productListTwo = [];
                     productList = productList.split(/[\n]/);
-                    if (productList.length > 25) {
+                    if (productList.length > 19) {
                         productList.forEach((item, index) => {
-                            if (index > 25) {
+                            if (index - 1 > 19) {
                                 productListTwo.push(item);
                             }
                         })
-                        productList.splice(26, productList.length - 1);
+                        productList.splice(21, productList.length - 1);
                     }
                     let tempData = {
                         name: item.data[2],
@@ -40,7 +39,8 @@ function getListInfo() {
                         ps: item.data[7],
                         products: productList,
                         productsTwo: productListTwo,
-                        no: item.data[9]
+                        no: item.data[9],
+                        coupon: item.data[10]
                     };
 
                     if(checkProduct(tempData.productsTwo)){
@@ -49,10 +49,7 @@ function getListInfo() {
                         tempData.productsTwo = [];
                         data.push(tempData);
                     }
-
-                    
                 }
-                // }
 
             });
             data.forEach((item, index) => {
@@ -84,6 +81,10 @@ function getListInfo() {
                         <td colspan="3">${item.ps}</td>
                     </tr>
                     <tr>
+                        <td>優惠項目</td>
+                        <td colspan="3">${item.coupon}</td>
+                    </tr>
+                    <tr>
                         <td colspan="4"></td>
                     </tr>
                     <tr>
@@ -109,24 +110,24 @@ function getListInfo() {
                         return;
                     }
 
-                    if(product.indexOf('蛋') !== -1){
-                        if(product.indexOf('鹹') !== -1){
-                            egg[0].push(product);
-                        }else if(product.indexOf('皮') !== -1){
-                            egg[1].push(product);
-                        }
+                    // if(product.indexOf('蛋') !== -1){
+                    //     if(product.indexOf('鹹') !== -1){
+                    //         egg[0].push(product);
+                    //     }else if(product.indexOf('皮') !== -1){
+                    //         egg[1].push(product);
+                    //     }
                     // }else if(product.indexOf('牛肉') !== -1){
                     //     beef.push(product);
                     // }else if(product.indexOf('豬') !== -1){
                     //     pig.push(product);
                     // }
-                    }
+                    // }
                     strProduct = strProduct + `
                 <tr>
-                    <td class="title" style="padding:3px 0">${product}</td>
-                    <td class="list" style="padding:3px 0"></td>
-                    <td class="list" style="padding:3px 0"></td>
-                    <td class="list" style="padding:3px 0"></td>
+                    <td class="title" style="padding:8px 0">${product}</td>
+                    <td class="list" style="padding:8px 0"></td>
+                    <td class="list" style="padding:8px 0"></td>
+                    <td class="list" style="padding:8px 0"></td>
                 </tr>
                     `
                 })
@@ -146,10 +147,10 @@ function getListInfo() {
                         // }
                         strProduct2 = strProduct2 + `
                     <tr>
-                        <td class="title" style="padding:3px 0">${product}</td>
-                        <td class="list" style="padding:3px 0"></td>
-                        <td class="list" style="padding:3px 0"></td>
-                        <td class="list" style="padding:3px 0"></td>
+                        <td class="title" style="padding:8px 0">${product}</td>
+                        <td class="list" style="padding:8px 0"></td>
+                        <td class="list" style="padding:8px 0"></td>
+                        <td class="list" style="padding:8px 0"></td>
                     </tr>
                         `
                     })
