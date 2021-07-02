@@ -19,7 +19,7 @@ function getListInfo() {
             // let beef = [];
             let date = new Date();
             res.forEach((item, index) => {
-                if (item.data[0] == `${date.getMonth() + 1}/${date.getDate()}`) {
+                if (item.data[0] == `${date.getMonth() + 1}/${date.getDate()+1}`) {
                     let productList = item.data[8];
                     let productListTwo = [];
                     productList = productList.split(/[\n]/);
@@ -124,10 +124,10 @@ function getListInfo() {
                     // }
                     strProduct = strProduct + `
                 <tr>
-                    <td class="title" style="padding:8px 0">${product}</td>
-                    <td class="list" style="padding:8px 0"></td>
-                    <td class="list" style="padding:8px 0"></td>
-                    <td class="list" style="padding:8px 0"></td>
+                    <td class="title" style="padding:7px 0">${product}</td>
+                    <td class="list" style="padding:7px 0"></td>
+                    <td class="list" style="padding:7px 0"></td>
+                    <td class="list" style="padding:7px 0"></td>
                 </tr>
                     `
                 })
@@ -147,10 +147,10 @@ function getListInfo() {
                         // }
                         strProduct2 = strProduct2 + `
                     <tr>
-                        <td class="title" style="padding:8px 0">${product}</td>
-                        <td class="list" style="padding:8px 0"></td>
-                        <td class="list" style="padding:8px 0"></td>
-                        <td class="list" style="padding:8px 0"></td>
+                        <td class="title" style="padding:7px 0">${product}</td>
+                        <td class="list" style="padding:7px 0"></td>
+                        <td class="list" style="padding:7px 0"></td>
+                        <td class="list" style="padding:7px 0"></td>
                     </tr>
                         `
                     })
