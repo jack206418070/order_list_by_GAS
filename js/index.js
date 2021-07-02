@@ -92,6 +92,7 @@
                         if(input.classList[1] == 'error'){
                             input.classList.remove('error');
                             document.querySelector('.js-couponErr').style = "display: none";
+                        }else{
                             document.querySelector('.js-couponSuccess').style = "display: none";
                         }
                    }else{
