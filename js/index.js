@@ -279,7 +279,8 @@
             
 
             let checkData = [date, time, name, pay, area, address, list];
-            if (checkList(checkData)) {
+            if (checkList(checkData) && coupon.classList.length == 1) {
+                console.log(couponData)
                 loadingHandler(true);
                 $.ajax({
                     type: "post",
@@ -294,10 +295,12 @@
                         "order_address": address.value,
                         "order_ps": ps.value,
                         "order_list": list.value,
-                        "order_no": listNo.value
+                        "order_no": listNo.value,
+                        "order_coupon": couponData
                     },
                     success: function (response) {
                         if (response == "成功") {
+                            useCoupon(coupon.value);
                             name.value = "";
                             phone.value = "";
                             address.value = "";
@@ -306,11 +309,18 @@
                             listNo.value = "";
                             btn.style = 'display: block';
                             listEditbtn.style = 'display: none';
+                            coupon.value = "";
+                            document.querySelector(".js-couponSuccess").style = "display:none";
                             loadingHandler(false);
                             alert('修改成功');
                         }
                     }
                 });
+            }else if(coupon.classList.length == 2){
+                alert("無此優惠碼 或 優惠碼以使用");
+                coupon.classList.remove("error");
+                coupon.value = "";
+                document.querySelector(".js-couponErr").style = "display:none"
             }
 
         }
