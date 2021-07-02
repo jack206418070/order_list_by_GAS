@@ -19,7 +19,7 @@ function getListInfo() {
             // let beef = [];
             let date = new Date();
             res.forEach((item, index) => {
-                if (item.data[0] == `${date.getMonth() + 1}/${date.getDate()+1}`) {
+                if (item.data[0] == `${date.getMonth() + 1}/${date.getDate()}`) {
                     let productList = item.data[8];
                     let productListTwo = [];
                     productList = productList.split(/[\n]/);
