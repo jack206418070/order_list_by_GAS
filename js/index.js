@@ -74,7 +74,7 @@
                 type: 'get',
                 url: ApiUrl,
                 data: {
-                    "coupon": coupon.value
+                    "coupon": coupon.value.trim()
                 },
                 success: function(res){
                    if(res == '失敗'){
