@@ -19,38 +19,39 @@ function getListInfo() {
             // let beef = [];
             let date = new Date();
             res.forEach((item, index) => {
-                if (item.data[0] == `${date.getMonth() + 1}/${date.getDate()}`) {
-                    let productList = item.data[8];
-                    let productListTwo = [];
-                    productList = productList.split(/[\n]/);
-                    if (productList.length > 19) {
-                        productList.forEach((item, index) => {
-                            if (index - 1 > 19) {
-                                productListTwo.push(item);
-                            }
-                        })
-                        productList.splice(21, productList.length - 1);
+                // if(index >= 49){
+                    if (item.data[0] == `${date.getMonth() + 1}/${date.getDate()}`) {
+                        let productList = item.data[8];
+                        let productListTwo = [];
+                        productList = productList.split(/[\n]/);
+                        if (productList.length > 19) {
+                            productList.forEach((item, index) => {
+                                if (index - 1 > 19) {
+                                    productListTwo.push(item);
+                                }
+                            })
+                            productList.splice(21, productList.length - 1);
+                        }
+                        let tempData = {
+                            name: item.data[2],
+                            phone: item.data[3],
+                            pay: item.data[4],
+                            address: item.data[6],
+                            ps: item.data[7],
+                            products: productList,
+                            productsTwo: productListTwo,
+                            no: item.data[9],
+                            coupon: item.data[10]
+                        };
+    
+                        if(checkProduct(tempData.productsTwo)){
+                            data.push(tempData);
+                        }else{
+                            tempData.productsTwo = [];
+                            data.push(tempData);
+                        }
                     }
-                    let tempData = {
-                        name: item.data[2],
-                        phone: item.data[3],
-                        pay: item.data[4],
-                        address: item.data[6],
-                        ps: item.data[7],
-                        products: productList,
-                        productsTwo: productListTwo,
-                        no: item.data[9],
-                        coupon: item.data[10]
-                    };
-
-                    if(checkProduct(tempData.productsTwo)){
-                        data.push(tempData);
-                    }else{
-                        tempData.productsTwo = [];
-                        data.push(tempData);
-                    }
-                }
-
+                // }
             });
             data.forEach((item, index) => {
                 str = str + `

@@ -24,6 +24,8 @@ table, th, td{
 
 td{
     padding: 3px 0;
+    border:0;
+    border-bottom: 1px solid #000;
     &.title{
         width: 40% !important;
         overflow: hidden;
