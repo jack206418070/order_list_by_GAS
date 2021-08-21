@@ -6,44 +6,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+<style>
+    .box{
+        width: 50vw;
+        height: 100vh;
+        background: #000;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+    @media (max-width: 768px) {
+        .box{
+        width: 50vw;
+        height: 100vh;
+        background: #000;
+        position: absolute;
+        right: -100%;
+        top: 0;
+    }
+    }
+</style>
 <body>
-    
-    <script>
-        // you can write to stdout for debugging purposes, e.g.
-// console.log('this is a debug message');
-var arr = {
-        "Mon" : 1,
-        "Tue" : 2,
-        "Wed" : 3,
-        "Thu" : 4,
-        "Fri" : 5,
-        "Sat" : 6,
-        "Sun" : 7
-    }
-function solution(S, K) {
-    // write your code in JavaScript (Node.js 8.9.4)
-    let reslut = (arr[S] + K) % 7;
-    if(K >=0 && K <= 500){
-
-        reslut = Object.keys(arr).find(item => {
-
-           if(arr[item] == reslut){
-            //    console.log(item)
-               return item
-            }
-
-        })
-
-    }else{
-
-        return console.log("Please input 0 to 500 for num");
-
-    }
-    return reslut
-}
-solution("Sat", 23);
-
-
-    </script>
+    <div class="box">
+    </div>
 </body>
 </html>
