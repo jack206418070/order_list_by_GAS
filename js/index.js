@@ -501,7 +501,7 @@
             let data = [];
             if(getThisTime().hour >= 0 && getThisTime().min >= 0){
                 for(let i = 0; i < 1; i++){
-                    if(((day + i) % 7 == 0 && `${getThisTime().month}/${getThisTime().date}` !== '8/22' || `${getThisTime().month}/${getThisTime().date}` == '8/23')){
+                    if(((day + i) % 7 == 0  && `${getThisTime().month}/${getThisTime().date}` !== '9/19')){
                         let reslut = addDays(i+2);
                         data.push(`${getThisTime(reslut).month}/${getThisTime(reslut).date}`)
                     }else{
