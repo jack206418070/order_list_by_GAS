@@ -104,10 +104,9 @@ function getListInfo() {
                 </div>
                 `
 
-                item.products.forEach((product) => {
+                item.products.forEach((product, index) => {
                     let productStr = product.split('.');
-                    console.log(productStr)
-                    if (productStr[1] == "" || productStr[1] == " ") {
+                    if ((productStr[1] == "" || productStr[1] == " ") && productStr[0].length < 4) {
                         return;
                     }
 
@@ -133,10 +132,9 @@ function getListInfo() {
                     `
                 })
                 if (item.productsTwo.length !== 0) {
-                    item.productsTwo.forEach((product) => {
+                    item.productsTwo.forEach((product,index) => {
                         let productStr = product.split('.');
-                        console.log(productStr)
-                        if (productStr[1] == "" || productStr[1] == " ") {
+                        if ((productStr[1] == "" || productStr[1] == " ") && productStr[0].length < 4) {
                             return;
                         }
                         // if(product.indexOf('魚') !== -1){
