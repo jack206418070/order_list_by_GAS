@@ -11,33 +11,51 @@ a{
 .container{
     max-width: 1280px;
     margin: 0 auto;
-	padding: 0;
+	padding: 20px;
     /* background: #3c3c3c; */
 }
 .header{
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	@include mobile{
+		flex-wrap: wrap;
+		justify-content: center;
+	}
 	h1{
-		flex: 1 0 85%;
+		flex: 0 0 70%;
 		padding: 30px;
 		font-size: 80px;
 		font-weight: bold;
 		text-align: center;
 		letter-spacing: 30px;
 		color: lighten($color: green, $amount: 30);
+		@include pad{
+			font-size: 48px;
+		}
+		@include mobile{
+			font-size: 36px;
+			flex: 0 0 100%;
+			letter-spacing: 10px;
+		}
 	}
 	a{
-		flex: 0 0 15%;
+		flex: 0 0 30%;
 		background-color: #000;
 		font-size: 24px;
-		padding: 20px 40px;
+		padding: 20px;
 		border-radius: 7px;
 		border: 2px solid yellow;
 		color:#fff;
 		letter-spacing: 5px;
 		font-weight: bold;
-		white-space: nowrap;
+		text-align: center;
+		// white-space: nowrap;
+		@include mobile{
+			flex: 0 0 40%;
+			font-size: 20px;
+			padding: 15px 10px;
+		}
 		&:hover{
 			color: black;
 			background-color: yellow;
@@ -61,6 +79,14 @@ a{
 		letter-spacing: 5px;
 		font-weight: bold;
 		white-space: nowrap;
+		@include pad{
+			padding: 15px 20px;
+		}
+		@include mobile{
+			margin-top: -10px;
+			width: 90%;
+			margin: 0 auto;
+		}
 		&:hover{
 			color: black;
 			background-color: yellow;
@@ -71,11 +97,19 @@ a{
 	padding-top: 50px;
 	display: flex;
 	justify-content: space-between;
+	@include mobile{
+		flex-wrap: wrap;
+		justify-content: center;
+	}
 	li{
 		flex: 0 0 30%;
 		padding: 30px 15px;
 		box-shadow: 0 4px 15px rgba(0, 0, 0, .35);
-		border: 1px solid yellow;
+		border: 5px solid yellow;
+		@include mobile{
+			flex: 0 0 90%;
+			margin-bottom: 40px;
+		}
 	}
 	h3{
 		font-size: 48px;
@@ -85,6 +119,9 @@ a{
 		text-align: center;
 		border-bottom: 2px solid #fff;
 		color: #fff;
+		@include pad{
+			font-size: 24px;
+		}
 	}
 	.list__content{
 		li{
@@ -94,6 +131,9 @@ a{
 			font-size: 36px;
 			display: flex;
 			justify-content: space-between;
+			@include pad{
+				font-size: 24px;
+			}
 			.list__content__price{
 				color:red;
 			}

@@ -9,7 +9,7 @@
 /* 圖片取代文字 */
 /* bg setting */
 /* RWD mixin */
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .b-login .b-login-input .b-login-input-title {
     display: none;
   }
@@ -42,7 +42,7 @@
   height: 16px;
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .b-login .js-login {
     margin-bottom: -50px;
   }
@@ -60,7 +60,7 @@
           flex-direction: column;
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .b-login .b-login-concat {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -73,7 +73,7 @@
   }
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .b-login .b-login-concat .b-login-concat-title {
     display: none;
   }
@@ -93,7 +93,7 @@
           box-shadow: 215px 0px 0px 0px #afc6ba;
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .b-login .b-login-concat .b-login-concat-link {
     margin-right: 2px;
     padding: 10px;
@@ -111,7 +111,7 @@
   display: none;
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .b-login-input-title__mobile {
     display: block;
   }

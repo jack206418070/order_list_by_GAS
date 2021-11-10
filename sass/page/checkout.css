@@ -9,7 +9,7 @@
 /* 圖片取代文字 */
 /* bg setting */
 /* RWD mixin */
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .section-list {
     display: none;
   }
@@ -26,7 +26,7 @@
   height: 80px;
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .section-check {
     margin-right: -20px;
     margin-left: -20px;
@@ -64,7 +64,7 @@
   left: 90%;
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .js-step {
     margin-right: -20px;
     margin-left: -20px;

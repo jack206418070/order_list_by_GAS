@@ -14,7 +14,7 @@
   margin-left: 0px;
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .section {
     margin-bottom: 0 !important;
   }
@@ -38,7 +38,7 @@
   background-position: center center;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 996px) {
   .section .section-item-order-img {
     max-width: 20%;
     -webkit-box-flex: 0;
@@ -47,7 +47,7 @@
   }
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .section .section-item-order-img {
     max-width: 45%;
     -webkit-box-flex: 0;
@@ -56,7 +56,7 @@
   }
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .section .section-item-order {
     padding: 20px 30px;
     border: 0;
@@ -89,13 +89,13 @@
           flex: 0 0 50%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 996px) {
   .section .section-item-order-group .section-item-order-title {
     margin-bottom: 15px;
   }
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .section .section-item-order-group .section-item-order-title {
     max-width: 100%;
     -webkit-box-flex: 0;
@@ -105,7 +105,7 @@
   }
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .section .section-item-order-group .section-item-order-count {
     max-width: 100%;
     -webkit-box-flex: 0;
@@ -123,7 +123,7 @@
   color: #ffffff;
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .section .section-list {
     background-color: #ffffff;
   }
@@ -144,7 +144,7 @@
   background-color: #ffd54d;
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .section .btn {
     margin-right: -10px;
     margin-left: -10px;

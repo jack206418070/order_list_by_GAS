@@ -14,7 +14,7 @@
   margin-left: 10px;
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .banner .banner-img {
     margin-right: 0;
     margin-left: 0;
@@ -29,13 +29,13 @@
   height: 500px;
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .banner .banner-img {
     height: 350px;
   }
 }
 
-@media screen and (max-width: 569px) {
+@media screen and (max-width: 682px) {
   .section {
     margin-top: 0 !important;
   }
