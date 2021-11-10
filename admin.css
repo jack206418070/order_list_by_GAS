@@ -3,6 +3,23 @@
 /* 圖片取代文字 */
 /* bg setting */
 /* RWD mixin */
+@-webkit-keyframes MoveToLeft {
+  0% {
+    right: -400px;
+  }
+  100% {
+    right: 400px;
+  }
+}
+@keyframes MoveToLeft {
+  0% {
+    right: -400px;
+  }
+  100% {
+    right: 400px;
+  }
+}
+
 body {
   background-color: #000;
 }
@@ -190,7 +207,17 @@ a {
   }
 }
 
+.list .list__content {
+  overflow: hidden;
+  height: 200px;
+  position: relative;
+}
+
 .list .list__content li {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  right: -400px;
   border: none;
   color: yellow;
   font-weight: bold;
@@ -201,6 +228,27 @@ a {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  z-index: 1;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.list .list__content li.mid {
+  right: 0;
+  left: 0;
+}
+
+.list .list__content li.run {
+  -webkit-animation-name: MoveToLeft;
+          animation-name: MoveToLeft;
+  -webkit-animation-duration: 1.5s;
+          animation-duration: 1.5s;
+  -webkit-animation-iteration-count: infinite;
+          animation-iteration-count: infinite;
+}
+
+.list .list__content li p {
+  height: 50px;
 }
 
 @media screen and (max-width: 996px) {

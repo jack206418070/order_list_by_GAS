@@ -1,5 +1,11 @@
 @import "./sass/utils/mixin";
 
+
+@keyframes MoveToLeft {
+    0% { right: -400px; }
+    100% { right: 400px; }
+}
+
 body{
 	background-color: #000;
 }
@@ -124,13 +130,34 @@ a{
 		}
 	}
 	.list__content{
+		overflow: hidden;
+		height: 200px;
+		position: relative;
 		li{
+			position: absolute;
+			width: 100%;
+			height: 50px;
+			right: -400px;
 			border: none;
 			color:yellow;
 			font-weight: bold;
 			font-size: 36px;
 			display: flex;
 			justify-content: space-between;
+			z-index: 1;
+			transition: 0.8s;
+			&.mid{
+				right: 0;
+				left: 0;
+			}
+			&.run{
+				animation-name: MoveToLeft;
+				animation-duration: 1.5s;
+				animation-iteration-count: infinite;
+			}
+			p{
+				height: 50px;
+			}
 			@include pad{
 				font-size: 24px;
 			}

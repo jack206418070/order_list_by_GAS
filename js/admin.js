@@ -81,32 +81,36 @@ function selectHandler(e){
     getCouponData.push(data[0].data[lenData[0]]);
     getCouponData.push(data[1].data[lenData[1]]);
     getCouponData.push(data[2].data[lenData[2]]);
-    getCouponData.forEach( (item, index) => {
-        switch(index){
-            case 0: 
-                seafood.innerHTML = `
-                <li>
-                    <p>${item.name}</p>
-                    <p class="list__content__price">$${item.price}</p>
-                </li>`
-                break;
-            case 1: 
-                meat.innerHTML = `
-                <li>
-                    <p>${item.name}</p>
-                    <p class="list__content__price">$${item.price}</p>
-                </li>`
-                break;
-            case 2: 
-                freezeFood.innerHTML = `
-                <li>
-                    <p>${item.name}</p>
-                    <p class="list__content__price">$${item.price}</p>
-                </li>`
-                break;
-            default: break;
-        }
-    })
+    animate();
+    setTimeout(function(){
+        getCouponData.forEach( (item, index) => {
+            switch(index){
+                case 0: 
+                    seafood.innerHTML = `
+                    <li class="mid">
+                        <p>${item.name}</p>
+                        <p class="list__content__price">$${item.price}</p>
+                    </li>`
+                    break;
+                case 1: 
+                    meat.innerHTML = `
+                    <li class="mid">
+                        <p>${item.name}</p>
+                        <p class="list__content__price">$${item.price}</p>
+                    </li>`
+                    break;
+                case 2: 
+                    freezeFood.innerHTML = `
+                    <li class="mid">
+                        <p>${item.name}</p>
+                        <p class="list__content__price">$${item.price}</p>
+                    </li>`
+                    break;
+                default: break;
+            }
+        })
+    },10000)
+    
     let nameStr = '';
     let priceStr = '';
     getCouponData.forEach((item,index) => {
@@ -121,4 +125,13 @@ function selectHandler(e){
     reslutData.name = nameStr;
     reslutData.price = priceStr;
     console.log(reslutData)
+}
+
+function animate(){
+    let arr = document.querySelectorAll('.list__content li');
+    arr.forEach((item,index) => {
+        setTimeout(function(){
+            item.classList.add('run');
+        },500*index, index);
+    });
 }
