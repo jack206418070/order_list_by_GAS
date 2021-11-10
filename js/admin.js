@@ -1,58 +1,124 @@
-let signinBtn = document.querySelector('.js-signin');
-signinBtn.addEventListener('click', checkSignIn);
+let data = [
+    {
+        category: '海鮮',
+        data:[
+            {
+                name: '鯖魚',
+                price: 80
+            },
+            {
+                name: '藍鑽蝦',
+                price: 650
+            },
+            {
+                name: '軟絲',
+                price: 250
+            }
+        ]
+    },
+    {
+        category: '肉品',
+        data:[
+            {
+                name: '牛小排',
+                price: 300
+            },
+            {
+                name: '松阪豬',
+                price: 150
+            },
+        ]
+    },
+    {
+        category: '冷凍食品',
+        data:[
+            {
+                name: '雞塊',
+                price: 200
+            },
+            {
+                name: '花枝丸',
+                price: 250
+            },
+        ]
+    }
+];
+let reslutData = {}
+let selectBtn = document.querySelector('.select-btn');
+let sendBtn = document.querySelector('.sendBtn');
+let seafood = document.querySelector('.seafood');
+let meat = document.querySelector('.meat');
+let freezeFood = document.querySelector('.freezeFood');
+selectBtn.addEventListener('click', selectHandler);
+sendBtn.addEventListener('click', sendHandler);
 
 
-
-function checkSignIn(){
-    let account = document.querySelector('#account');
-    let password = document.querySelector('#password');
+function sendHandler(e){
+    e.preventDefault();
+    let apiUrl = 'https://script.google.com/macros/s/AKfycbxq7IrpQwaLHiq-KwKYF5kLBh3DZ50xXBMLNGEWaxj5i3nmKhM/exec';
     $.ajax({
         type: "post",
-        url: "https://script.google.com/macros/s/AKfycbxxh4wJzQHc0xWOeb7pbcBLjvOoTE5zG8bsvIzHSWpCkHhJbGg/exec",
-        data: {
-            "account": account.value,
-            "password": password.value,
-        },
+        url: apiUrl,
+        data: reslutData,
         success: function (response) {
-            document.cookie=`token=${response[2]}`;
-            document.cookie=`account=${response[0]}`;
-            document.cookie=`password=${response[1]}`;
+            if (response == "成功") {
+                console.log(reslutData);
+                alert('發送成功');
+            }else{  
+                console.log('失敗')
+            }
         }
     });
-
-
-
-
-    // if(account.value === 'jack90928@gmail.com' && password.value === 'a12081616'){
-    //     let str = `
-    //     <div class="col-sm-6">
-    //         <div class="btn btn-secondary mt-s py-s js-getList" onclick="getlist()">取得未送出訂單</div>
-    //     </div>  
-    //     `
-    //     row[1].innerHTML = str;
-    // }else if(account.value === 'abc123456' && password.value === 'abc123456'){
-    //     let str = `
-    //     <div class="col-sm-6">
-    //         <div class="btn btn-secondary mt-s py-s js-getList" onclick="getlist()">取得未送出訂單</div>
-    //     </div>  
-    //     `
-    //     row[1].innerHTML = str;
-    // }else{
-    //     alert('帳號或密碼錯誤 不要玩我 謝謝!');
-    //     account.value = '';
-    //     password.value = '';
-    // }
 }
 
 
-function getCookie(name){
-    let arr = document.cookie.match(new RegExp(name + "=([^;]*)(;|$)"));
-    if (arr != null) return unescape(arr[1]); 
-    return null;
+function selectHandler(e){
+    let getCouponData =[];
+    let seafoodLen = data[0].data.length;
+    let meatLen = data[1].data.length;
+    let freezeFoodLen = data[2].data.length;
+    let lenData = [ Math.floor( Math.random() * seafoodLen), Math.floor( Math.random() * meatLen), Math.floor( Math.random() * freezeFoodLen)];
+    getCouponData.push(data[0].data[lenData[0]]);
+    getCouponData.push(data[1].data[lenData[1]]);
+    getCouponData.push(data[2].data[lenData[2]]);
+    getCouponData.forEach( (item, index) => {
+        switch(index){
+            case 0: 
+                seafood.innerHTML = `
+                <li>
+                    <p>${item.name}</p>
+                    <p class="list__content__price">$${item.price}</p>
+                </li>`
+                break;
+            case 1: 
+                meat.innerHTML = `
+                <li>
+                    <p>${item.name}</p>
+                    <p class="list__content__price">$${item.price}</p>
+                </li>`
+                break;
+            case 2: 
+                freezeFood.innerHTML = `
+                <li>
+                    <p>${item.name}</p>
+                    <p class="list__content__price">$${item.price}</p>
+                </li>`
+                break;
+            default: break;
+        }
+    })
+    let nameStr = '';
+    let priceStr = '';
+    getCouponData.forEach((item,index) => {
+        if(index == getCouponData.length - 1){
+            nameStr += `${item.name}`;
+            priceStr += `${item.price}`;
+            return;
+        }
+        nameStr += `${item.name},`;
+        priceStr += `${item.price},`;
+    })
+    reslutData.name = nameStr;
+    reslutData.price = priceStr;
+    console.log(reslutData)
 }
-// function getlist(){
-//     $.post('https://script.google.com/macros/s/AKfycbwrshbrEg8h6X-RzXjCwcW0laFrAj9iMTZLYp8clRf-2VQ3hWo/exec',
-//     function(e){
-//         console.log(e);
-//     });
-// }
