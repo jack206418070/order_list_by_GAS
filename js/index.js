@@ -35,6 +35,8 @@
         let options = document.querySelector('#date option');
         let coupon = document.querySelector('#coupon');
         let couponData = "";
+        let modalClose = document.querySelector('.news-close i');
+        let modalNew = document.querySelector('.news')
         // btn.addEventListener('click', fixAlert);
         btn.addEventListener('click', sendList);
         orderBtn.addEventListener('click', orderListControl);
@@ -48,7 +50,9 @@
         editSendBtn.addEventListener('click', getListInfo);
         listEditbtn.addEventListener('click', editList);
         coupon.addEventListener('blur', checkCoupon);
-        
+        modalClose.addEventListener('click', function(e) {
+            modalNew.classList.add('hide');
+        })
         
 
         function useCoupon(coupon){

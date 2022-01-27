@@ -3,6 +3,61 @@
 /* 圖片取代文字 */
 /* bg setting */
 /* RWD mixin */
+.news {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  width: 30%;
+  background: #ddd;
+  z-index: 100;
+}
+
+.news.hide {
+  z-index: -1000;
+  opacity: 0;
+}
+
+@media screen and (max-width: 682px) {
+  .news {
+    width: 80%;
+  }
+}
+
+.news .news-close {
+  text-align: right;
+  background-color: gray;
+  padding: 10px;
+}
+
+.news .news-close i {
+  color: #fff;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.news .news-content {
+  padding: 10px;
+}
+
+.news .news-content h2 {
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+  color: red;
+  margin-bottom: 20px;
+}
+
+.news .news-content p {
+  line-height: 1.5;
+  padding-left: 15px;
+  color: blue;
+  font-weight: 600;
+  font-size: 20px;
+}
+
 a {
   text-decoration: none;
 }

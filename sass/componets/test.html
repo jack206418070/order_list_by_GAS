@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,16 +9,18 @@
     <link rel="stylesheet" href="/sass/main.css" class="css">
     <link href="/fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
     <style>
-        .box{
+        .box {
             width: 300px;
             margin: 0 auto;
         }
-        .container{
+
+        .container {
             max-width: 1024px;
             margin: 0 auto;
         }
     </style>
 </head>
+
 <body>
     <div class="box">
         <div class="btn btn-thirdary text-c-primary py-s">加入購物車</div>
@@ -60,24 +63,24 @@
     <div class="container">
         <div class="row jy-content-end">
             <div class="pagination col-md-6">
-                    <ul class="pagination-item mt-m">
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-arrow-left text-c-primary"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-c-primary">1</a>
-                        </li>
-                        <li>
-                            <a href="#" class="text-c-primary">2</a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="fas fa-arrow-right text-c-primary"></i>
-                            </a>
-                        </li>
-                    </ul>
+                <ul class="pagination-item mt-m">
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-arrow-left text-c-primary"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-c-primary">1</a>
+                    </li>
+                    <li>
+                        <a href="#" class="text-c-primary">2</a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fas fa-arrow-right text-c-primary"></i>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
@@ -107,6 +110,9 @@
                 </div>
             </div>
         </div>
+
+
+        
     </div>
     <script>
         let stepBtn = document.querySelector('.js-step');
@@ -116,12 +122,12 @@
         stepItem[stepCount].className = 'step-item__active'
         stepBtn.addEventListener('click', stepHandler);
 
-        function stepHandler(e){
+        function stepHandler(e) {
             e.preventDefault();
-            if(stepCount <= 2){
+            if (stepCount <= 2) {
                 stepItem[stepCount].className = 'step-item__check';
                 stepCount++;
-                if(stepCount > 2) return;
+                if (stepCount > 2) return;
                 stepItem[stepCount].className = 'step-item__active';
                 stepCount === 2 ? stepBtn.textContent = '確認結帳' : 0;
             }
@@ -132,4 +138,5 @@
 
     </script>
 </body>
+
 </html>

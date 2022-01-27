@@ -1,5 +1,52 @@
 @import "./sass/utils/mixin";
 
+
+.news{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 30%;
+	background: #ddd;
+	z-index: 100;
+	&.hide{
+		z-index: -1000;
+		opacity: 0;
+	} 
+	@include mobile{
+		width: 80%;
+	}
+	// height: 400px;
+	.news-close{
+		text-align: right;
+		background-color: gray;
+		padding: 10px;
+		i{
+			color: #fff;
+			font-size: 20px;
+			cursor: pointer;
+			padding: 10px;
+		}
+	}
+	.news-content{
+		padding: 10px;
+		h2{
+			font-size: 24px;
+			text-align: center;
+			font-weight: bold;
+			color: red;
+			margin-bottom: 20px;
+		}
+		p{
+			line-height: 1.5;
+			padding-left: 15px;
+			color: blue;
+			font-weight: 600;
+			font-size: 20px;
+		}
+	}
+}
+
 a{
 	text-decoration: none;
 }
