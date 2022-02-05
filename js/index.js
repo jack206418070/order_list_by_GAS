@@ -50,9 +50,9 @@
         editSendBtn.addEventListener('click', getListInfo);
         listEditbtn.addEventListener('click', editList);
         coupon.addEventListener('blur', checkCoupon);
-        modalClose.addEventListener('click', function(e) {
-            modalNew.classList.add('hide');
-        })
+        // modalClose.addEventListener('click', function(e) {
+        //     modalNew.classList.add('hide');
+        // })
         
 
         function useCoupon(coupon){
