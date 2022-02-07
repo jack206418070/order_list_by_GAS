@@ -19,7 +19,7 @@
         let discount = document.querySelector('.week-discount');
         let discountCloseBtn = document.querySelector('.js-discount-close');
         let search = document.querySelector('.search');
-        let edit = document.querySelecor('.edit');
+        let edit = document.querySelector('.edit');
         let discountBtnFlag = false;
         let searchBtnFlag = false;
         let editBtnFlag = false;
