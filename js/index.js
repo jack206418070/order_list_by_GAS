@@ -20,7 +20,7 @@
         let discountCloseBtn = document.querySelector('.js-discount-close');
         let search = document.querySelector('.search');
         let edit = document.querySelector('.edit');
-        let discountBtnFlag = false;
+        let discountBtnFlag = true;
         let searchBtnFlag = false;
         let editBtnFlag = false;
         let listNo = '';
