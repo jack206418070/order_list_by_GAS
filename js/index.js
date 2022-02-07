@@ -12,16 +12,15 @@
         let btn = document.querySelector('.js-list-send');
         let listEditbtn = document.querySelector('.js-list-edit');
         let orderBtn = document.querySelector('.js-order');
-        let productBtn = document.querySelector('.js-product');
+        let discountBtn = document.querySelector('.js-discount');
         let loading = document.querySelector('.js-loading');
         let form = document.querySelector('form');
         let orderList = document.querySelector('.b-order');
-        let product = document.querySelector('.product-list');
-        let productCloseBtn = document.querySelector('.js-product-close');
-        let productCloseBlock = document.querySelector('.product-close');
+        let discount = document.querySelector('.week-discount');
+        let discountCloseBtn = document.querySelector('.js-discount-close');
         let search = document.querySelector('.search');
-        let edit = document.querySelector('.edit');
-        let productBtnFlag = false;
+        let edit = document.querySelecor('.edit');
+        let discountBtnFlag = false;
         let searchBtnFlag = false;
         let editBtnFlag = false;
         let listNo = '';
@@ -40,8 +39,21 @@
         // btn.addEventListener('click', fixAlert);
         btn.addEventListener('click', sendList);
         orderBtn.addEventListener('click', orderListControl);
-        productBtn.addEventListener('click', productHandler);
-        productCloseBtn.addEventListener('click', productHandler);
+        discountBtn.addEventListener('click', function(e){
+            if(discountBtnFlag === false){
+                discount.style.top = '50%';
+                discountBtnFlag = !discountBtnFlag;
+            }else{
+                discount.style.top = '-100%';
+                discountBtnFlag = !discountBtnFlag;
+            }
+        });
+        discountCloseBtn.addEventListener('click', function(e){
+            if(discountBtnFlag === true){
+                discount.style.top = '-100%';
+                discountBtnFlag = !discountBtnFlag;
+            } 
+        });
         searchBtn.addEventListener('click', searchHandler);
         searchCloseBtn.addEventListener('click', searchHandler);
         searchSendBtn.addEventListener('click', getListInfo);
@@ -261,7 +273,7 @@
             }
         }
 
-        function productHandler(e) {
+        function dicountHandler(e) {
             if (e.target.nodeName == 'I') {
                 productBtnFlag = false;
                 checkProduct(productBtnFlag, 'product');
@@ -452,19 +464,7 @@
                     edit.classList.remove('active');
                     orderList.classList.remove('active');
                 }
-            } else {
-                if (flag === true) {
-                    productBtn.text = '關閉圖片';
-                    product.classList.add('active');
-                    orderList.classList.add('active');
-                    setTimeout(function () { productCloseBlock.style = "display: block" }, 500);
-                } else {
-                    productCloseBlock.style = "display: none";
-                    productBtn.text = '開啟圖片';
-                    product.classList.remove('active');
-                    orderList.classList.remove('active');
-                }
-            }
+            } 
         }
         function getThisTime(dateInfo = new Date()){
             let date = new Date(dateInfo);
