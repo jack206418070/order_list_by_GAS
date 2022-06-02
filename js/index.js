@@ -12,15 +12,11 @@
         let btn = document.querySelector('.js-list-send');
         let listEditbtn = document.querySelector('.js-list-edit');
         let orderBtn = document.querySelector('.js-order');
-        let discountBtn = document.querySelector('.js-discount');
         let loading = document.querySelector('.js-loading');
         let form = document.querySelector('form');
         let orderList = document.querySelector('.b-order');
-        let discount = document.querySelector('.week-discount');
-        let discountCloseBtn = document.querySelector('.js-discount-close');
         let search = document.querySelector('.search');
         let edit = document.querySelector('.edit');
-        let discountBtnFlag = true;
         let searchBtnFlag = false;
         let editBtnFlag = false;
         let listNo = '';
@@ -39,21 +35,6 @@
         // btn.addEventListener('click', fixAlert);
         btn.addEventListener('click', sendList);
         orderBtn.addEventListener('click', orderListControl);
-        discountBtn.addEventListener('click', function(e){
-            if(discountBtnFlag === false){
-                discount.style.top = '50%';
-                discountBtnFlag = !discountBtnFlag;
-            }else{
-                discount.style.top = '-100%';
-                discountBtnFlag = !discountBtnFlag;
-            }
-        });
-        discountCloseBtn.addEventListener('click', function(e){
-            if(discountBtnFlag === true){
-                discount.style.top = '-100%';
-                discountBtnFlag = !discountBtnFlag;
-            } 
-        });
         searchBtn.addEventListener('click', searchHandler);
         searchCloseBtn.addEventListener('click', searchHandler);
         searchSendBtn.addEventListener('click', getListInfo);
