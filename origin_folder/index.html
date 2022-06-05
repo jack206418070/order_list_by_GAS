@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./sass/main.css" class="css">
+    <link rel="stylesheet" href="./index.css" class="css">
+    <link href="./fontawesome-free-5.15.3-web/css/all.css" rel="stylesheet">
+    <title>放心初訂購網</title>
+</head>
+
+<body>
+    <div class="container">
+
+        <div class="row l-header align-items-center jy-content-between">
+            <div class="col-md-4">
+                <h1 style="white-space: nowrap;">惠民蔬果</h1>
+            </div>
+            <div class="col-md-8">
+                <ul class="l-header-menu d-flex flex-wrap jy-content-end">
+                    <li><a href="#" class="js-order my-xs">訂購填寫</a></li>
+                    <li><a href="#" class="js-discount my-xs">優惠項目</a></li>
+                    <li><a href="#" class="js-search my-xs">訂單查詢</a></li>
+                    <li><a href="#" class="js-edit my-xs">訂單修改</a></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <div class="row jy-content-center">
+            <div class="col-md-8">
+                <div class="search py-s px-s">
+                    <p class="text-c-primary f-size-m f-w-600 text-center mb-s">訂單查詢</p>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="search_phon">電話</label>
+                            <input type="tel" name="search_phon" id="search_phone" placeholder="請填入訂購單的聯絡電話">
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <div class="row jy-content-end">
+                            <div class="col-sm-4 btn-control my-xxs">
+                                <div class="btn btn-secondary py-s js-search-send">查詢</div>
+                            </div>
+                            <div class="col-sm-4 btn-control my-xxs">
+                                <div class="btn btn-secondary py-s js-search-close">取消</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row jy-content-center">
+            <div class="col-md-8">
+                <div class="edit py-s px-s">
+                    <p class="text-c-primary f-size-m f-w-600 text-center mb-s">訂單修改</p>
+                    <div class="col-sm-12">
+                        <div class="form-group">
+                            <label for="edit_phon">電話</label>
+                            <input type="tel" name="edit_phon" id="edit_phone" placeholder="請填入訂購單的聯絡電話">
+                        </div>
+                    </div>
+                    <div class="btn-group">
+                        <div class="row jy-content-end">
+                            <div class="col-sm-4 btn-control my-xxs">
+                                <div class="btn btn-secondary py-s js-edit-send">送出</div>
+                            </div>
+                            <div class="col-sm-4 btn-control my-xxs">
+                                <div class="btn btn-secondary py-s js-edit-close">取消</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row jy-content-center">
+            <div class="col-md-8">
+                <!-- <h2 class="text-center f-size-l f-w-600 my-xxs" style="color: red">今日訂單已滿 , 只開放明日預約單</h2> -->
+                <!-- <h2 class="text-center f-size-l f-w-600 my-xxs"><span style="color: red">公告</span> 6/3 日因大市場休市</h2> -->
+                <!-- <h2 class="text-center f-size-l f-w-600 my-xxs">所以 6/3 日不開放預約 如有需求 請撥店裡電話! 專人處理</h2> -->
+                <!-- <h2 class="text-center f-size-l f-w-600 my-s">目前只再接受 <span class="js-limitOrder" style="color:red"></span> 組訂單</span></h2> -->
+                <div class="b-order p-relative">
+                    <div class="js-loading p-absolute"><img src="./img/loading.gif" alt="" width="150px" height="150px">
+                    </div>
+                    <div class="listInfo my-s "></div>
+                    <form action="#">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="name">訂購人</label>
+                                    <input type="text" name="name" id="name" placeholder="Amily">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="date">訂單外送日期</label>
+                                    <select name="date" id="date">
+        
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="time">期望送達時間</label>
+                                    <select name="time" id="time">
+                                        <option value="08:30-14:00">08:30-14:00</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="phone">連絡電話<span style="color:red">(請牢記 查詢 修改用)</label>
+                                    <input type="tel" name="phone" id="phone" placeholder="09xx-xxx-xxx">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="pay">付款方式</label>
+                                    <select name="pay" id="pay">
+                                        <option value="貨到付款">現金支付</option>
+                                        <option value="線上匯款(轉帳)">線上匯款(轉帳)</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="coupon">優惠券</label>
+                                    <input class="coupon" type="text" name="coupon" id="coupon">
+                                    <p class="js-couponErr" style="display: none;"></p>
+                                    <p class="js-couponSuccess" style="display: none;"></p>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="area">外送區域(消費金額達標才送)</label>
+                                    <select name="area" id="area">
+                                        <option value="信義區(滿500)">信義區(滿500)</option>
+                                        <option value="汐止區(滿1000)">汐止區(滿800)</option>
+                                        <option value="大安區(滿800)">大安區(滿800)</option>
+                                        <option value="松山區(滿800)">松山區(滿800)</option>
+                                        <option value="其他區(滿1500)">其他區(滿1500) 可以電話詢問能否送</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="address">送達地址</label>
+                                    <input type="text" name="address" id="address">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="list">訂購清單</label>
+                                    <textarea name="list" id="list" rows="10"></textarea>
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    <label for="ps">備註</label>
+                                    <input type="text" name="ps" id="ps" placeholder="ex: 不接觸取貨 or 送貨前手機通知">
+                                    <input class="listNo-value" type="text" id="no" style="display: none;">
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="btn btn-secondary mt-s py-s js-list-send text-center">送出訂單</div>
+                                <div class="btn btn-secondary mt-s py-s text-center js-list-edit text-center">修改訂單</div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="l-footer mt-m">
+            <div class="row jy-content-center">
+                <div class="col-md-6">
+                    <p class="text-center f-size-s f-w-600 mb-s">新光銀行: 103</p>
+                    <p class="text-center f-size-s f-w-600 mb-s">匯款帳號: 0161-10-100355-5</p>
+                    <p class="text-center f-size-s f-w-600 mb-s">戶名: 放心初蔬果量販店</p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-center f-size-s f-w-600">連絡電話: (02)2722-2783</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="//code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous"></script>
+    <script src="./js/index.js"></script>
+
+</body>
+
+</html>

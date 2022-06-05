@@ -1,0 +1,53 @@
+@charset "UTF-8";
+/* circle write */
+/* 圖片取代文字 */
+/* bg setting */
+/* RWD mixin */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.col-12 {
+  height: 1048px;
+}
+
+table {
+  width: 100%;
+}
+
+table, th, td {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+  border: 1px solid black;
+  border-collapse: collapse;
+}
+
+td {
+  padding: 3px 0;
+  border: 0;
+  border-bottom: 1px solid #000;
+}
+
+td.title {
+  width: 40% !important;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+td.list {
+  width: 20% !important;
+}
+
+@media print {
+  * {
+    -webkit-print-color-adjust: exact !important;
+  }
+  .noBreak {
+    -webkit-column-break-inside: avoid;
+            break-inside: avoid;
+  }
+}
+/*# sourceMappingURL=table.css.map */
