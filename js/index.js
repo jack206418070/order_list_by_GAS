@@ -341,12 +341,16 @@
             let checkData = [date, time, name, pay, phone, area, address, list];
             let test = name.value == '測試' ? true : false;
             let day = (getThisTime().day == 0 && `${getThisTime(addDays(1)).month}/${getThisTime(addDays(1)).date}` == date.value) || (getThisTime().day !== 0 && `${getThisTime(addDays(1)).month}/${getThisTime(addDays(1)).date}` == date.value) ? getThisTime().day + 1 : getThisTime().day + 2;
-            
             if (checkList(checkData) && coupon.classList.length == 1) {
                 loadingHandler(true);
+                let url = "https://script.google.com/macros/s/AKfycbzpur_MtR85k5FPDcHF18U5XHRmHkm0xNOLQA4DQR7ioSTjf7M/exec"
+                if (name.value == 'Mandy' || phone.value == '0933927087') {
+                  url = 'https://localhost:8080/'
+                }
+                console.log(url, phone)
                 $.ajax({
                     type: "post",
-                    url: "https://script.google.com/macros/s/AKfycbzpur_MtR85k5FPDcHF18U5XHRmHkm0xNOLQA4DQR7ioSTjf7M/exec",
+                    url: url,
                     data: {
                         "order_date": date.value,
                         "order_time": time.value,
