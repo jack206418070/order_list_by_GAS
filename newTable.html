@@ -251,12 +251,13 @@
             const order_product = []
             let filterData = res.data.filter(item => {
               if (date.getDay() === 2) {
-                return +item.date_created.split('T')[0].split('-')[2] === date.getDate() ||  +item.date_created.split('T')[0].split('-')[2] === date.getDate() - 1
+                return (+item.date_created.split('T')[0].split('-')[2] === date.getDate() || +item.date_created.split('T')[0].split('-')[2] === date.getDate() -1 ||  +item.date_created.split('T')[0].split('-')[2] === date.getDate() -2) && item.status !== 'completed'
               } else {
-                return +item.date_created.split('T')[0].split('-')[2] === date.getDate()
+                return (+item.date_created.split('T')[0].split('-')[2] === date.getDate() || +item.date_created.split('T')[0].split('-')[2] === date.getDate() -1) && item.status !== 'completed'
               }
             })
             let realData = filterData.map((item, index) => {
+              console.log(item)
               order_product[index] = []
               item.line_items.forEach((item) => {
                 order_product[index].push({
