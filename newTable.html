@@ -121,7 +121,7 @@
               </tr>
             </table>
           </div>
-          <div v-if="item !== undefined && item?.order_product.length > 22" class="col-12 noBreak print-page" :class="`list-table${index + 1}`" style="page-break-after:always">
+          <div v-if="item !== undefined && item?.order_product.length > 23" class="col-12 noBreak print-page" :class="`list-table${index + 1}`" style="page-break-after:always">
             <div style="display:flex; align-items:center; justify-content:center">
               <h1 style="text-align: center; font-size:36px;">{{ item?.id }}</h1>
               <p v-if="item?.method !== '銀行轉帳' " style="font-size:36px; margin-left:30px">V</p>
@@ -174,7 +174,7 @@
               </tr>
             </table>
           </div>
-          <div v-if="item !== undefined && item?.order_product.length > 22" class="col-12 noBreak print-page" :class="`list-table${index + 1}`" style="page-break-after:always">
+          <div v-if="item !== undefined && item?.order_product.length > 23" class="col-12 noBreak print-page" :class="`list-table${index + 1}`" style="page-break-after:always">
             <div style="display:flex; align-items:center; justify-content:center">
               <h1 style="text-align: center; font-size:36px;">{{ item?.id }}</h1>
               <p v-if="item?.method !== '銀行轉帳' " style="font-size:36px; margin-left:30px">V</p>
