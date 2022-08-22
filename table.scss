@@ -37,10 +37,7 @@ td{
     }
 }
 @media print{
-    * {
-      -webkit-print-color-adjust: exact !important;
-    }
-    .noBreak {
-      break-inside: avoid;
+    .print-page {
+      page-break-before: always
     }
 }

@@ -42,12 +42,8 @@ td.list {
 }
 
 @media print {
-  * {
-    -webkit-print-color-adjust: exact !important;
-  }
-  .noBreak {
-    -webkit-column-break-inside: avoid;
-            break-inside: avoid;
+  .print-page {
+    page-break-before: always;
   }
 }
 /*# sourceMappingURL=table.css.map */

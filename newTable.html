@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./sass/main.css" class="css">
+  <link rel="stylesheet" href="./table.css" class="css">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <div class="container">
+      <div class="row">
+        <template v-for="(item, index) in orderList" :key="index">
+          <div v-if="item !== undefined" class="col-12 noBreak print-page" :class="`list-table${index + 1}`" style="page-break-after:always">
+            <div style="display:flex; align-items:center; justify-content:center">
+              <h1 style="text-align: center; font-size:36px;">{{ item?.id }}</h1>
+              <p v-if="item?.method !== '銀行轉帳' " style="font-size:36px; margin-left:30px">V</p>
+            </div>
+            <table>
+              <tr>
+                <td>訂貨人</td>
+                <td colspan="3">{{ item?.name }}</td>
+              </tr>
+              <tr>
+                <td>連絡電話</td>
+                <td colspan="3">{{ item?.phone }}</td>
+              </tr>
+              <tr>
+                <td>付款方式</td>
+                <td colspan="3">{{ item?.method }}</td>
+              </tr>
+              <tr>
+                <td>地址</td>
+                <td colspan="3">{{ item?.address }}</td>
+              </tr>
+              <tr>
+                <td>備註</td>
+                <td colspan="3">{{ item?.extra }}</td>
+              </tr>
+              <tr>
+                <td>優惠項目</td>
+                <td colspan="3"></td>
+              </tr>
+              <tr>
+                <td colspan="4"></td>
+              </tr>
+              <tr>
+                <td>品項</td>
+                <td>數量</td>
+                <td>單價</td>
+                <td>金額</td>
+              </tr>
+              <tr v-for="(order, index) in item?.order_product" :key="100+index">
+                <template v-if="index < 24">
+                  <td class="title" style="padding:7px 0">{{ order?.name !== undefined ? order.name : order }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.qty !== undefined ? order.qty : '' }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
+                </template>
+              </tr>
+              <tr v-if="item?.order_product.length < 24">
+                <td>總金額</td>
+                <td colspan="3">{{ item?.total }}</td>
+              </tr>
+            </table>
+          </div>
+          <div v-if="item !== undefined" class="col-12 noBreak print-page" :class="`list-table${index + 1}`" style="page-break-after:always">
+            <div style="display:flex; align-items:center; justify-content:center">
+              <h1 style="text-align: center; font-size:36px;">{{ item?.id }}</h1>
+              <p v-if="item?.method !== '銀行轉帳' " style="font-size:36px; margin-left:30px">V</p>
+            </div>
+            <table>
+              <tr>
+                <td>訂貨人</td>
+                <td colspan="3">{{ item?.name }}</td>
+              </tr>
+              <tr>
+                <td>連絡電話</td>
+                <td colspan="3">{{ item?.phone }}</td>
+              </tr>
+              <tr>
+                <td>付款方式</td>
+                <td colspan="3">{{ item?.method }}</td>
+              </tr>
+              <tr>
+                <td>地址</td>
+                <td colspan="3">{{ item?.address }}</td>
+              </tr>
+              <tr>
+                <td>備註</td>
+                <td colspan="3">{{ item?.extra }}</td>
+              </tr>
+              <tr>
+                <td>優惠項目</td>
+                <td colspan="3"></td>
+              </tr>
+              <tr>
+                <td colspan="4"></td>
+              </tr>
+              <tr>
+                <td>品項</td>
+                <td>數量</td>
+                <td>單價</td>
+                <td>金額</td>
+              </tr>
+              <tr v-for="(order, index) in item?.order_product" :key="100+index">
+                <template v-if="index < 24">
+                  <td class="title" style="padding:7px 0">{{ order?.name !== undefined ? order.name : order }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.qty !== undefined ? order.qty : '' }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
+                </template>
+              </tr>
+              <tr v-if="item?.order_product.length < 24">
+                <td>總金額</td>
+                <td colspan="3">{{ item?.total }}</td>
+              </tr>
+            </table>
+          </div>
+          <div v-if="item !== undefined && item?.order_product.length > 22" class="col-12 noBreak print-page" :class="`list-table${index + 1}`" style="page-break-after:always">
+            <div style="display:flex; align-items:center; justify-content:center">
+              <h1 style="text-align: center; font-size:36px;">{{ item?.id }}</h1>
+              <p v-if="item?.method !== '銀行轉帳' " style="font-size:36px; margin-left:30px">V</p>
+            </div>
+            <table>
+              <tr>
+                <td>訂貨人</td>
+                <td colspan="3">{{ item?.name }}</td>
+              </tr>
+              <tr>
+                <td>連絡電話</td>
+                <td colspan="3">{{ item?.phone }}</td>
+              </tr>
+              <tr>
+                <td>付款方式</td>
+                <td colspan="3">{{ item?.method }}</td>
+              </tr>
+              <tr>
+                <td>地址</td>
+                <td colspan="3">{{ item?.address }}</td>
+              </tr>
+              <tr>
+                <td>備註</td>
+                <td colspan="3">{{ item?.extra }}</td>
+              </tr>
+              <tr>
+                <td>優惠項目</td>
+                <td colspan="3"></td>
+              </tr>
+              <tr>
+                <td colspan="4"></td>
+              </tr>
+              <tr>
+                <td>品項</td>
+                <td>數量</td>
+                <td>單價</td>
+                <td>金額</td>
+              </tr>
+              <tr v-for="(order, index) in item?.order_product" :key="100+index">
+                <template v-if="index >= 24">
+                  <td class="title" style="padding:7px 0">{{ order?.name !== undefined ? order.name : order }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.qty !== undefined ? order.qty : '' }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
+                </template>
+              </tr>
+              <tr>
+                <td>總金額</td>
+                <td colspan="3">{{ item?.total }}</td>
+              </tr>
+            </table>
+          </div>
+          <div v-if="item !== undefined && item?.order_product.length > 22" class="col-12 noBreak print-page" :class="`list-table${index + 1}`" style="page-break-after:always">
+            <div style="display:flex; align-items:center; justify-content:center">
+              <h1 style="text-align: center; font-size:36px;">{{ item?.id }}</h1>
+              <p v-if="item?.method !== '銀行轉帳' " style="font-size:36px; margin-left:30px">V</p>
+            </div>
+            <table>
+              <tr>
+                <td>訂貨人</td>
+                <td colspan="3">{{ item?.name }}</td>
+              </tr>
+              <tr>
+                <td>連絡電話</td>
+                <td colspan="3">{{ item?.phone }}</td>
+              </tr>
+              <tr>
+                <td>付款方式</td>
+                <td colspan="3">{{ item?.method }}</td>
+              </tr>
+              <tr>
+                <td>地址</td>
+                <td colspan="3">{{ item?.address }}</td>
+              </tr>
+              <tr>
+                <td>備註</td>
+                <td colspan="3">{{ item?.extra }}</td>
+              </tr>
+              <tr>
+                <td>優惠項目</td>
+                <td colspan="3"></td>
+              </tr>
+              <tr>
+                <td colspan="4"></td>
+              </tr>
+              <tr>
+                <td>品項</td>
+                <td>數量</td>
+                <td>單價</td>
+                <td>金額</td>
+              </tr>
+              <tr v-for="(order, index) in item?.order_product" :key="100+index">
+                <template v-if="index >= 24">
+                  <td class="title" style="padding:7px 0">{{ order?.name !== undefined ? order.name : order }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.qty !== undefined ? order.qty : '' }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
+                </template>
+              </tr>
+              <tr>
+                <td>總金額</td>
+                <td colspan="3">{{ item?.total }}</td>
+              </tr>
+            </table>
+          </div>
+        </template>
+      </div>
+    </div>
+  </div>
+  <script src="https://unpkg.com/vue@3"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
+  <script src="//code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+    crossorigin="anonymous"></script>
+  <script src="./js/newTable.js"></script>
+  <script>
+    const app = Vue.createApp({
+      data() {
+        return {
+          orderList: []
+        }
+      },
+      methods: {
+        async getOrders() {
+          try {
+            let date = new Date();
+            const res = await axios('https://sweetvegetable.com.tw/wp-json/wc/v3/orders?consumer_key=ck_5bae04295d445511cb19bd9be105ed7531869016&consumer_secret=cs_9e75e7578a615c979ec9435d2885f846fba71d73')
+            const order_product = []
+            let filterData = res.data.filter(item => {
+              if (date.getDay() === 2) {
+                return +item.date_created.split('T')[0].split('-')[2] === date.getDate() ||  +item.date_created.split('T')[0].split('-')[2] === date.getDate() - 1
+              } else {
+                return +item.date_created.split('T')[0].split('-')[2] === date.getDate()
+              }
+            })
+            let realData = filterData.map((item, index) => {
+              order_product[index] = []
+              item.line_items.forEach((item) => {
+                order_product[index].push({
+                  name: item.name,
+                  price: item.subtotal,
+                  qty: item.quantity
+                })
+                if (item.meta_data.length > 1) {
+                  let temp = item.meta_data.pop()
+                  temp.value.forEach((value, key) => {
+                    order_product[index].push(`${key + 1}. ${Object.values(value)}`)
+                  })
+                }
+              })
+              return {
+                id: item.id,
+                name: item.billing.first_name,
+                address: item.billing.address_1 || '',
+                phone: item.billing.phone || '',
+                method: item.payment_method_title,
+                total: item.total,
+                createAt: item.date_created.split('T')[0],
+                order_product: order_product[index],
+                extra: item.customer_note
+              }
+            })
+            this.orderList = realData
+            console.log(this.orderList)
+          } catch (err) {
+            console.dir(err)
+          }
+        }
+      },
+      created() {
+        this.getOrders()
+      }
+    })
+    app.mount('#app')
+  </script>
+</body>
+
+</html>

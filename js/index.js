@@ -347,7 +347,6 @@
                 if (name.value == 'Mandy' || phone.value == '0933927087') {
                   url = 'https://localhost:8080/'
                 }
-                console.log(url, phone)
                 $.ajax({
                     type: "post",
                     url: url,
