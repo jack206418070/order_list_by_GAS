@@ -250,10 +250,20 @@
             const res = await axios('https://sweetvegetable.com.tw/wp-json/wc/v3/orders?consumer_key=ck_5bae04295d445511cb19bd9be105ed7531869016&consumer_secret=cs_9e75e7578a615c979ec9435d2885f846fba71d73')
             const order_product = []
             let filterData = res.data.filter(item => {
+              date = new Date()
               if (date.getDay() === 2) {
-                return (+item.date_created.split('T')[0].split('-')[2] === date.getDate() || +item.date_created.split('T')[0].split('-')[2] === date.getDate() -1 ||  +item.date_created.split('T')[0].split('-')[2] === date.getDate() -2) && item.status !== 'completed'
+                temp = new Date(date)
+                temp2 = new Date(date)
+                pre1Date = temp.setDate(temp.getDate() - 1)
+                pre2Date = temp2.setDate(temp2.getDate() - 2)
+                pre1Date = new Date(pre1Date)
+                pre2Date = new Date(pre2Date)
+                return (+item.date_created.split('T')[0].split('-')[2] === date.getDate() || +item.date_created.split('T')[0].split('-')[2] === pre1Date.getDate() ||  +item.date_created.split('T')[0].split('-')[2] === pre2Date.getDate()) && item.status !== 'completed'
               } else {
-                return (+item.date_created.split('T')[0].split('-')[2] === date.getDate() || +item.date_created.split('T')[0].split('-')[2] === date.getDate() -1) && item.status !== 'completed'
+                temp = new Date(date)
+                pre1Date = temp.setDate(temp.getDate() - 1)
+                pre1Date = new Date(pre1Date)
+                return (+item.date_created.split('T')[0].split('-')[2] === date.getDate() || +item.date_created.split('T')[0].split('-')[2] === pre1Date.getDate() ) && item.status !== 'completed'
               }
             })
             let realData = filterData.map((item, index) => {
