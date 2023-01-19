@@ -218,7 +218,7 @@
                   <td class="title" style="padding:7px 0">{{ order?.name !== undefined ? order.name : order }}</td>
                   <td class="list" style="padding:7px 0">{{ order?.qty !== undefined ? order.qty : '' }}</td>
                   <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
-                  <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.total !== undefined ? order.total : '' }}</td>
                 </template>
               </tr>
               <tr>
@@ -249,6 +249,7 @@
             let date = new Date();
             const res = await axios('https://sweetvegetable.com.tw/wp-json/wc/v3/orders?consumer_key=ck_5bae04295d445511cb19bd9be105ed7531869016&consumer_secret=cs_9e75e7578a615c979ec9435d2885f846fba71d73')
             const order_product = []
+            console.log(res)
             let filterData = res.data.filter(item => {
               date = new Date()
               if (date.getDay() === 2) {
@@ -272,7 +273,8 @@
               item.line_items.forEach((item) => {
                 order_product[index].push({
                   name: item.name,
-                  price: item.subtotal,
+                  price: item.price,
+                  total: item.subtotal,
                   qty: item.quantity
                 })
                 if (item.meta_data.length > 1) {
