@@ -59,7 +59,7 @@
                   <td class="title" style="padding:7px 0">{{ order?.name !== undefined ? order.name : order }}</td>
                   <td class="list" style="padding:7px 0">{{ order?.qty !== undefined ? order.qty : '' }}</td>
                   <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
-                  <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.total !== undefined ? order.total : '' }}</td>
                 </template>
               </tr>
               <tr v-if="item?.order_product.length < 24">
@@ -112,7 +112,7 @@
                   <td class="title" style="padding:7px 0">{{ order?.name !== undefined ? order.name : order }}</td>
                   <td class="list" style="padding:7px 0">{{ order?.qty !== undefined ? order.qty : '' }}</td>
                   <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
-                  <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.total !== undefined ? order.total : '' }}</td>
                 </template>
               </tr>
               <tr v-if="item?.order_product.length < 24">
@@ -165,7 +165,7 @@
                   <td class="title" style="padding:7px 0">{{ order?.name !== undefined ? order.name : order }}</td>
                   <td class="list" style="padding:7px 0">{{ order?.qty !== undefined ? order.qty : '' }}</td>
                   <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
-                  <td class="list" style="padding:7px 0">{{ order?.price !== undefined ? order.price : '' }}</td>
+                  <td class="list" style="padding:7px 0">{{ order?.total !== undefined ? order.total : '' }}</td>
                 </template>
               </tr>
               <tr>
