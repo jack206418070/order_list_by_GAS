@@ -273,7 +273,7 @@
               item.line_items.forEach((item) => {
                 order_product[index].push({
                   name: item.name,
-                  price: item.price,
+                  price: item.subtotal / item.quantity,
                   total: item.subtotal,
                   qty: item.quantity
                 })
