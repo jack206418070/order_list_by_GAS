@@ -251,7 +251,7 @@
         async getOrders() {
           try {
             let date = new Date();
-            const res = await axios('http://18.179.38.237/v2/api/ginjack/admin/orders/table')
+            const res = await axios('https://veg.globalmodel.co/v2/api/ginjack/admin/orders/table')
             console.log(res.data.orders)
             res.data.orders.forEach(order => {
               let order_product = []
