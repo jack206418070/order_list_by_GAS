@@ -235,7 +235,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
   <script src="//code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
     crossorigin="anonymous"></script>
-  <script src="./js/newTable.js"></script>
+  <!-- <script src="./js/newTable.js"></script> -->
   <script>
     const app = Vue.createApp({
       data() {
@@ -244,59 +244,37 @@
         }
       },
       methods: {
+        format_date (time) {
+          const localDate = new Date(time * 1000)
+          return localDate.toLocaleDateString()
+        },
         async getOrders() {
           try {
             let date = new Date();
-            const res = await axios('https://sweetvegetable.com.tw/wp-json/wc/v3/orders?consumer_key=ck_5bae04295d445511cb19bd9be105ed7531869016&consumer_secret=cs_9e75e7578a615c979ec9435d2885f846fba71d73')
-            const order_product = []
-            console.log(res)
-            let filterData = res.data.filter(item => {
-              date = new Date()
-              if (date.getDay() === 2) {
-                temp = new Date(date)
-                temp2 = new Date(date)
-                pre1Date = temp.setDate(temp.getDate() - 1)
-                pre2Date = temp2.setDate(temp2.getDate() - 2)
-                pre1Date = new Date(pre1Date)
-                pre2Date = new Date(pre2Date)
-                return (+item.date_created.split('T')[0].split('-')[2] === date.getDate() || +item.date_created.split('T')[0].split('-')[2] === pre1Date.getDate() ||  +item.date_created.split('T')[0].split('-')[2] === pre2Date.getDate()) && item.status !== 'completed'
-              } else {
-                temp = new Date(date)
-                pre1Date = temp.setDate(temp.getDate() - 1)
-                pre1Date = new Date(pre1Date)
-                return (+item.date_created.split('T')[0].split('-')[2] === date.getDate() || +item.date_created.split('T')[0].split('-')[2] === pre1Date.getDate() ) && item.status !== 'completed'
-              }
-            })
-            let realData = filterData.map((item, index) => {
-              console.log(item)
-              order_product[index] = []
-              item.line_items.forEach((item) => {
-                order_product[index].push({
-                  name: item.name,
-                  price: item.subtotal / item.quantity,
-                  total: item.subtotal,
-                  qty: item.quantity
-                })
-                if (item.meta_data.length > 1) {
-                  let temp = item.meta_data.pop()
-                  temp.value.forEach((value, key) => {
-                    order_product[index].push(`${key + 1}. ${Object.values(value)}`)
-                  })
+            const res = await axios('http://localhost:5000/v2/api/ginjack/admin/orders/table')
+            console.log(res.data.orders)
+            res.data.orders.forEach(order => {
+              let order_product = []
+              order.products.forEach(item => {
+                let temp_data = {
+                  name: item.product.title,
+                  qty: item.qty,
+                  price: item.product.price,
+                  total: item.total
                 }
+                order_product.push(temp_data)
               })
-              return {
-                id: item.id,
-                name: item.billing.first_name,
-                address: item.billing.address_1 || '',
-                phone: item.billing.phone || '',
-                method: item.payment_method_title,
-                total: item.total,
-                createAt: item.date_created.split('T')[0],
-                order_product: order_product[index],
-                extra: item.customer_note
+              let temp_order_data = {
+                name: order.user.name,
+                phone: order.user.tel,
+                address: order.user.address_str,
+                method: order.is_cash ? '現金支付' : '轉帳',
+                extra: order.message,
+                order_product: order_product,
+                total: order.total
               }
+              this.orderList.push(temp_order_data)
             })
-            this.orderList = realData
             console.log(this.orderList)
           } catch (err) {
             console.dir(err)
