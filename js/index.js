@@ -139,7 +139,7 @@
             clickNode = e.target.innerText;
             let searchPhone = document.querySelector('#search_phone');
             let editPhone = document.querySelector('#edit_phone');
-            let ApiUrl = 'https://script.google.com/macros/s/AKfycbzpur_MtR85k5FPDcHF18U5XHRmHkm0xNOLQA4DQR7ioSTjf7M/exec';
+            let ApiUrl = 'https://script.google.com/macros/s/AKfycbwSYJOA9_LeOIQs67fShz1Hz9a0d3x9VgrSfl2QaFJSBtY37ec01ZGAdsm9kLsKXpHZ/exec';
             let searchListInfo = [searchPhone];
             let editListInfo = [editPhone];
             let data;
@@ -343,7 +343,7 @@
             let day = (getThisTime().day == 0 && `${getThisTime(addDays(1)).month}/${getThisTime(addDays(1)).date}` == date.value) || (getThisTime().day !== 0 && `${getThisTime(addDays(1)).month}/${getThisTime(addDays(1)).date}` == date.value) ? getThisTime().day + 1 : getThisTime().day + 2;
             if (checkList(checkData) && coupon.classList.length == 1) {
                 loadingHandler(true);
-                let url = "https://script.google.com/macros/s/AKfycbzpur_MtR85k5FPDcHF18U5XHRmHkm0xNOLQA4DQR7ioSTjf7M/exec"
+                let url = "https://script.google.com/macros/s/AKfycbwSYJOA9_LeOIQs67fShz1Hz9a0d3x9VgrSfl2QaFJSBtY37ec01ZGAdsm9kLsKXpHZ/exec"
                 if (name.value == 'Mandy' || phone.value == '0933927087') {
                   url = 'https://localhost:8080/'
                 }
