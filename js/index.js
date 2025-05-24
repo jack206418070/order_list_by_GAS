@@ -343,7 +343,7 @@
             let day = (getThisTime().day == 0 && `${getThisTime(addDays(1)).month}/${getThisTime(addDays(1)).date}` == date.value) || (getThisTime().day !== 0 && `${getThisTime(addDays(1)).month}/${getThisTime(addDays(1)).date}` == date.value) ? getThisTime().day + 1 : getThisTime().day + 2;
             if (checkList(checkData) && coupon.classList.length == 1) {
                 loadingHandler(true);
-                let url = "https://script.google.com/macros/s/AKfycbyymO0fLGK4j95oGZXjj8mmYHcw9AAoL4mWQP9EYSTuwNEjHZ1IaWlLn_5dkfNnS9k/exec"
+                let url = "https://script.google.com/macros/s/AKfycbwHs_mZ87UxM--EfqsyQ1LN1LzcFjp5mvbeJw4b-k3OLhN0uDQUhzP01q3fgxcy6miJ/exec"
                 if (name.value == 'Mandy' || phone.value == '0933927087') {
                   url = 'https://localhost:8080/'
                 }
